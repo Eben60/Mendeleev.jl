@@ -1,3 +1,4 @@
+t0 = now()
 elements_dbfile = "./data/elements.db"
 edb = SQLite.DB(elements_dbfile)
 tbls = SQLite.tables(edb)
@@ -14,7 +15,7 @@ vs = values.(eachrow(els))
 # programmatically define struct named Element_M with given field names and types
 make_struct("Element_M", cnames, ctypes)
 
-# const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my computer
+# const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my compute
 
 function inst_elements(xs)
     e = Element_M[]
@@ -24,4 +25,11 @@ function inst_elements(xs)
     return e
 end
 
+t1 = now()
 const ELEMENTS_M = inst_elements(vs)
+t2 = now()
+dt1 = t1-t0
+dt2 = t2-t1
+println(dt1+dt2)
+@show dt1 dt2
+f=3

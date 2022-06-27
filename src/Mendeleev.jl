@@ -1,5 +1,10 @@
+__precompile__(false) # try for the time being
+
 module Mendeleev
-using SQLite, DataFrames, CSV, PeriodicTable
+
+using SQLite, DataFrames, PeriodicTable
+
+using Dates
 
 include("make_struct.jl")
 include("data_import.jl")
