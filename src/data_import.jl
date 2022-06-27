@@ -10,10 +10,9 @@ sort!(els, :atomic_number)
 
 cnames = names(els) # 70-element Vector{String}: "annotation"...
 ctypes =  eltype.(eachcol(els)) # 70-element Vector{Type}:  String...
-vs = values.(eachrow(els))
+const vs = values.(eachrow(els))
 
 # programmatically define struct named Element_M with given field names and types
-make_struct("Element_M", cnames, ctypes)
 
 # const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my compute
 
@@ -26,10 +25,15 @@ function inst_elements(xs)
 end
 
 t1 = now()
-const ELEMENTS_M = inst_elements(vs)
+const mtypes = map(maintype, ctypes)
+const unvs = [unmiss.(v, mts) for v in vs]
+
+make_struct("Element_M", cnames, ctypes)
+
+const ELEMENTS_M = inst_elements(unvs)
 t2 = now()
 dt1 = t1-t0
 dt2 = t2-t1
 println(dt1+dt2)
 @show dt1 dt2
-f=3
+f=4
