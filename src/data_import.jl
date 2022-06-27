@@ -26,7 +26,7 @@ end
 
 t1 = now()
 const mtypes = map(maintype, ctypes)
-const unvs = [unmiss.(v, mts) for v in vs]
+const unvs = [unmiss.(v, mtypes) for v in vs]
 
 make_struct("Element_M", cnames, ctypes)
 
