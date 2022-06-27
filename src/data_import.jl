@@ -14,5 +14,14 @@ vs = values.(eachrow(els))
 # programmatically define struct named Element_M with given field names and types
 make_struct("Element_M", cnames, ctypes)
 
-# ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my computer
-ELEMENTS_M = [Element_M(v...) for v in vs[1:10:90]] # temporary, to speed-up
+# const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my computer
+
+function inst_elements(xs)
+    e = Element_M[]
+    for x in xs
+        push!(e, Element_M(x...))
+    end
+    return e
+end
+
+const ELEMENTS_M = inst_elements(vs)
