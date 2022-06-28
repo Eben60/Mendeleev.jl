@@ -1,5 +1,5 @@
 module Mendeleev
-using SQLite, DataFrames, CSV, PeriodicTable
+using SQLite, DataFrames, PeriodicTable
 
 include("make_struct.jl")
 include("data_import.jl")
