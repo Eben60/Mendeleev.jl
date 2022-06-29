@@ -1,4 +1,3 @@
-using Unitful
 
 f_units = Dict(
     :lattice_constant => u"angstrom",
