@@ -24,4 +24,16 @@ function inst_elements(xs)
     return e
 end
 
+function col2unitful!(df, lb, u)
+    lbs = string(lb)
+    @assert string(lb) in names(df)
+    lb_old = Symbol("$(lbs)_old")
+    rename!(df, lb =>lb_old)
+    insertcols!(df, lb=>(df[:, lb_old]*u))
+    return nothing
+end
+
+
+
+
 const ELEMENTS_M = inst_elements(vs)
