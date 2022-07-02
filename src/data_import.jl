@@ -38,18 +38,35 @@ function df2unitful!(df, fu_dict)
 end
 
 df2unitful!(els, f_units)
-ctypes =  eachcol(els)
+# ctypes =  eachcol(els)
 # ctypes =  eltype.(eachcol(els))
 
+function coltypes(cols, udict)
+    nms = Symbol.(names(cols))
+    tps = String[]
+
+    for i in 1:length(nms)
+        n = nms[i]
+        if n in keys(udict)
+            tp = "typeof(1.0*$(udict[n]))" #TODO - Union{Missing, Quantity}
+        else
+            tp = eltype(cols[i]) |> Symbol |> string
+        end
+        push!(tps, tp)
+    end
+    return tps
+end
+
+ctypes = coltypes(eachcol(els), fu1)
 
 cnames = names(els) # 70-element Vector{String}: "annotation"...
 vs = values.(eachrow(els))
 
-
-make_struct("Element_M", cnames, ctypes)
-
-const ELEMENTS_M = inst_elements(vs)
-
-export Element_M, ELEMENTS_M
-
-export cnames, ctypes, vs #, make_struct
+#
+# make_struct("Element_M", cnames, ctypes)
+#
+# const ELEMENTS_M = inst_elements(vs)
+#
+# export Element_M, ELEMENTS_M
+#
+# export cnames, ctypes, vs #, make_struct
