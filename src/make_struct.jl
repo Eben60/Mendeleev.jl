@@ -30,15 +30,15 @@ function make_struct(sname, fnames, ftypes::FT) where FT <: Vector{T} where T<:T
 end
 
 # # # WIP!
-function make_struct(sname, fnames, ftypes::FT) where FT <: Vector{T1} where T1 <: Vector{T} where T
+function make_struct(sname, fnames, ftypes) # where FT <: Vector{T1} where T1 <: Vector{T} where T
 
     sname = string(sname)
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
 
     #ftypes = ftypes .|> Symbol .|> string
 
-    ftypes = [""]
-
+    fts = ["eltype(\$ftypes[$i])" for i in 1:length(ftypes)]
+    @show fts[1:2]
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
     w = make_where(fts, Ts)

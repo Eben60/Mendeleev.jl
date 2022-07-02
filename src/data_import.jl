@@ -37,10 +37,12 @@ function df2unitful!(df, fu_dict)
     return nothing
 end
 
-# df2unitful!(els, f_units)
+df2unitful!(els, f_units)
+ctypes =  eachcol(els)
+# ctypes =  eltype.(eachcol(els))
+
 
 cnames = names(els) # 70-element Vector{String}: "annotation"...
-ctypes =  eltype.(eachcol(els)) # 70-element Vector{Type}:  String...
 vs = values.(eachrow(els))
 
 
