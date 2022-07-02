@@ -1,3 +1,5 @@
+# https://github.com/PainterQubits/Unitful.jl/issues/385
+# quantity(FloatType, unit) = Quantity{FloatType, dimension(unit), typeof(unit)}
 
 function make_struct(sname, fnames, ftypes)
 
@@ -6,13 +8,13 @@ function make_struct(sname, fnames, ftypes)
         w = join(w, ", ")
         return "{$w}"
     end
-
     sname = string(sname)
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
     ftypes = ftypes .|> Symbol .|> string
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
     w = make_where(ftypes, Ts)
+
     nmtp = Meta.parse("$sname$w")
     xs = ["$f::$t" for (f,t) in zip(fnames, Ts)]
     x = Meta.parse.(xs)
@@ -25,3 +27,5 @@ function make_struct(sname, fnames, ftypes)
 
     return nothing
 end
+
+ms = make_struct

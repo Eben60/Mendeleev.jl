@@ -7,12 +7,7 @@ dfs = (; [Symbol(tname) => (DBInterface.execute(edb, "SELECT * FROM $tname") |> 
 els = dfs.elements
 sort!(els, :atomic_number)
 
-cnames = names(els) # 70-element Vector{String}: "annotation"...
-ctypes =  eltype.(eachcol(els)) # 70-element Vector{Type}:  String...
-vs = values.(eachrow(els))
-
 # programmatically define struct named Element_M with given field names and types
-make_struct("Element_M", cnames, ctypes)
 
 # const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my computer
 
@@ -30,10 +25,29 @@ function col2unitful!(df, lb, u)
     lb_old = Symbol("$(lbs)_old")
     rename!(df, lb =>lb_old)
     insertcols!(df, lb=>(df[:, lb_old]*u))
+    select!(df, Not(lb_old))
     return nothing
 end
 
+function df2unitful!(df, fu_dict)
+    is =intersect( Symbol.(names(df)), keys(fu_dict))
+    for l in is
+        col2unitful!(df, l, fu_dict[l])
+    end
+    return nothing
+end
+
+# df2unitful!(els, f_units)
+
+cnames = names(els) # 70-element Vector{String}: "annotation"...
+ctypes =  eltype.(eachcol(els)) # 70-element Vector{Type}:  String...
+vs = values.(eachrow(els))
 
 
+make_struct("Element_M", cnames, ctypes)
 
 const ELEMENTS_M = inst_elements(vs)
+
+export Element_M, ELEMENTS_M
+
+export cnames, ctypes, vs #, make_struct

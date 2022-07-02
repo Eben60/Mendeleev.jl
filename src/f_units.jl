@@ -38,3 +38,11 @@ f_units = Dict(
     :thermal_conductivity => u"W/(m*K)",
     :atomic_weight => u"u",
 )
+
+# function maintype(t)
+#     !(t isa Union) && return t
+#     ts = Base.uniontypes(t)
+#     d=setdiff(ts, [Missing])
+#     @assert length(d)==1
+#     return collect(d)[1]
+# end
