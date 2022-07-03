@@ -2,6 +2,7 @@ module Mendeleev
 using SQLite, DataFrames, PeriodicTable, Unitful
 
 include("make_struct.jl")
+include("utype2str.jl")
 include("f_units.jl")
 include("data_import.jl")
 
