@@ -22,37 +22,39 @@ using Unitful
 # e = eval(Meta.parse(ut))
 
 v = [missing, 1.1u"J/m^3"]
+v1 = [missing, "String"]
 
 
-function type2str(x)
-    Tx = typeof(x)
-    ts = Base.uniontypes(Tx)
-
-    return (;ut, os, us, u, m)
+function type2str(x) #
+    x <: Quantity && return q2str(x)
+    return x |> Symbol |> string
 end
-
 
 function type2str(x::T) where T <: Union
-    Tx = typeof(x)
-    ts = Base.uniontypes(Tx)
+    ts = Base.uniontypes(x)
+    t2s = type2str.(ts)
+    j = join(t2s, ", ")
 
-    return (;ut, os, us, u, m)
+    ut = "Union{$j}"
+    return ut
 end
 
-function type2str(x::T) where T <: Quantity
-    Tx = typeof(x)
-    o = oneunit(Tx)
+function q2str(x)
+    o = oneunit(x)
     os = string(o)
     us = string(ustrip(o))
     r = Regex("^$us ")
     u = replace(os, r=>"")
     m = replace(u, " "=>"*")
     ut = "typeof($(us)u\"$m\")"
-    return (;ut, os, us, u, m)
+    return ut
 end
 
 
 
 ts = type2str
+
+@show t = ts(eltype(v))
+# t = ts(eltype(v)) = "Union{Missing, typeof(1.0u\"J*m^-3\")}"
 
 #
