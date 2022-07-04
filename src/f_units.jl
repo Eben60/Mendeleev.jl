@@ -1,5 +1,5 @@
 
-f_units = Dict(
+const f_units = Dict(
     :lattice_constant => u"angstrom",
     :atomic_volume => u"cm^3/mol",
     :electron_affinity => u"eV",
