@@ -36,12 +36,12 @@ function make_struct(sname, fnames, ftypes) # where FT <: Vector{T1} where T1 <:
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
 
     #ftypes = ftypes .|> Symbol .|> string
-
-    fts = ["eltype(\$ftypes[$i])" for i in 1:length(ftypes)]
-    @show fts[1:2]
+    @show ftypes[1:5]
+    # fts = ["eltype($(ftypes[i]))" for i in 1:length(ftypes)]
+    # @show fts[1:5]
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
-    w = make_where(fts, Ts)
+    w = make_where(ftypes, Ts)
 
     nmtp = Meta.parse("$sname$w")
     xs = ["$f::$t" for (f,t) in zip(fnames, Ts)]

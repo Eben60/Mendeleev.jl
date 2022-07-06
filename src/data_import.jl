@@ -62,9 +62,9 @@ ctypes = coltypes(eachcol(els), fu1)
 cnames = names(els) # 70-element Vector{String}: "annotation"...
 vs = values.(eachrow(els))
 
-#
-# make_struct("Element_M", cnames, ctypes)
-#
+
+make_struct("Element_M", cnames, ctypes)
+
 # const ELEMENTS_M = inst_elements(vs)
 #
 # export Element_M, ELEMENTS_M
