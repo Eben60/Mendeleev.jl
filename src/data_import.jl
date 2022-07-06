@@ -37,10 +37,6 @@ function df2unitful!(df, fu_dict)
     return nothing
 end
 
-df2unitful!(els, f_units)
-# ctypes =  eachcol(els)
-# ctypes =  eltype.(eachcol(els))
-
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
     tps = String[]
@@ -49,6 +45,9 @@ function coltypes(cols, udict)
         n = nms[i]
         if n in keys(udict)
             tp = "typeof(1.0*$(udict[n]))" #TODO - Union{Missing, Quantity}
+            if eltype(cols[i]) isa Union
+                tp = "Union{Missing, $tp}"
+            end
         else
             tp = eltype(cols[i]) |> Symbol |> string
         end
@@ -56,6 +55,15 @@ function coltypes(cols, udict)
     end
     return tps
 end
+
+function sortcols!(df)
+    nms = sort!(collect(names(df)))
+    select!(df, nms...)
+    return nothing
+end
+
+df2unitful!(els, f_units)
+sortcols!(els)
 
 ctypes = coltypes(eachcol(els), fu1)
 
@@ -65,7 +73,7 @@ vs = values.(eachrow(els))
 
 make_struct("Element_M", cnames, ctypes)
 
-# const ELEMENTS_M = inst_elements(vs)
+const ELEMENTS_M = inst_elements(vs)
 #
 # export Element_M, ELEMENTS_M
 #
