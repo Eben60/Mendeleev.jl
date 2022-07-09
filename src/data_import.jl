@@ -63,8 +63,6 @@ function miss2false(v)
     return bv
 end
 
-#TODO make symbol col to type Symbol
-#TODO is_monoisotopic missing -> false
 
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
