@@ -19,13 +19,13 @@ function inst_elements(xs)
     return e
 end
 
-function col2unitful!(df, lb, u)
-    lbs = string(lb)
-    @assert string(lb) in names(df)
-    lb_old = Symbol("$(lbs)_old")
-    rename!(df, lb =>lb_old)
-    insertcols!(df, lb=>(df[:, lb_old]*u))
-    select!(df, Not(lb_old))
+function col2unitful!(df, lbl, u)
+    lbls = string(lbl)
+    @assert string(lbl) in names(df)
+    lbl_old = Symbol("$(lbls)_old")
+    rename!(df, lbl =>lbl_old)
+    insertcols!(df, lbl=>(df[:, lbl_old]*u))
+    select!(df, Not(lbl_old))
     return nothing
 end
 
@@ -38,6 +38,7 @@ function df2unitful!(df, fu_dict)
 end
 
 #TODO make symbol col to type Symbol
+#TODO is_monoisotopic missing -> false
 
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
