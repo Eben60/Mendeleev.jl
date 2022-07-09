@@ -37,6 +37,8 @@ function df2unitful!(df, fu_dict)
     return nothing
 end
 
+#TODO make symbol col to type Symbol
+
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
     tps = String[]
@@ -72,8 +74,6 @@ vs = values.(eachrow(els))
 
 
 make_struct("Element_M", cnames, ctypes)
-
-const ELEMENTS_M = inst_elements(vs)
 #
 # export Element_M, ELEMENTS_M
 #
