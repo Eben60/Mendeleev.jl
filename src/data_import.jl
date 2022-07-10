@@ -1,4 +1,14 @@
-elements_dbfile = "./data/elements.db"
+elements_src = joinpath(@__DIR__ , "../data/elements.db")
+tmp_dir, _ = splitdir(tempname())
+
+elements_dbfile = joinpath(tmp_dir, "julia_mendeleev_jl_hE4PXGUpax/mendeleev-elements.db")mm=
+
+if !isfile(elements_dbfile)
+    mkpath(joinpath(tmp_dir, "julia_mendeleev_jl_hE4PXGUpax"))
+    cp(elements_src, elements_dbfile)
+end
+
+
 edb = SQLite.DB(elements_dbfile)
 tbls = SQLite.tables(edb)
 tblnames = [t.name for t in tbls]
@@ -20,23 +30,17 @@ function inst_elements(xs)
 end
 
 function col2unitful!(df, lbl, u)
-    lbls = string(lbl)
-    @assert string(lbl) in names(df)
-    lbl_old = Symbol("$(lbls)_old")
-    rename!(df, lbl =>lbl_old)
-    insertcols!(df, lbl=>(df[:, lbl_old]*u))
-    select!(df, Not(lbl_old))
+    replacecol!(df, lbl, *, u)
     return nothing
 end
 
 function df2unitful!(df, fu_dict)
-    is =intersect( Symbol.(names(df)), keys(fu_dict))
+    is =intersect(Symbol.(names(df)), keys(fu_dict))
     for l in is
         col2unitful!(df, l, fu_dict[l])
     end
     return nothing
 end
-
 
 function replacecol!(df, lbl, f, args...)
     newcol = f(df[!, lbl], args...)
@@ -51,7 +55,6 @@ function replacecol!(df, lbls::Vector{Symbol}, f, args...)
     end
     return nothing
 end
-
 
 function miss2false(v)
     bv = ones(Bool, length(v))
@@ -71,7 +74,7 @@ function coltypes(cols, udict)
     for i in 1:length(nms)
         n = nms[i]
         if n in keys(udict)
-            tp = "typeof(1.0*$(udict[n]))" #TODO - Union{Missing, Quantity}
+            tp = "typeof(1.0*$(udict[n]))"
             if eltype(cols[i]) isa Union
                 tp = "Union{Missing, $tp}"
             end
