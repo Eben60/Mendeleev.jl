@@ -1,19 +1,21 @@
 elements_src = joinpath(@__DIR__ , "../data/elements.db")
-tmp_dir, _ = splitdir(tempname())
+tmp_dir = @get_scratch!("mendeleev_files")
 
-elements_dbfile = joinpath(tmp_dir, "julia_mendeleev_jl_hE4PXGUpax/mendeleev-elements.db")mm=
+elements_dbfile = joinpath(tmp_dir, "mendeleev-elements.db")
 
 if !isfile(elements_dbfile)
-    mkpath(joinpath(tmp_dir, "julia_mendeleev_jl_hE4PXGUpax"))
     cp(elements_src, elements_dbfile)
 end
 
+function read_db_tables(dbfile)
+    edb = SQLite.DB(dbfile)
+    tbls = SQLite.tables(edb)
+    tblnames = [t.name for t in tbls]
+    dfs = (; [Symbol(tname) => (DBInterface.execute(edb, "SELECT * FROM $tname") |> DataFrame) for tname in tblnames]...)
+end
 
-edb = SQLite.DB(elements_dbfile)
-tbls = SQLite.tables(edb)
-tblnames = [t.name for t in tbls]
+dfs = read_db_tables(elements_dbfile)
 
-dfs = (; [Symbol(tname) => (DBInterface.execute(edb, "SELECT * FROM $tname") |> DataFrame) for tname in tblnames]...)
 els = dfs.elements
 sort!(els, :atomic_number)
 

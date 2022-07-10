@@ -1,11 +1,19 @@
 module Mendeleev
-using SQLite, DataFrames, PeriodicTable, Unitful, Scratch
+using SQLite, DataFrames, PeriodicTable, Unitful
+using Scratch, Pkg.TOML
 
 # https://discourse.julialang.org/t/julia-depot-path-and-julia-project/73745/26
 # https://discourse.julialang.org/t/using-scratch-space-as-a-time-limited-cache/76849
 # https://discourse.julialang.org/t/ann-scratch-jl-package-specific-mutable-data-containers/45855
 # https://github.com/JuliaPackaging/Scratch.jl
 # using Scratch
+
+function get_version()
+    return VersionNumber(TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"])
+end
+const pkg_version = get_version()
+
+
 
 include("constants.jl")
 include("make_struct.jl")
