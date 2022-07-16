@@ -54,7 +54,7 @@ end
 
 ts = type2str
 
-@show t = ts(eltype(v))
+# @show t = ts(eltype(v))
 # t = ts(eltype(v)) = "Union{Missing, typeof(1.0u\"J*m^-3\")}"
 
 #

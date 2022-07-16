@@ -95,9 +95,9 @@ function sortcols!(df)
 end
 
 replacecol!(els, [:is_monoisotopic, :is_radioactive], miss2false)
-@show els[1:3, :is_monoisotopic]
+# @show els[1:3, :is_monoisotopic]
 replacecol!(els, :symbol, x -> Symbol.(x))
-@show els[1:3, :symbol]
+# @show els[1:3, :symbol]
 
 
 df2unitful!(els, f_units)

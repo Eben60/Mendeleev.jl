@@ -36,7 +36,7 @@ function make_struct(sname, fnames, ftypes) # where FT <: Vector{T1} where T1 <:
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
 
     #ftypes = ftypes .|> Symbol .|> string
-    @show ftypes[1:5]
+    # @show ftypes[1:5]
     # fts = ["eltype($(ftypes[i]))" for i in 1:length(ftypes)]
     # @show fts[1:5]
     fnames = fnames .|> string

@@ -1,5 +1,5 @@
 
-Base.show(io::IO, el::E) where E<: Union{Element, Element_M} = print(io, "Element(", el.name, ')')
+Base.show(io::IO, el::Element_M) = print(io, "Element(", el.name, ')')
 
 ispresent(x) = !(isempty(x) && ismissing(x))
 ispresent(x::Union{Float64, Quantity}) = !isnan(x)
@@ -10,7 +10,7 @@ function printpresent(io::IO, name, v, suffix=""; pad=16)
     end
 end
 
-function Base.show(io::IO, ::MIME"text/plain", el::E)  where E<: Union{Element, Element_M}
+function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
     printpresent(io, "category", el.category)
     printpresent(io, "atomic mass", el.atomic_mass, " u")
@@ -22,8 +22,9 @@ function Base.show(io::IO, ::MIME"text/plain", el::E)  where E<: Union{Element, 
     printpresent(io, "shells", el.shells)
     printpresent(io, "e⁻-configuration", el.el_config)
     printpresent(io, "appearance", el.appearance)
-    printpresent(io, "color", el.color)
+    # printpresent(io, "color", el.color) # the field is present for Co only, and also redundant (s. appearance)
     printpresent(io, "summary", el.summary)
+    printpresent(io, "CAS identifier", el.cas)
     printpresent(io, "discovered by", el.discovered_by)
     printpresent(io, "named by", el.named_by)
     printpresent(io, "source", el.source)
@@ -36,7 +37,7 @@ function printpresenthtml(io::IO, name, val, suffix="")
     end
 end
 
-function Base.show(io::IO, ::MIME"text/html", el::E)  where E<: Union{Element, Element_M}
+function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     println(io, "<style>")
     println(io, "th{text-align:right; padding:5px;}td{text-align:left; padding:5px}")
     println(io, "</style>")
@@ -52,8 +53,9 @@ function Base.show(io::IO, ::MIME"text/html", el::E)  where E<: Union{Element, E
     printpresenthtml(io, "shells", el.shells)
     printpresenthtml(io, "electron configuration", el.el_config)
     printpresenthtml(io, "appearance", el.appearance)
-    printpresenthtml(io, "color", el.color)
+    # printpresenthtml(io, "color", el.color)  # the field is present for Co only, and also redundant (s. appearance)
     printpresenthtml(io, "summary", el.summary)
+    printpresenthtml(io, "CAS identifier", el.cas)
     printpresenthtml(io, "discovered by", el.discovered_by)
     printpresenthtml(io, "named by", el.named_by)
 
