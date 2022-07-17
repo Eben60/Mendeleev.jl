@@ -1,31 +1,12 @@
 module Mendeleev
-using SQLite, DataFrames, PeriodicTable, Unitful
-using Scratch, Pkg.TOML
-
-# https://discourse.julialang.org/t/julia-depot-path-and-julia-project/73745/26
-# https://discourse.julialang.org/t/using-scratch-space-as-a-time-limited-cache/76849
-# https://discourse.julialang.org/t/ann-scratch-jl-package-specific-mutable-data-containers/45855
-# https://github.com/JuliaPackaging/Scratch.jl
-# using Scratch
-
-function get_version()
-    return VersionNumber(TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"])
-end
-const pkg_version = get_version()
+using PeriodicTable, Unitful
 
 
-
-include("constants.jl")
-include("make_struct.jl")
-include("utype2str.jl")
-include("f_units.jl")
-include("data_import.jl")
 include("Element_M_def.jl") # file just computer-generated
-include("make_static_data.jl")
-make_static_data(static_data_fl, vs, f_unames)
 include("elements_data.jl")
 Element_M(x) = Element_M(x...)
 include("Elements_M.jl")
+include("synonym_fields.jl")
 include("reloads.jl")
 
 elements_arr = Vector{Element_M}(Element_M.(els_data)) # no idea why not working without this type casting

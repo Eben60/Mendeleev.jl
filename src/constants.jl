@@ -46,14 +46,5 @@ end
 
 const f_units = Dict(k => s2unit(v) for (k, v) in f_unames)
 
-const synonym_fields = Dict(
-    :atomic_mass => :atomic_weight,
-    :boil => :boiling_point,
-    :cpk_hex => :cpk_color,
-    :discovered_by => :discoverers,
-    :melt => :melting_point,
-    :number => :atomic_number,
-    )
-
 struct_fl = "src/Element_M_def.jl"
 static_data_fl = "src/elements_data.jl"
