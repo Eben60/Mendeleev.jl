@@ -1,6 +1,6 @@
 Base.show(io::IO, el::Element_M) = print(io, "Element(", el.name, ')')
 
-ispresent(x) = !(isempty(x) && ismissing(x))
+ispresent(x) = !(isempty(x) || ismissing(x))
 ispresent(x::Union{Float64, Quantity}) = !isnan(x)
 ispresent(n::Int) = n ≥ 0
 function printpresent(io::IO, name, v, suffix=""; pad=16)
