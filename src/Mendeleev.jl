@@ -23,10 +23,10 @@ include("data_import.jl")
 include("Elements_M.jl")
 include("reloads.jl")
 
-
-const elements_arr = inst_elements(vs)
-
-const ELEMENTS_M = Elements_M(elements_arr)
+# 
+# const elements_arr = inst_elements(vs)
+#
+# const ELEMENTS_M = Elements_M(elements_arr)
 
 
 export Element_M # struct definition
