@@ -41,5 +41,3 @@ function write_struct_jl(fl, descr)
         println(io, "end")
     end
 end
-
-ms = make_struct

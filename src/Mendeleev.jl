@@ -20,7 +20,8 @@ include("make_struct.jl")
 include("utype2str.jl")
 include("f_units.jl")
 include("data_import.jl")
-include("Element_M_def.jl")
+include("Element_M_def.jl") # file just computer-generated
+Element_M(x) = Element_M(x...)
 include("Elements_M.jl")
 include("reloads.jl")
 

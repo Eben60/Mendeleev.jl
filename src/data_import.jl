@@ -100,13 +100,13 @@ replacecol!(els, :symbol, x -> Symbol.(x))
 # @show els[1:3, :symbol]
 
 
-df2unitful!(els, f_units)
+# df2unitful!(els, f_units)
 sortcols!(els)
 
 ctypes = coltypes(eachcol(els), fu1)
 
 cnames = names(els) # 70-element Vector{String}: "annotation"...
-vs = values.(eachrow(els))
+vs = NamedTuple.(eachrow(els))
 
 
 # (;type=nmtp, fields=x)
