@@ -8,37 +8,11 @@ function make_where(fts, Ts)
     return "{$w}"
 end
 
-function make_struct(sname, fnames, ftypes::FT) where FT <: Vector{T} where T<:Type
-    sname = string(sname)
-    length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
-    fts = ftypes .|> Symbol .|> string
-    fnames = fnames .|> string
-    Ts = ["T$i" for i in eachindex(fnames)]
-    w = make_where(fts, Ts)
-
-    nmtp = Meta.parse("$sname$w")
-    xs = ["$f::$t" for (f,t) in zip(fnames, Ts)]
-    x = Meta.parse.(xs)
-
-    @eval begin
-        struct $(nmtp)
-            $(x...)
-        end
-    end
-
-    return nothing
-end
-
-# # # WIP!
-function make_struct(sname, fnames, ftypes) # where FT <: Vector{T1} where T1 <: Vector{T} where T
+function make_struct(sname, fnames, ftypes)
 
     sname = string(sname)
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
 
-    #ftypes = ftypes .|> Symbol .|> string
-    # @show ftypes[1:5]
-    # fts = ["eltype($(ftypes[i]))" for i in 1:length(ftypes)]
-    # @show fts[1:5]
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
     w = make_where(ftypes, Ts)
