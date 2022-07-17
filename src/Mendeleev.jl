@@ -21,15 +21,16 @@ include("utype2str.jl")
 include("f_units.jl")
 include("data_import.jl")
 include("Element_M_def.jl") # file just computer-generated
+include("make_static_data.jl")
+make_static_data(static_data_fl, vs, f_unames)
+include("elements_data.jl")
 Element_M(x) = Element_M(x...)
 include("Elements_M.jl")
 include("reloads.jl")
 
-#
-# const elements_arr = inst_elements(vs)
-#
-# const ELEMENTS_M = Elements_M(elements_arr)
+elements_arr = Vector{Element_M}(Element_M.(els_data)) # no idea why not working without this type casting
 
+const ELEMENTS_M = Elements_M(elements_arr)
 
 export Element_M # struct definition
 
