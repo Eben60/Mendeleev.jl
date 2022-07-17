@@ -2,7 +2,7 @@ module Mendeleev
 using PeriodicTable, Unitful
 
 
-include("Element_M_def.jl") # file just computer-generated
+include("Element_M_def.jl") 
 include("elements_data.jl")
 Element_M(x) = Element_M(x...)
 include("Elements_M.jl")

@@ -72,16 +72,16 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     end
 end
 
-Base.getindex(e::Elements_M, i::Integer) = e.bynumber[i]
-Base.getindex(e::Elements_M, i::AbstractString) = e.byname[lowercase(i)]
-Base.getindex(e::Elements_M, i::Symbol) = e.bysymbol[i]
+Base.getindex(e::Elements_M, i::Integer) = e.data[e.bynumber[i]]
+Base.getindex(e::Elements_M, i::AbstractString) = e.data[e.byname[lowercase(i)]]
+Base.getindex(e::Elements_M, i::Symbol) = e.data[e.bysymbol[i]]
 Base.getindex(e::Elements_M, v::AbstractVector) = Element_M[e[i] for i in v]
 Base.haskey(e::Elements_M, i::Integer) = haskey(e.bynumber, i)
 Base.haskey(e::Elements_M, i::AbstractString) = haskey(e.byname, lowercase(i))
 Base.haskey(e::Elements_M, i::Symbol) = haskey(e.bysymbol, i)
-Base.get(e::Elements_M, i::Integer, default) = get(e.bynumber, i, default)
-Base.get(e::Elements_M, i::AbstractString, default) = get(e.byname, lowercase(i), default)
-Base.get(e::Elements_M, i::Symbol, default) = get(e.bysymbol, i, default)
+Base.get(e::Elements_M, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
+Base.get(e::Elements_M, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
+Base.get(e::Elements_M, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)
 
 # support iterating over Elements_M
 Base.eltype(e::Elements_M) = Element_M

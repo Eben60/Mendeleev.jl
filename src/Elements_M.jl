@@ -1,11 +1,12 @@
 struct Elements_M
     data::Vector{Element_M}
-    bynumber::Dict{Int,Element_M}
-    byname::Dict{String,Element_M}
-    bysymbol::Dict{Symbol,Element_M}
+    bynumber::Dict{Int, Int}
+    byname::Dict{String, Int}
+    bysymbol::Dict{Symbol, Int}
     Elements_M(data::Vector{Element_M}) = new(
         sort!(data, by=d->d.atomic_number),
-        Dict{Int,Element_M}(d.atomic_number=>d for d in data),
-        Dict{String,Element_M}(lowercase(d.name)=>d for d in data),
-        Dict{Symbol,Element_M}(Symbol(d.symbol)=>d for d in data))
+        Dict{Int, Int}(data[i].atomic_number=>i for i in eachindex(data)),
+        Dict{String, Int}(lowercase(data[i].name)=>i for i in eachindex(data)),
+        Dict{Symbol, Int}(Symbol(data[i].symbol)=>i for i in eachindex(data))
+        )
 end
