@@ -47,3 +47,5 @@ const synonym_fields = Dict(
     :melt => :melting_point,
     :number => :atomic_number,
     )
+
+struct_fl = "src/Element_M_def.jl"

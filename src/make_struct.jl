@@ -8,7 +8,7 @@ function make_where(fts, Ts)
     return "{$w}"
 end
 
-function make_struct(sname, fnames, ftypes)
+function make_struct(sname, fnames, ftypes, create=false)
 
     sname = string(sname)
     length(fnames) != length(ftypes) && throw(ArgumentError("inequal length of fnames and ftypes vectors"))
@@ -16,21 +16,30 @@ function make_struct(sname, fnames, ftypes)
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
     w = make_where(ftypes, Ts)
-
-    nmtp = Meta.parse("$sname$w")
+    s_type = "$sname$w"
+    nmtp = Meta.parse(s_type)
     xs = ["$f::$t" for (f,t) in zip(fnames, Ts)]
     x = Meta.parse.(xs)
-
-    @eval begin
-        struct $(nmtp)
-            $(x...)
+    if create
+        @eval begin
+            struct $(nmtp)
+                $(x...)
+            end
         end
     end
-
-    return nothing
+    return (;s_type, xs)
 end
 
-
-
+function write_struct_jl(fl, descr)
+    open(fl, "w") do io
+        println(io, "# this is computer generated file - better not edit")
+        println(io)
+        println(io, "struct $(descr.s_type)")
+        for f in descr.xs
+            println(io, "    $f")
+        end
+        println(io, "end")
+    end
+end
 
 ms = make_struct

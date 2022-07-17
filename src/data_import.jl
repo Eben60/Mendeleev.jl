@@ -109,7 +109,11 @@ cnames = names(els) # 70-element Vector{String}: "annotation"...
 vs = values.(eachrow(els))
 
 
-make_struct("Element_M", cnames, ctypes)
+# (;type=nmtp, fields=x)
+s_def_text = make_struct("Element_M", cnames, ctypes)
+
+write_struct_jl(struct_fl, s_def_text)
+
 #
 # export Element_M, ELEMENTS_M
 #
