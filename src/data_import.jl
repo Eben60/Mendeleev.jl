@@ -45,6 +45,7 @@ function df2unitful!(df, fu_dict)
     return nothing
 end
 
+# TODO
 function replacecol!(df, lbl, f, args...)
     newcol = f(df[!, lbl], args...)
     select!(df, Not(lbl))
@@ -52,6 +53,7 @@ function replacecol!(df, lbl, f, args...)
     return nothing
 end
 
+# TODO
 function replacecol!(df, lbls::Vector{Symbol}, f, args...)
     for lbl in lbls
         replacecol!(df, lbl, f, args...)
@@ -95,8 +97,13 @@ function sortcols!(df)
     return nothing
 end
 
+# TODO
+# select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(miss2false), renamecols=false, :)
 replacecol!(els, [:is_monoisotopic, :is_radioactive], miss2false)
 # @show els[1:3, :is_monoisotopic]
+
+# TODO
+# select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
 replacecol!(els, :symbol, x -> Symbol.(x))
 # @show els[1:3, :symbol]
 
