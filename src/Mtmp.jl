@@ -10,11 +10,18 @@ Element_M(x) = Element_M(x...)
 
 function inst_elements(xs)
     e = Element_M[]
+    # Threads.@threads doesn't help
     for x in xs
         push!(e, Element_M(x...))
     end
     return e
 end
+
+# this way is slow
+# EM(x) = Element_M(x...)
+# function inst_elements(xs)
+#     return map(EM, xs)
+# end
 
 
 include("Elements_M.jl")
@@ -22,13 +29,13 @@ include("synonym_fields.jl")
 include("reloads.jl")
 
 e_st = 1
-e_len = 20
+e_len = 118
 t1 = time()
 
 # ix = vcat(1:2, 11:12)
-# elements_arr = inst_elements(els_data[e_st:e_st+e_len-1])
+elements_arr = inst_elements(els_data[e_st:e_st+e_len-1])
 
-elements_arr = inst_elements(els_data)
+# elements_arr = inst_elements(els_data)
 
 # elements_arr = Vector{Element_M}(Element_M.(els_data[ix])) # no idea why not working without this type casting
 t2 = time()
