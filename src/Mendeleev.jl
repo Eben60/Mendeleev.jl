@@ -1,16 +1,23 @@
 module Mendeleev
 using PeriodicTable, Unitful
 
+function inst_elements(xs)
+    e = Element_M[]
+    for x in xs
+        push!(e, Element_M(x...))
+    end
+    return e
+end
 
-include("Element_M_def.jl") 
+
+include("Element_M_def.jl")
 include("elements_data.jl")
 Element_M(x) = Element_M(x...)
 include("Elements_M.jl")
 include("synonym_fields.jl")
 include("reloads.jl")
 
-elements_arr = Vector{Element_M}(Element_M.(els_data)) # no idea why not working without this type casting
-
+elements_arr = inst_elements(els_data)
 const ELEMENTS_M = Elements_M(elements_arr)
 
 export Element_M # struct definition

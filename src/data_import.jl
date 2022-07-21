@@ -12,6 +12,7 @@ function read_db_tables(dbfile)
     tbls = SQLite.tables(edb)
     tblnames = [t.name for t in tbls]
     dfs = (; [Symbol(tname) => (DBInterface.execute(edb, "SELECT * FROM $tname") |> DataFrame) for tname in tblnames]...)
+    return dfs
 end
 
 dfs = read_db_tables(elements_dbfile)
