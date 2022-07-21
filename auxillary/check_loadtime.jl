@@ -1,5 +1,12 @@
 using Dates
+
+m = true
+p = false
 t0 = time()
-using Mendeleev
+if m #p
+    using Mendeleev
+else
+    using PeriodicTable
+end
 Δt = time()-t0
 @show Δt
