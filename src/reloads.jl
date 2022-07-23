@@ -1,8 +1,11 @@
 Base.show(io::IO, el::Element_M) = print(io, "Element(", el.name, ')')
 
-ispresent(x) = !(isempty(x) || ismissing(x))
-ispresent(x::Union{Float64, Quantity}) = !isnan(x)
-ispresent(n::Int) = n ≥ 0
+ispresent(x::Missing) = false
+ispresent(x::Union{AbstractArray, String}) = !  isempty(x)
+ispresent(x::Union{AbstractFloat, Quantity}) = ! isnan(x)
+ispresent(x::Int) = x >= 0 # TODO check!
+
+
 function printpresent(io::IO, name, v, suffix=""; pad=16)
     if ispresent(v)
         println(io, lpad(name, pad), ": ", typeof(v) <: Quantity ? v.val : v, suffix)
@@ -128,3 +131,14 @@ Base.iterate(e::Elements_M, state...) = iterate(e.data, state...)
       e_pt = elements[no]
       return getfield(e_pt, s)
   end
+
+
+# TODO
+# julia> using Mendeleev
+#
+# julia> ELEMENTS_M[110]
+# Darmstadtium (Ds), number 110:
+#         category: unknown, probably transition metal
+#      atomic mass: 281.0 u
+#          density: 34.8 g/cm³
+# Error showing value of type Element_M{Missing, Missi...
