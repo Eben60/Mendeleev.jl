@@ -32,45 +32,18 @@ function inst_elements(xs)
     return e
 end
 
-function col2unitful!(df, lbl, u)
-    replacecol!(df, lbl, *, u)
-    return nothing
-end
-
-function df2unitful!(df, fu_dict)
-    is =intersect(Symbol.(names(df)), keys(fu_dict))
-    for l in is
-        col2unitful!(df, l, fu_dict[l])
-    end
-    return nothing
-end
-
-# TODO
-function replacecol!(df, lbl, f, args...)
-    newcol = f(df[!, lbl], args...)
-    select!(df, Not(lbl))
-    insertcols!(df, lbl=>newcol)
-    return nothing
-end
-
-# TODO
-function replacecol!(df, lbls::Vector{Symbol}, f, args...)
-    for lbl in lbls
-        replacecol!(df, lbl, f, args...)
-    end
-    return nothing
-end
-
-function miss2false(v)
-    bv = ones(Bool, length(v))
-    for i in 1:lastindex(v)
-        if ismissing(v[i]) || v[i] == 0
-            bv[i] = false
-        end
-    end
-    return bv
-end
-
+# function col2unitful!(df, lbl, u)
+#     replacecol!(df, lbl, *, u)
+#     return nothing
+# end
+#
+# function df2unitful!(df, fu_dict)
+#     is =intersect(Symbol.(names(df)), keys(fu_dict))
+#     for l in is
+#         col2unitful!(df, l, fu_dict[l])
+#     end
+#     return nothing
+# end
 
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
@@ -97,14 +70,13 @@ function sortcols!(df)
     return nothing
 end
 
-# TODO
-# select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(miss2false), renamecols=false, :)
-replacecol!(els, [:is_monoisotopic, :is_radioactive], miss2false)
-# @show els[1:3, :is_monoisotopic]
 
-# TODO
-# select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
-replacecol!(els, :symbol, x -> Symbol.(x))
+select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(x -> !(ismissing(x) || x == 0)), renamecols=false, :)
+# @show els[1:3, :is_monoisotopic]
+# @show els[81:84, :is_radioactive]
+
+
+select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
 # @show els[1:3, :symbol]
 
 
