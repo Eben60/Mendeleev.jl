@@ -70,7 +70,7 @@ function sortcols!(df)
     return nothing
 end
 
-
+# boolean columns are sometimes encoded as integer {0, 1} and sometimes as {missing, 1} - let's convert them to Bool
 select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(x -> !(ismissing(x) || x == 0)), renamecols=false, :)
 # @show els[1:3, :is_monoisotopic]
 # @show els[81:84, :is_radioactive]
