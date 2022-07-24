@@ -112,42 +112,7 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
          end
          println(io)
      end
- end
-
- # Since Element equality is determined by atomic number alone...
- Base.isequal(elm1::Element_M, elm2::Element_M) = elm1.number == elm2.number
-
- # There is no need to use all the data in Element to calculated the hash
- # since Element equality is determined by atomic number alone.
- Base.hash(elm::Element_M, h::UInt) = hash(elm.number, h)
-
- # Compare elements by atomic number to produce the most common way elements
- # are sorted.
- Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
-
- # Provide a simple way to iterate over all elements.
- Base.eachindex(elms::Element_M) = eachindex(elms.data)
-
- function Base.getproperty(e::Element_M, s::Symbol)
-      s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
-      s in fieldnames(Element_M)  && return getfield(e, s)
-      # in case it is a field of PeriodicTable elements only
-      no = getfield(e, :atomic_number)
-      e_pt = elements[no]
-      return getfield(e_pt, s)
-  end
-
-
-# TODO
-# julia> using Mendeleev
-#
-# julia> ELEMENTS_M[110]
-# Darmstadtium (Ds), number 110:
-#         category: unknown, probably transition metal
-#      atomic mass: 281.0 u
-#          density: 34.8 g/cm³
-# Error showing value of type Element_M{Missing, Missi...
-
+end
 
 # Since Element equality is determined by atomic number alone...
 Base.isequal(elm1::Element_M, elm2::Element_M) = elm1.number == elm2.number
