@@ -18,6 +18,8 @@ end
 dfs = read_db_tables(elements_dbfile)
 
 els = dfs.elements
+els = rightjoin(dfpt, els, on = :atomic_number)
+
 sort!(els, :atomic_number)
 
 # programmatically define struct named Element_M with given field names and types

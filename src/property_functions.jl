@@ -20,4 +20,4 @@ function fn_discovered_by(e)
     return join([d_yr, d_ds, d_lcn], "")
 end
 
-# TODO report error: Element(Zinc) Known to the ancients. in Germany
+fn_number(e) = e.atomic_number
