@@ -1,7 +1,7 @@
 Base.show(io::IO, el::Element_M) = print(io, "Element(", el.name, ')')
 
 ispresent(x::Missing) = false
-ispresent(x::Union{AbstractArray, String}) = !  isempty(x)
+ispresent(x::Union{AbstractArray, AbstractString}) = !  isempty(x)
 ispresent(x::Union{AbstractFloat, Quantity}) = ! isnan(x)
 ispresent(x::Int) = x >= 0 # TODO check!
 
