@@ -12,3 +12,9 @@ function ptnames()
         print(n, " ; ")
     end
 end
+
+rename!(dfpt, properties2rename)
+
+toexclude = unique(vcat(collect(keys(synonym_fields)), calculated_properties, properties2omit))
+
+select!(dfpt, Not(toexclude))
