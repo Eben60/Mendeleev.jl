@@ -4,7 +4,7 @@ using Unitful #, PeriodicTable
 function inst_elements(xs)
     e = Element_M[]
     for x in xs
-        push!(e, Element_M(x...))
+        push!(e, Element_M(collect(x)...)) # Julia hangs without collect - probably a bug
     end
     return e
 end
