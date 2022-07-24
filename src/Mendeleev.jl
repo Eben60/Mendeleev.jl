@@ -15,6 +15,7 @@ include("elements_data.jl")
 Element_M(x) = Element_M(x...)
 include("Elements_M.jl")
 include("synonym_fields.jl")
+include("property_functions.jl")
 include("reloads.jl")
 
 elements_arr = inst_elements(els_data)
