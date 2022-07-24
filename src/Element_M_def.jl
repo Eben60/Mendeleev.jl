@@ -1,6 +1,6 @@
 # this is computer generated file - better not edit
 
-struct Element_M{T1 <: Union{Missing, typeof(1.0*u"mg*kg^-1")}, T2 <: Union{Missing, typeof(1.0*u"mg*L^-1")}, T3 <: String, T4 <: Int64, T5 <: Union{Missing, typeof(1.0*u"pm")}, T6 <: Union{Missing, typeof(1.0*u"pm")}, T7 <: Union{Missing, typeof(1.0*u"cm^3*mol^-1")}, T8 <: typeof(1.0*u"u"), T9 <: Union{Missing, Float64}, T10 <: String, T11 <: Union{Missing, typeof(1.0*u"K")}, T12 <: Union{Missing, Float64}, T13 <: Union{Missing, Float64}, T14 <: String, T15 <: Union{Missing, typeof(1.0*u"pm")}, T16 <: Union{Missing, typeof(1.0*u"pm")}, T17 <: typeof(1.0*u"pm"), T18 <: Union{Missing, typeof(1.0*u"pm")}, T19 <: Union{Missing, typeof(1.0*u"pm")}, T20 <: Union{Missing, String}, T21 <: typeof(1.0*u"g*cm^-3"), T22 <: Union{Missing, String}, T23 <: Union{Missing, Float64}, T24 <: Union{Missing, Float64}, T25 <: String, T26 <: Union{Missing, String}, T27 <: Union{Missing, Int64}, T28 <: Union{Missing, typeof(1.0*u"eV")}, T29 <: String, T30 <: Union{Missing, typeof(1.0*u"eV")}, T31 <: Union{Missing, Float64}, T32 <: Union{Missing, Float64}, T33 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T34 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T35 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T36 <: Union{Missing, String}, T37 <: Union{Missing, Int64}, T38 <: String, T39 <: Union{Missing, Int64}, T40 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T41 <: Bool, T42 <: Bool, T43 <: Union{Missing, String}, T44 <: Union{Missing, typeof(1.0*u"Å")}, T45 <: Union{Missing, String}, T46 <: Union{Missing, typeof(1.0*u"K")}, T47 <: Int64, T48 <: Union{Missing, typeof(1.0*u"pm")}, T49 <: Union{Missing, typeof(1.0*u"pm")}, T50 <: Union{Missing, String}, T51 <: String, T52 <: String, T53 <: Int64, T54 <: Union{Missing, Int64}, T55 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T56 <: Int64, T57 <: String, T58 <: Union{Missing, typeof(1.0*u"J*g^-1*K^-1")}, T59 <: Symbol, T60 <: Union{Missing, typeof(1.0*u"W*K^-1*m^-1")}, T61 <: Union{Missing, String}, T62 <: Union{Missing, typeof(1.0*u"pm")}, T63 <: Union{Missing, typeof(1.0*u"pm")}, T64 <: Union{Missing, typeof(1.0*u"pm")}, T65 <: Union{Missing, typeof(1.0*u"pm")}, T66 <: Union{Missing, typeof(1.0*u"pm")}, T67 <: Union{Missing, typeof(1.0*u"pm")}, T68 <: Union{Missing, typeof(1.0*u"pm")}, T69 <: Union{Missing, typeof(1.0*u"pm")}, T70 <: Union{Missing, typeof(1.0*u"pm")}}
+struct Element_M{T1 <: Union{Missing, typeof(1.0*u"mg*kg^-1")}, T2 <: Union{Missing, typeof(1.0*u"mg*L^-1")}, T3 <: String, T4 <: Int64, T5 <: Union{Missing, typeof(1.0*u"pm")}, T6 <: Union{Missing, typeof(1.0*u"pm")}, T7 <: Union{Missing, typeof(1.0*u"cm^3*mol^-1")}, T8 <: typeof(1.0*u"u"), T9 <: Union{Missing, Float64}, T10 <: String, T11 <: Union{Missing, typeof(1.0*u"K")}, T12 <: Union{Missing, Float64}, T13 <: Union{Missing, Float64}, T14 <: String, T15 <: Union{Missing, typeof(1.0*u"pm")}, T16 <: Union{Missing, typeof(1.0*u"pm")}, T17 <: typeof(1.0*u"pm"), T18 <: Union{Missing, typeof(1.0*u"pm")}, T19 <: Union{Missing, typeof(1.0*u"pm")}, T20 <: Union{Missing, String}, T21 <: typeof(1.0*u"g*cm^-3"), T22 <: Union{Missing, String}, T23 <: Union{Missing, Float64}, T24 <: Union{Missing, Float64}, T25 <: String, T26 <: Union{Missing, String}, T27 <: Union{Missing, Int64}, T28 <: Union{Missing, typeof(1.0*u"eV")}, T29 <: String, T30 <: Union{Missing, typeof(1.0*u"eV")}, T31 <: Union{Missing, Float64}, T32 <: Union{Missing, Float64}, T33 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T34 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T35 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T36 <: Union{Missing, String}, T37 <: Union{Missing, Int64}, T38 <: String, T39 <: Union{Missing, Int64}, T40 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T41 <: Bool, T42 <: Bool, T43 <: Union{Missing, String}, T44 <: Union{Missing, typeof(1.0*u"Å")}, T45 <: Union{Missing, String}, T46 <: Union{Missing, typeof(1.0*u"K")}, T47 <: Int64, T48 <: Union{Missing, typeof(1.0*u"pm")}, T49 <: Union{Missing, typeof(1.0*u"pm")}, T50 <: Union{Missing, Float64}, T51 <: Union{Missing, String}, T52 <: String, T53 <: String, T54 <: Int64, T55 <: Union{Missing, Int64}, T56 <: Union{Missing, typeof(1.0*u"kJ*mol^-1")}, T57 <: Int64, T58 <: String, T59 <: Union{Missing, Float64}, T60 <: Symbol, T61 <: Union{Missing, typeof(1.0*u"W*K^-1*m^-1")}, T62 <: Union{Missing, String}, T63 <: Union{Missing, typeof(1.0*u"pm")}, T64 <: Union{Missing, typeof(1.0*u"pm")}, T65 <: Union{Missing, typeof(1.0*u"pm")}, T66 <: Union{Missing, typeof(1.0*u"pm")}, T67 <: Union{Missing, typeof(1.0*u"pm")}, T68 <: Union{Missing, typeof(1.0*u"pm")}, T69 <: Union{Missing, typeof(1.0*u"pm")}, T70 <: Union{Missing, typeof(1.0*u"pm")}, T71 <: Union{Missing, typeof(1.0*u"pm")}}
     abundance_crust::T1
     abundance_sea::T2
     annotation::T3
@@ -50,25 +50,26 @@ struct Element_M{T1 <: Union{Missing, typeof(1.0*u"mg*kg^-1")}, T2 <: Union{Miss
     mendeleev_number::T47
     metallic_radius::T48
     metallic_radius_c12::T49
-    molcas_gv_color::T50
-    name::T51
-    name_origin::T52
-    period::T53
-    pettifor_number::T54
-    proton_affinity::T55
-    series_id::T56
-    sources::T57
-    specific_heat::T58
-    symbol::T59
-    thermal_conductivity::T60
-    uses::T61
-    vdw_radius::T62
-    vdw_radius_alvarez::T63
-    vdw_radius_batsanov::T64
-    vdw_radius_bondi::T65
-    vdw_radius_dreiding::T66
-    vdw_radius_mm3::T67
-    vdw_radius_rt::T68
-    vdw_radius_truhlar::T69
-    vdw_radius_uff::T70
+    molar_heat_capacity::T50
+    molcas_gv_color::T51
+    name::T52
+    name_origin::T53
+    period::T54
+    pettifor_number::T55
+    proton_affinity::T56
+    series_id::T57
+    sources::T58
+    specific_heat_capacity::T59
+    symbol::T60
+    thermal_conductivity::T61
+    uses::T62
+    vdw_radius::T63
+    vdw_radius_alvarez::T64
+    vdw_radius_batsanov::T65
+    vdw_radius_bondi::T66
+    vdw_radius_dreiding::T67
+    vdw_radius_mm3::T68
+    vdw_radius_rt::T69
+    vdw_radius_truhlar::T70
+    vdw_radius_uff::T71
 end
