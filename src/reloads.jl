@@ -28,8 +28,8 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     printpresent(io, "summary", el.summary)
     printpresent(io, "CAS identifier", el.cas)
     printpresent(io, "discovered by", el.discovered_by)
-    printpresent(io, "named by", el.named_by)
-    printpresent(io, "source", el.source)
+    # printpresent(io, "named by", el.named_by)
+    printpresent(io, "wikipedia URL", el.wikipedia)
     printpresent(io, "spectral image", el.spectral_img)
 end
 
@@ -58,11 +58,16 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     # printpresenthtml(io, "color", el.color)  # the field is present for Co only, and also redundant (s. appearance)
     printpresenthtml(io, "summary", el.summary)
     printpresenthtml(io, "CAS identifier", el.cas)
+
+    # printpresent(io, "named by", el.named_by)
+    printpresenthtml(io, "wikipedia URL", el.wikipedia)
+    printpresenthtml(io, "spectral image", el.spectral_img)
+
     printpresenthtml(io, "discovered by", el.discovered_by)
     printpresenthtml(io, "named by", el.named_by)
 
-    link = string("<a href=\"", el.source, "\">", el.source, "</a>")
-    printpresenthtml(io, "source", link)
+    link = string("<a href=\"", el.wikipedia, "\">", el.wikipedia, "</a>")
+    printpresenthtml(io, "wikipedia", link)
     println(io, "</table>")
 
     if ispresent(el.spectral_img)
@@ -91,11 +96,11 @@ Base.eltype(e::Elements_M) = Element_M
 Base.length(e::Elements_M) = length(e.data)
 Base.iterate(e::Elements_M, state...) = iterate(e.data, state...)
 
- # compact one-line printing
- Base.show(io::IO, e::Elements_M) = print(io, "Elements(…", length(e), " elements…)")
+# compact one-line printing
+Base.show(io::IO, e::Elements_M) = print(io, "Elements(…", length(e), " elements…)")
 
- # pretty-printing as a periodic table
- function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
+# pretty-printing as a periodic table
+function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
      println(io, e, ':')
      table = fill("   ", 10,18)
      for el in e
@@ -107,6 +112,7 @@ Base.iterate(e::Elements_M, state...) = iterate(e.data, state...)
          end
          println(io)
      end
+<<<<<<< HEAD
  end
 
  # Since Element equality is determined by atomic number alone...
@@ -142,3 +148,31 @@ Base.iterate(e::Elements_M, state...) = iterate(e.data, state...)
 #      atomic mass: 281.0 u
 #          density: 34.8 g/cm³
 # Error showing value of type Element_M{Missing, Missi...
+=======
+end
+
+# Since Element equality is determined by atomic number alone...
+Base.isequal(elm1::Element_M, elm2::Element_M) = elm1.number == elm2.number
+
+# There is no need to use all the data in Element to calculated the hash
+# since Element equality is determined by atomic number alone.
+Base.hash(elm::Element_M, h::UInt) = hash(elm.number, h)
+
+# Compare elements by atomic number to produce the most common way elements
+# are sorted.
+Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
+
+# Provide a simple way to iterate over all elements.
+Base.eachindex(elms::Element_M) = eachindex(elms.data)
+
+function Base.getproperty(e::Element_M, s::Symbol)
+    s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
+    s in fieldnames(Element_M)  && return getfield(e, s)
+    s in calculated_properties && return eval(property_fns[s])(e)
+    throw(DomainError(s, "nonexistent Element_M property"))
+    # # in case it is a field of PeriodicTable elements only
+    # no = getfield(e, :atomic_number)
+    # e_pt = elements[no]
+    # return getfield(e_pt, s)
+end
+>>>>>>> e424202b314c7b280cc749228561c7c8eda9a330

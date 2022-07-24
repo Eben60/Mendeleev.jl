@@ -22,3 +22,7 @@ fu1 = un_u(f_units)
 #     @assert length(d)==1
 #     return collect(d)[1]
 # end
+
+# we don't need it anyway, but otherwise it's nonmissingtype() from Base
+# https://bkamins.github.io/julialang/2021/09/03/missing.html
+# https://bkamins.github.io/julialang/2022/06/17/missing.html

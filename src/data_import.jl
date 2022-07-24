@@ -18,6 +18,8 @@ end
 dfs = read_db_tables(elements_dbfile)
 
 els = dfs.elements
+els = rightjoin(dfpt, els, on = :atomic_number)
+
 sort!(els, :atomic_number)
 
 # programmatically define struct named Element_M with given field names and types
@@ -32,43 +34,18 @@ function inst_elements(xs)
     return e
 end
 
-function col2unitful!(df, lbl, u)
-    replacecol!(df, lbl, *, u)
-    return nothing
-end
-
-function df2unitful!(df, fu_dict)
-    is =intersect(Symbol.(names(df)), keys(fu_dict))
-    for l in is
-        col2unitful!(df, l, fu_dict[l])
-    end
-    return nothing
-end
-
-function replacecol!(df, lbl, f, args...)
-    newcol = f(df[!, lbl], args...)
-    select!(df, Not(lbl))
-    insertcols!(df, lbl=>newcol)
-    return nothing
-end
-
-function replacecol!(df, lbls::Vector{Symbol}, f, args...)
-    for lbl in lbls
-        replacecol!(df, lbl, f, args...)
-    end
-    return nothing
-end
-
-function miss2false(v)
-    bv = ones(Bool, length(v))
-    for i in 1:lastindex(v)
-        if ismissing(v[i]) || v[i] == 0
-            bv[i] = false
-        end
-    end
-    return bv
-end
-
+# function col2unitful!(df, lbl, u)
+#     replacecol!(df, lbl, *, u)
+#     return nothing
+# end
+#
+# function df2unitful!(df, fu_dict)
+#     is =intersect(Symbol.(names(df)), keys(fu_dict))
+#     for l in is
+#         col2unitful!(df, l, fu_dict[l])
+#     end
+#     return nothing
+# end
 
 function coltypes(cols, udict)
     nms = Symbol.(names(cols))
@@ -95,9 +72,13 @@ function sortcols!(df)
     return nothing
 end
 
-replacecol!(els, [:is_monoisotopic, :is_radioactive], miss2false)
+# boolean columns are sometimes encoded as integer {0, 1} and sometimes as {missing, 1} - let's convert them to Bool
+select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(x -> !(ismissing(x) || x == 0)), renamecols=false, :)
 # @show els[1:3, :is_monoisotopic]
-replacecol!(els, :symbol, x -> Symbol.(x))
+# @show els[81:84, :is_radioactive]
+
+
+select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
 # @show els[1:3, :symbol]
 
 
