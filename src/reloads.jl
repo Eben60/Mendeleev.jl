@@ -112,7 +112,6 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
          end
          println(io)
      end
-<<<<<<< HEAD
  end
 
  # Since Element equality is determined by atomic number alone...
@@ -148,8 +147,7 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
 #      atomic mass: 281.0 u
 #          density: 34.8 g/cm³
 # Error showing value of type Element_M{Missing, Missi...
-=======
-end
+
 
 # Since Element equality is determined by atomic number alone...
 Base.isequal(elm1::Element_M, elm2::Element_M) = elm1.number == elm2.number
