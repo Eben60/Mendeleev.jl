@@ -1,3 +1,5 @@
+# TODO rename :source to :wikipedia
+
 const synonym_fields = Dict(
     :atomic_mass => :atomic_weight,
     :boil => :boiling_point,
@@ -5,6 +7,7 @@ const synonym_fields = Dict(
     # :discovered_by => :discoverers, # calculated
     :melt => :melting_point,
     :number => :atomic_number,
+    :molar_heat => :molar_heat_capacity
     )
 
 const calculated_properties = [:discovered_by,]
