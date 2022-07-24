@@ -28,8 +28,8 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     printpresent(io, "summary", el.summary)
     printpresent(io, "CAS identifier", el.cas)
     printpresent(io, "discovered by", el.discovered_by)
-    printpresent(io, "named by", el.named_by)
-    printpresent(io, "source", el.source)
+    # printpresent(io, "named by", el.named_by)
+    printpresent(io, "wikipedia URL", el.wikipedia)
     printpresent(io, "spectral image", el.spectral_img)
 end
 
@@ -58,11 +58,16 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     # printpresenthtml(io, "color", el.color)  # the field is present for Co only, and also redundant (s. appearance)
     printpresenthtml(io, "summary", el.summary)
     printpresenthtml(io, "CAS identifier", el.cas)
+
+    # printpresent(io, "named by", el.named_by)
+    printpresenthtml(io, "wikipedia URL", el.wikipedia)
+    printpresenthtml(io, "spectral image", el.spectral_img)
+
     printpresenthtml(io, "discovered by", el.discovered_by)
     printpresenthtml(io, "named by", el.named_by)
 
-    link = string("<a href=\"", el.source, "\">", el.source, "</a>")
-    printpresenthtml(io, "source", link)
+    link = string("<a href=\"", el.wikipedia, "\">", el.wikipedia, "</a>")
+    printpresenthtml(io, "wikipedia", link)
     println(io, "</table>")
 
     if ispresent(el.spectral_img)
