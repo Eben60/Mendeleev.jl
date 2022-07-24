@@ -18,10 +18,10 @@ include("synonym_fields.jl")
 include("reloads.jl")
 
 elements_arr = inst_elements(els_data)
+els_data = nothing
 const ELEMENTS_M = Elements_M(elements_arr)
 
 export Element_M # struct definition
-
 export ELEMENTS_M # all elements data
 
 end  # module Mendeleev
