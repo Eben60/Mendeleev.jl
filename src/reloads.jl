@@ -29,7 +29,7 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     printpresent(io, "CAS identifier", el.cas)
     printpresent(io, "discovered by", el.discovered_by)
     # printpresent(io, "named by", el.named_by)
-    printpresent(io, "NIST chem. webbook", el.nist_webbook)
+    printpresent(io, "NIST webbook", el.nist_webbook)
     printpresent(io, "wikipedia URL", el.wikipedia)
     printpresent(io, "spectral image", el.spectral_img)
 end
