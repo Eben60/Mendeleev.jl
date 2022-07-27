@@ -1,5 +1,6 @@
 module Generate_MFiles
 using SQLite, DataFrames, PeriodicTable, Unitful
+using JSONTables
 using Scratch, Pkg.TOML
 
 

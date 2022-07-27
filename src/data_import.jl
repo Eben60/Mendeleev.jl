@@ -2,10 +2,19 @@ elements_src = joinpath(@__DIR__ , "../data/elements.db")
 tmp_dir = @get_scratch!("mendeleev_files")
 
 elements_dbfile = joinpath(tmp_dir, "mendeleev-elements.db")
+chembook_jsonfile = joinpath(@__DIR__ , "../data/el_chembook.json")
 
 if !isfile(elements_dbfile)
     cp(elements_src, elements_dbfile)
 end
+
+function readdf(jfile)
+    jsource = open(jfile) do file
+       read(file, String)
+    end
+    return DataFrame(jsontable(jsource))
+end
+
 
 function read_db_tables(dbfile)
     edb = SQLite.DB(dbfile)
@@ -16,8 +25,10 @@ function read_db_tables(dbfile)
 end
 
 dfs = read_db_tables(elements_dbfile)
+dfcb = readdf(chembook_jsonfile)
 
 els = dfs.elements
+els = rightjoin(dfcb, els, on = :atomic_number)
 els = rightjoin(dfpt, els, on = :atomic_number)
 
 sort!(els, :atomic_number)
