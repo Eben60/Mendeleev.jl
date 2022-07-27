@@ -60,7 +60,7 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     printpresenthtml(io, "summary", el.summary)
     printpresenthtml(io, "CAS identifier", el.cas)
     # printpresent(io, "named by", el.named_by)
-    printpresenthtml(io, "NIST chem. webbook", el.nist_webbook)
+    printpresenthtml(io, "NIST webbook", el.nist_webbook)
     printpresenthtml(io, "wikipedia URL", el.wikipedia)
     printpresenthtml(io, "spectral image", el.spectral_img)
 
