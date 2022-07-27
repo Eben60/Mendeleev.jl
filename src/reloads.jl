@@ -29,6 +29,7 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     printpresent(io, "CAS identifier", el.cas)
     printpresent(io, "discovered by", el.discovered_by)
     # printpresent(io, "named by", el.named_by)
+    printpresent(io, "NIST chem. webbook", el.nist_webbook)
     printpresent(io, "wikipedia URL", el.wikipedia)
     printpresent(io, "spectral image", el.spectral_img)
 end
@@ -58,8 +59,8 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     # printpresenthtml(io, "color", el.color)  # the field is present for Co only, and also redundant (s. appearance)
     printpresenthtml(io, "summary", el.summary)
     printpresenthtml(io, "CAS identifier", el.cas)
-
     # printpresent(io, "named by", el.named_by)
+    printpresenthtml(io, "NIST chem. webbook", el.nist_webbook)
     printpresenthtml(io, "wikipedia URL", el.wikipedia)
     printpresenthtml(io, "spectral image", el.spectral_img)
 
