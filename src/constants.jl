@@ -47,9 +47,5 @@ end
 
 const f_units = Dict(k => s2unit(v) for (k, v) in f_unames)
 
-const seriesnames = ["Nonmetals", "Noble gases", "Alkali metals", "Alkaline earth metals",
-                    "Metalloids", "Halogens", "Poor metals", "Transition metals",
-                    "Lanthanides", "Actinides"]
-
 struct_fl = "src/Element_M_def.jl"
 static_data_fl = "src/elements_data.jl"

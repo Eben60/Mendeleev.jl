@@ -9,7 +9,7 @@ function inst_elements(xs)
     return e
 end
 
-
+include("seriesnames.jl")
 include("Element_M_def.jl")
 include("elements_data.jl")
 Element_M(x) = Element_M(x...)

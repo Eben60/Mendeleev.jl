@@ -131,8 +131,8 @@ Base.eachindex(elms::Element_M) = eachindex(elms.data)
 
 function Base.getproperty(e::Element_M, s::Symbol)
     s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
-    s in fieldnames(Element_M)  && return getfield(e, s)
     s in calculated_properties && return eval(property_fns[s])(e)
+    s in fieldnames(Element_M)  && return getfield(e, s)
     throw(DomainError(s, "nonexistent Element_M property"))
     # # in case it is a field of PeriodicTable elements only
     # no = getfield(e, :atomic_number)
