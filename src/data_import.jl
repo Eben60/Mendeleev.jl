@@ -93,6 +93,15 @@ select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
 # @show els[1:3, :symbol]
 
 
+ser = dfs.series
+sort(ser, :name)
+# check if series names still the same es ever
+@assert seriesnames == ser.name
+# rename column; see getproperty(...., :series)
+select!(els, :series_id => :series, :)
+
+
+
 # df2unitful!(els, f_units)
 sortcols!(els)
 

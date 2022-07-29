@@ -21,3 +21,5 @@ function fn_discovered_by(e)
 end
 
 fn_number(e) = e.atomic_number
+
+fn_series(e) = seriesnames[e.series]
