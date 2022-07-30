@@ -24,7 +24,7 @@ function read_db_tables(dbfile)
     return dfs
 end
 
-dfs = read_db_tables(elements_dbfile)
+const dfs = read_db_tables(elements_dbfile)
 dfcb = readdf(chembook_jsonfile)
 
 els = dfs.elements
@@ -104,9 +104,28 @@ groups = dfs.groups
 sort!(groups, :group_id)
 grouplist = [Group_M(g.symbol, g.name) for g in Tables.rowtable(groups)]
 # check if groups still the same es ever
-@assert collect(groups_m) == grouplist 
-
+@assert collect(groups_m) == grouplist
+# rename column; see getproperty(...., :group)
 rename!(els, :group_id => :group)
+
+function getoxstates(no)
+    ox = dfs.oxidationstates
+    oxstates = ox[ox.atomic_number.==no , :oxidation_state]
+    (isempty(oxstates) || ismissing(oxstates[1])) && return missing # Int[]
+    return [Int(x) for x in oxstates]
+end
+
+function alloxstates()
+    return Dict([no=>getoxstates(no) for no in els.atomic_number])
+end
+
+
+
+
+
+
+
+
 
 # df2unitful!(els, f_units)
 sortcols!(els)
@@ -119,10 +138,3 @@ vs = NamedTuple.(eachrow(els))
 
 # (;type=nmtp, fields=x)
 s_def_text = make_struct("Element_M", cnames, ctypes)
-
-write_struct_jl(struct_fl, s_def_text)
-
-#
-# export Element_M, ELEMENTS_M
-#
-# export cnames, ctypes, vs #, make_struct

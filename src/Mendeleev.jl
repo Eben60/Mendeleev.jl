@@ -10,6 +10,7 @@ function inst_elements(xs)
 end
 
 include("seriesnames.jl")
+include("oxistates_data.jl")
 include("Group_M_def_data.jl")
 include("Element_M_def.jl")
 include("elements_data.jl")

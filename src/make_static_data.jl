@@ -35,3 +35,19 @@ function make_static_data(fl, rs, u_dic)
     end
     return nothing
 end
+
+function make_oxstates_data(fl)
+    open(fl, "w") do io
+        oxstates = alloxstates()
+        println(io, "# this is computer generated file - better not edit")
+        println(io)
+        println(io, "const oxistates_data = Dict(")
+        ks = sort(collect(keys(oxstates)))
+        for k in ks
+            states = oxstates[k]
+            println(io, "    $k => $(oxstates[k]), ")
+        end
+        println(io, ")")
+    end
+    return nothing
+end
