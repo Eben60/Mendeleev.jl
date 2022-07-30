@@ -3,6 +3,18 @@ struct Group_M
     name::String
 end
 
+function group_fullname(g::Group_M)
+    name = g.name
+    symbol = g.symbol
+    isempty(name) && return symbol
+    return "$symbol ($name)"
+end
+
+
+function Base.show(io::IO, g::Group_M)
+    show(group_fullname(g))
+end
+
 groups_m = (
 Group_M("IA", "Alkali metals"),
 Group_M("IIA", "Alkaline earths"),

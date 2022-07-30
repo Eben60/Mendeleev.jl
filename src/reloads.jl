@@ -4,6 +4,7 @@ ispresent(x::Missing) = false
 ispresent(x::Union{AbstractArray, AbstractString}) = !  isempty(x)
 ispresent(x::Union{AbstractFloat, Quantity}) = ! isnan(x)
 ispresent(x::Int) = x >= 0 # TODO check!
+ispresent(x::Group_M) = true
 
 
 function printpresent(io::IO, name, v, suffix=""; pad=16)
