@@ -8,8 +8,8 @@ function group_fullname(g::Group_M)
     no = g.no
     name = g.name
     symbol = g.symbol
-    isempty(name) && return "$no - $symbol"
-    return "$no - $symbol ($name)"
+    isempty(name) && return "$no[$symbol]"
+    return "$no[$symbol] ($name)"
 end
 
 
