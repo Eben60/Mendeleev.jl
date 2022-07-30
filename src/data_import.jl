@@ -94,13 +94,19 @@ select!(els, :symbol => ByRow(x -> Symbol.(x)), renamecols=false, :)
 
 
 ser = dfs.series
-sort(ser, :name)
+# sort(ser, :name)
 # check if series names still the same es ever
-@assert seriesnames == ser.name
+@assert collect(seriesnames) == ser.name
 # rename column; see getproperty(...., :series)
-select!(els, :series_id => :series, :)
+rename!(els, :series_id => :series)
 
+groups = dfs.groups
+sort!(groups, :group_id)
+grouplist = [Group_M(g.symbol, g.name) for g in Tables.rowtable(groups)]
+# check if groups still the same es ever
+@assert collect(groups_m) == grouplist 
 
+rename!(els, :group_id => :group)
 
 # df2unitful!(els, f_units)
 sortcols!(els)

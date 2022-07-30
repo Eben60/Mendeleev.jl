@@ -23,3 +23,5 @@ end
 fn_number(e) = e.atomic_number
 
 fn_series(e) = seriesnames[getfield(e, :series)]
+
+fn_group(e) = groups_m[getfield(e, :group)]

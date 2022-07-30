@@ -79,8 +79,24 @@ seriesnames = ["Nonmetals", "Noble gases", "Alkali metals", "Alkaline earth meta
                 "Lanthanides", "Actinides"]
 @assert seriesnames == ser.name
 
+#
+# serbyid(id) = ser[id, :name]
+# select!(els, :series_id => :series, :)
 
-serbyid(id) = ser[id, :name]
-select!(els, :series_id => :series, :)
+groups = dfs.groups
+sort!(groups, :group_id)
+
+function grname(symbol, name)
+    isempty(name) && return symbol
+    return "$symbol ($name)"
+end
+
+struct Group_M
+    symbol::String
+    name::String
+end
+
+grouplist = [Group_M(g.symbol, g.name) for g in Tables.rowtable(groups)]
+
 
 end

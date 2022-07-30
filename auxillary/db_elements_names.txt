@@ -1,4 +1,9 @@
 
+(:series, :groups, :ionizationenergies, :oxidationstates, :isotopes, :ionicradii, :screeningconstants, :alembic_version, :elements)
+
+-------------
+series :
+
 annotation
 atomic_number
 atomic_radius
@@ -70,3 +75,31 @@ dipole_polarizability_unc
 pettifor_number
 glawe_number
 molar_heat_capacity
+
+
+----------------
+elements.group_id
+gr
+julia> show(dfs.groups, allrows=true)
+18×3 DataFrame
+ Row │ group_id  symbol  name
+     │ Int64     String  String
+─────┼───────────────────────────────────
+   1 │        1  IA      Alkali metals
+   2 │        2  IIA     Alkaline earths
+   3 │        3  IIIB
+   4 │        4  IVB
+   5 │        5  VB
+   6 │        6  VIB
+   7 │        7  VIIB
+   8 │        8  VIIIB
+   9 │        9  VIIIB
+  10 │       10  VIIIB
+  11 │       11  IB      Coinage metals
+  12 │       12  IIB
+  13 │       13  IIIA    Boron group
+  14 │       14  IVA     Carbon group
+  15 │       15  VA      Pnictogens
+  16 │       16  VIA     Chalcogens
+  17 │       17  VIIA    Halogens
+  18 │       18  VIIIA   Noble gases

@@ -13,6 +13,7 @@ const pkg_version = get_version()
 
 include("constants.jl")
 include("seriesnames.jl")
+include("Group_M_def_data.jl")
 include("synonym_fields.jl")
 include("PeriodicTable2df.jl")
 include("make_struct.jl")
