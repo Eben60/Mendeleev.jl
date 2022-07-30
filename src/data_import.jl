@@ -112,7 +112,7 @@ function getoxstates(no)
     ox = dfs.oxidationstates
     oxstates = ox[ox.atomic_number.==no , :oxidation_state]
     (isempty(oxstates) || ismissing(oxstates[1])) && return missing # Int[]
-    return [Int(x) for x in oxstates]
+    return sort([Int(x) for x in oxstates])
 end
 
 function alloxstates()
