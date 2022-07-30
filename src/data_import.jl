@@ -102,7 +102,7 @@ rename!(els, :series_id => :series)
 
 groups = dfs.groups
 sort!(groups, :group_id)
-grouplist = [Group_M(g.symbol, g.name) for g in Tables.rowtable(groups)]
+grouplist = [Group_M(g.group_id, g.symbol, g.name) for g in Tables.rowtable(groups)]
 # check if groups still the same es ever
 @assert collect(groups_m) == grouplist
 # rename column; see getproperty(...., :group)
