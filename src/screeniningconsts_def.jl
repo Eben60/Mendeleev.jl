@@ -54,12 +54,23 @@ function find_sc(s::ScreenConstants, shell::Int, orb_type)
     return (; sc = s.data[pos[begin]], sc0)
 end
 
+function find_sc(s::ScreenConstants, orbital::AbstractString)
+    shell = parse(Int, orbital[begin:end-1])
+    orb_type = orbital[end]
+    return find_sc(s, shell, orb_type)
+end
+
 function Base.getindex(s::ScreenConstants, shell::Int, orb_type)
     sc = find_sc(s, shell, orb_type)
     isnothing(sc.sc) && throw(KeyError("$(sc.sc0.shell)$(orb_typenames[sc.sc0.orb_type])"))
     return sc.sc
 end
 
+function Base.getindex(s::ScreenConstants, orbital::AbstractString)
+    sc = find_sc(s, orbital)
+    isnothing(sc.sc) && throw(KeyError("$(sc.sc0.shell)$(orb_typenames[sc.sc0.orb_type])"))
+    return sc.sc
+end
 
 ################
 # tests
@@ -78,7 +89,7 @@ scs = ScreenConstants([Fes1, Fes2, Fep1])
 @test Fes1 < Fes2
 @test Fes1 < Fep1
 @test !(Fep1 < Fes1)
-@test SC.scs[2,1] == ScreenConst(26, 2,1, 4.0)
-
+@test scs[2,1] == ScreenConst(26, 2,1, 4.0)
+@test scs[2,1] == scs["2s"]
 # # # #
 end
