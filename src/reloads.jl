@@ -128,7 +128,7 @@ Base.hash(elm::Element_M, h::UInt) = hash(elm.number, h)
 Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
 
 # Provide a simple way to iterate over all elements.
-Base.eachindex(elms::Element_M) = eachindex(elms.data)
+Base.eachindex(elms::Elements_M) = eachindex(elms.data)
 
 function Base.getproperty(e::Element_M, s::Symbol)
     s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
