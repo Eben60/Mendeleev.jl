@@ -119,11 +119,17 @@ function alloxstates()
     return Dict([no=>getoxstates(no) for no in els.atomic_number])
 end
 
+const scr = dfs.screeningconstants
+rename!(scr, :s => :orb_type)
+rename!(scr, :n => :shell)
+transform!(scr, :orb_type => (x->Symbol.(x)); renamecols=false)
 
+getscreening(no) = scr[scr.atomic_number.==no, [:atomic_number, :shell, :orb_type, :screening]] |> Tables.rowtable .|> Tuple
 
-
-
-
+function getscreenings()
+    nos = sort(unique(scr.atomic_number))
+    return [getscreening(no) for no in nos]
+end
 
 
 

@@ -1,5 +1,5 @@
-module SC
-using Mendeleev, Test
+# module SC
+# using Mendeleev, Test
 
 const orb_typenums = Dict('s' => 1,
                            'p' => 2,
@@ -17,7 +17,7 @@ end
 
 ScreenConst(a, s, ss::AbstractChar, v) = ScreenConst(a, s, orb_typenums[ss], v)
 ScreenConst(a, s, ss::T, v) where T <: Union{AbstractString, Symbol} = ScreenConst(a, s, orb_typenums[String(ss)[1]], v)
-
+ScreenConst(t::T) where T <: Tuple = ScreenConst(t...)
 
 function Base.show(io::IO, sc::ScreenConst)
     elem = ELEMENTS_M[sc.atomic_number].symbol
@@ -41,6 +41,8 @@ struct ScreenConstants
         data[1].atomic_number,
         sort!(data) )
 end
+
+ScreenConstants(s::Vector{T}) where T <: Tuple = ScreenConstants(ScreenConst.(s))
 
 function Base.show(io::IO, scs::ScreenConstants)
     show(scs.data)
@@ -73,23 +75,32 @@ function Base.getindex(s::ScreenConstants, orbital::AbstractString)
 end
 
 ################
-# tests
 
-Fes1 = ScreenConst(26, 1, 's', 4)
-Fes2 = ScreenConst(26, 2, 's', 4)
-Fep1 = ScreenConst(26, 1, 'p', 4)
-Ni = ScreenConst(28, 1, 's', 4)
 
-scs = ScreenConstants([Fes1, Fes2, Fep1])
 
-@test_throws DomainError ScreenConstants([Fes1, Fes2, Fep1, Ni])
-@test_throws DomainError Fes1 < Ni
-@test_throws KeyError scs[1,5]
+################
+# # tests
+#
+# Fes1 = ScreenConst(26, 1, 's', 4)
+# Fes2 = ScreenConst(26, 2, 's', 4)
+# Fep1 = ScreenConst(26, 1, 'p', 4)
+# Ni = ScreenConst(28, 1, 's', 4)
+#
+# scs = ScreenConstants([Fes1, Fes2, Fep1])
+#
+# scs19 = ScreenConstants([(19, 1, :s, 0.5105000000000004), (19, 2, :p, 3.9727999999999994), (19, 2, :s, 5.9938),
+#                         (19, 3, :p, 11.2744), (19, 3, :s, 10.3201), (19, 4, :s, 15.5048)])
+#
+#
+# @test_throws DomainError ScreenConstants([Fes1, Fes2, Fep1, Ni])
+# @test_throws DomainError Fes1 < Ni
+# @test_throws KeyError scs[1,5]
+#
+# @test Fes1 < Fes2
+# @test Fes1 < Fep1
+# @test !(Fep1 < Fes1)
+# @test scs[2,1] == ScreenConst(26, 2,1, 4.0)
+# @test scs[2,1] == scs["2s"]
+# # # # #
 
-@test Fes1 < Fes2
-@test Fes1 < Fep1
-@test !(Fep1 < Fes1)
-@test scs[2,1] == ScreenConst(26, 2,1, 4.0)
-@test scs[2,1] == scs["2s"]
-# # # #
-end
+# end # module
