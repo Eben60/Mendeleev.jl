@@ -12,7 +12,7 @@ struct ScreenConst
     atomic_number::Int
     shell::Int
     orb_type::Int
-    val::Float64
+    screening::Float64
 end
 
 ScreenConst(a, s, ss::AbstractChar, v) = ScreenConst(a, s, orb_typenums[ss], v)
@@ -23,7 +23,7 @@ function Base.show(io::IO, sc::ScreenConst)
     elem = ELEMENTS_M[sc.atomic_number].symbol
     orb_type = orb_typenames[sc.orb_type]
     orbital = "$(sc.shell)$orb_type"
-    show("$elem $orbital: $(sc.val)")
+    show("$elem $orbital: $(sc.screening)")
 end
 
 function Base.isless(sc1::ScreenConst, sc2::ScreenConst)
