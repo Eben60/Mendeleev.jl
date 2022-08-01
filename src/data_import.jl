@@ -139,6 +139,27 @@ function getscreenings()
     return [getscreening(no) for no in nos]
 end
 
+const ird = dfs.ionicradii
+# transform!(ird, :screening => (x->round_pos.(x, 13)); renamecols=false)
+
+function unmiss(x, T::Type)
+    T = nonmissingtype(T)
+    ! ismissing(x) && return x
+    T <: AbstractFloat && return T(NaN)
+    T <: AbstractString && return ""
+    T <: Integer && return intNaN
+end
+
+function unmiss!(df::AbstractDataFrame, collabel)
+    T = eltype(df[!, collabel])
+    transform!(df, collabel => (x->unmiss.(x, T)); renamecols=false)
+end
+
+function unmiss!(df::AbstractDataFrame)
+    for n in names(df)
+        unmiss!(df, n)
+    end
+end
 
 
 # df2unitful!(els, f_units)

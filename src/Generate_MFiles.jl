@@ -3,7 +3,7 @@ using SQLite, DataFrames, PeriodicTable, Unitful
 using JSONTables
 using Scratch, Pkg.TOML
 
-dev = false
+dev = true
 
 function get_version()
     return VersionNumber(TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"])
