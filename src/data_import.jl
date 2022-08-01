@@ -119,10 +119,18 @@ function alloxstates()
     return Dict([no=>getoxstates(no) for no in els.atomic_number])
 end
 
+
+function round_pos(x, pos::Int)
+    f = 10^pos
+    return round(x*f)/f
+end
+
+
 const scr = dfs.screeningconstants
 rename!(scr, :s => :orb_type)
 rename!(scr, :n => :shell)
 transform!(scr, :orb_type => (x->Symbol.(x)); renamecols=false)
+transform!(scr, :screening => (x->round_pos.(x, 13)); renamecols=false)
 
 getscreening(no) = scr[scr.atomic_number.==no, [:atomic_number, :shell, :orb_type, :screening]] |> Tables.rowtable .|> Tuple
 
