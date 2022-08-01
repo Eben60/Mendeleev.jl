@@ -28,4 +28,8 @@ fn_group(e) = groups_m[getfield(e, :group)]
 
 fn_oxistates(e) = oxistates_data[e.atomic_number]
 
-fn_sconst(e) = screenings_data[e.atomic_number]
+function fn_sconst(e)
+    n = e.atomic_number
+    ! (n in keys(screenings_data)) && return missing
+    return screenings_data[n]
+end
