@@ -130,6 +130,8 @@ Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
 # Provide a simple way to iterate over all elements.
 Base.eachindex(elms::Elements_M) = eachindex(elms.data)
 
+# TODO for all overloads
+# types that overload getproperty should generally overload propertynames
 function Base.getproperty(e::Element_M, s::Symbol)
     s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
     s in calculated_properties && return eval(property_fns[s])(e)
@@ -140,3 +142,5 @@ function Base.getproperty(e::Element_M, s::Symbol)
     # e_pt = elements[no]
     # return getfield(e_pt, s)
 end
+
+Base.propertynames(e::Element_Ml) = sort(union(keys(synonym_fields), calculated_properties, fieldnames(Element_M)))
