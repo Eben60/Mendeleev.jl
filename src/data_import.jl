@@ -64,7 +64,7 @@ function coltypes(cols, udict)
 
     for i in 1:length(nms)
         n = nms[i]
-        if n in keys(udict)
+        if haskey(udict, n)
             tp = "typeof(1.0*$(udict[n]))"
             if eltype(cols[i]) isa Union
                 tp = "Union{Missing, $tp}"

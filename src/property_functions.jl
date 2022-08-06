@@ -30,6 +30,6 @@ fn_oxistates(e) = oxistates_data[e.atomic_number]
 
 function fn_sconst(e)
     n = e.atomic_number
-    ! (n in keys(screenings_data)) && return missing
+    ! haskey(screenings_data, n) && return missing
     return screenings_data[n]
 end

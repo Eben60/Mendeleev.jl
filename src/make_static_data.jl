@@ -1,5 +1,5 @@
 function make_ustring(k, val, u_dic)
-    if k in keys(u_dic)
+    if  haskey(u_dic, k)
         ismissing(val) && return ""
         s = string(u_dic[k])
         us = "u\"$s\""

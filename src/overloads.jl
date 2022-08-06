@@ -133,7 +133,7 @@ Base.eachindex(elms::Elements_M) = eachindex(elms.data)
 # TODO for all overloads
 # types that overload getproperty should generally overload propertynames
 function Base.getproperty(e::Element_M, s::Symbol)
-    s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
+    haskey(synonym_fields, s) && return getfield(e, synonym_fields[s])
     s in calculated_properties && return eval(property_fns[s])(e)
     s in fieldnames(Element_M)  && return getfield(e, s)
     throw(DomainError(s, "nonexistent Element_M property"))
