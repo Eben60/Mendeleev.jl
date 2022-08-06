@@ -1,4 +1,4 @@
-# this is computer generated file - better not edit
+# TODO why Pu was missing ????
 
 const oxistates_data = Dict(
     1 => [-1, 1],
