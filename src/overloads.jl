@@ -143,4 +143,4 @@ function Base.getproperty(e::Element_M, s::Symbol)
     # return getfield(e_pt, s)
 end
 
-Base.propertynames(e::Element_Ml) = sort(union(keys(synonym_fields), calculated_properties, fieldnames(Element_M)))
+Base.propertynames(e::Element_M) = sort(union(keys(synonym_fields), calculated_properties, fieldnames(Element_M)))
