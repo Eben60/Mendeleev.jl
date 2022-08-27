@@ -3,7 +3,7 @@
 
 
 function make_where(fts, Ts)
-    w = ["$t <: $ft" for (t, ft) in zip(Ts, fts)]
+    w = ["$t :: $ft" for (t, ft) in zip(Ts, fts)]
     w = join(w, ", ")
     return "{$w}"
 end
@@ -15,10 +15,10 @@ function make_struct(sname, fnames, ftypes, create=false)
 
     fnames = fnames .|> string
     Ts = ["T$i" for i in eachindex(fnames)]
-    w = make_where(ftypes, Ts)
-    s_type = "$sname$w"
+    # w = make_where(ftypes, Ts)
+    s_type = "$sname"
     nmtp = Meta.parse(s_type)
-    xs = ["$f::$t" for (f,t) in zip(fnames, Ts)]
+    xs = ["$f::$ft" for (f,ft) in zip(fnames, ftypes)]
     x = Meta.parse.(xs)
     if create
         @eval begin
