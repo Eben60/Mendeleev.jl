@@ -128,10 +128,12 @@ Base.hash(elm::Element_M, h::UInt) = hash(elm.number, h)
 Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
 
 # Provide a simple way to iterate over all elements.
-Base.eachindex(elms::Element_M) = eachindex(elms.data)
+Base.eachindex(elms::Elements_M) = eachindex(elms.data)
 
+# TODO for all overloads
+# types that overload getproperty should generally overload propertynames
 function Base.getproperty(e::Element_M, s::Symbol)
-    s in keys(synonym_fields) && return getfield(e, synonym_fields[s])
+    haskey(synonym_fields, s) && return getfield(e, synonym_fields[s])
     s in calculated_properties && return eval(property_fns[s])(e)
     s in fieldnames(Element_M)  && return getfield(e, s)
     throw(DomainError(s, "nonexistent Element_M property"))
@@ -140,3 +142,5 @@ function Base.getproperty(e::Element_M, s::Symbol)
     # e_pt = elements[no]
     # return getfield(e_pt, s)
 end
+
+Base.propertynames(e::Element_M) = sort(union(keys(synonym_fields), calculated_properties, fieldnames(Element_M)))

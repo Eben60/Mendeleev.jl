@@ -14,6 +14,7 @@ include("constants.jl")
 include("seriesnames.jl")
 include("Group_M_def_data.jl")
 include("synonym_fields.jl")
+include("screeniningconsts_def.jl")
 include("PeriodicTable2df.jl")
 include("make_struct.jl")
 include("utype2str.jl")
@@ -27,6 +28,6 @@ end
 if ! dev
     make_static_data(static_data_fl, vs, f_unames)
     make_oxstates_data(oxstate_fl)
+    make_screening_data(screening_fl)
 end
-
 end  # module Generate_MFiles

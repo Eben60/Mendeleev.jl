@@ -1,5 +1,5 @@
 function make_ustring(k, val, u_dic)
-    if k in keys(u_dic)
+    if  haskey(u_dic, k)
         ismissing(val) && return ""
         s = string(u_dic[k])
         us = "u\"$s\""
@@ -46,6 +46,29 @@ function make_oxstates_data(fl)
         for k in ks
             states = oxstates[k]
             println(io, "    $k => $(oxstates[k]), ")
+        end
+        println(io, ")")
+    end
+    return nothing
+end
+
+function print_atom_screenings(io, d)
+    atomic_number = d[1][1]
+    println(io, "$atomic_number => ScreenConstants([")
+    for t in d
+        println(io, "    $t ,")
+    end
+    println(io, "]),")
+end
+
+function make_screening_data(fl)
+    open(fl, "w") do io
+        screenings = getscreenings()
+        println(io, "# this is computer generated file - better not edit")
+        println(io)
+        println(io, "const screenings_data = Dict(")
+        for sc in screenings
+            print_atom_screenings(io, sc)
         end
         println(io, ")")
     end
