@@ -10,3 +10,5 @@ O = elements[8]
 F = elements[9]
 @test O === elements["oxygen"] == elements[:O]
 @test O != elements[:F]
+
+include("ScreeningConstantsTests.jl")
