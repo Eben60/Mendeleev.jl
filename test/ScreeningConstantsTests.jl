@@ -5,6 +5,7 @@ ScreenConst = Mendeleev.ScreenConst
 ScreenConstants = Mendeleev.ScreenConstants
 
 K = ELEMENTS_M[:K]
+Ts = ELEMENTS_M[:Ts]
 
 K_s1 = ScreenConst(19, 1, :s, 0.5105)
 
@@ -29,5 +30,7 @@ scs = ScreenConstants([e1_s1, e1_s2, e1_p1])
 @test repr(K.sconst["2p"]) == "K 2p: 3.9728"
 @test repr(K.sconst) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 @test K.sconst["2p"].screening == 3.9728
+
+@test ismissing(Ts.sconst)
 
 end # module
