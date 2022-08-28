@@ -13,3 +13,4 @@ F = elements[9]
 
 include("ScreeningConstantsTests.jl")
 include("OxiStatesTests.jl")
+include("GroupsSeriesTests.jl")
