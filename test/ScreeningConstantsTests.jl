@@ -1,8 +1,7 @@
 module ScreeningConstantsTests
 using Mendeleev, Test
 
-ScreenConst = Mendeleev.ScreenConst
-ScreenConstants = Mendeleev.ScreenConstants
+using Mendeleev: ScreenConst, ScreenConstants
 
 K = ELEMENTS_M[:K]
 Ts = ELEMENTS_M[:Ts]

@@ -1,7 +1,7 @@
 module GroupsSeriesTests
 using Mendeleev, Test
 
-Group_M = Mendeleev.Group_M
+using Mendeleev: Group_M
 
 He = ELEMENTS_M[:He]
 N = ELEMENTS_M[:N]
