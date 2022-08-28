@@ -23,7 +23,7 @@ function Base.show(io::IO, sc::ScreenConst)
     elem = ELEMENTS_M[sc.atomic_number].symbol
     orb_type = orb_typenames[sc.orb_type]
     orbital = "$(sc.shell)$orb_type"
-    print(IO, "$elem $orbital: $(sc.screening)")
+    print(io, "$elem $orbital: $(sc.screening)")
 end
 
 function Base.isless(sc1::ScreenConst, sc2::ScreenConst)
@@ -45,7 +45,7 @@ end
 ScreenConstants(s::Vector{T}) where T <: Tuple = ScreenConstants(ScreenConst.(s))
 
 function Base.show(io::IO, scs::ScreenConstants)
-    println(IO, scs.data)
+    println(io, scs.data)
 end
 
 # like getindex, but don't throw error
