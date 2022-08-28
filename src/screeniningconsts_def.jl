@@ -45,7 +45,7 @@ end
 ScreenConstants(s::Vector{T}) where T <: Tuple = ScreenConstants(ScreenConst.(s))
 
 function Base.show(io::IO, scs::ScreenConstants)
-    println(io, scs.data)
+    print(io, scs.data)
 end
 
 # like getindex, but don't throw error

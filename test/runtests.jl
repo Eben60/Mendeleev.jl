@@ -12,3 +12,4 @@ F = elements[9]
 @test O != elements[:F]
 
 include("ScreeningConstantsTests.jl")
+include("OxiStatesTests.jl")
