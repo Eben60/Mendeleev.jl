@@ -1,5 +1,5 @@
 module IonenergyTests
-using Mendeleev, Test
+using Mendeleev, Test, Unitful
 
 K = ELEMENTS_M[:K]
 Ts = ELEMENTS_M[:Ts]
