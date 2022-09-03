@@ -74,3 +74,27 @@ function make_screening_data(fl)
     end
     return nothing
 end
+
+function print_ioniz_energies(io, atomic_number)
+    ie = ionizenergies(atomic_number)
+    if ismissing(ie)
+        println(io, "    $atomic_number => missing,")
+    else
+        en_strings = join(string.(ie), ", ")
+        println(io, "    $atomic_number => [$en_strings],")
+    end
+    return nothing
+end
+
+function make_ionization_data(fl)
+    open(fl, "w") do io
+        println(io, "# this is computer generated file - better not edit")
+        println(io)
+        println(io, "const ionization_data = Dict{Int64, Union{Missing, Vector{Union{Missing, Float64}}}}(")
+        for atomic_number in 1:LAST_NO
+            print_ioniz_energies(io, atomic_number)
+        end
+        println(io, ")")
+    end
+    return nothing
+end

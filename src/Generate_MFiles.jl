@@ -31,4 +31,5 @@ if ! dev
         # make_oxstates_data(oxstate_fl)
     make_screening_data(screening_fl)
 end
+make_ionization_data(ionization_fl)
 end  # module Generate_MFiles

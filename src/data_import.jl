@@ -33,6 +33,8 @@ els = rightjoin(dfpt, els, on = :atomic_number)
 
 sort!(els, :atomic_number)
 
+const LAST_NO = maximum(els[!, :atomic_number])
+
 # programmatically define struct named Element_M with given field names and types
 
 # const ELEMENTS_M = [Element_M(v...) for v in vs] # takes as long as 90s on my computer
@@ -170,6 +172,26 @@ ctypes = coltypes(eachcol(els), fu1)
 cnames = names(els) # 70-element Vector{String}: "annotation"...
 vs = NamedTuple.(eachrow(els))
 
+
+ion = dfs.ionizationenergies
+
+function ionizenergies(atomic_number)
+    iz = ion[ion.atomic_number.== atomic_number, [:degree, :energy]]
+    isempty(iz) && return missing
+    nts = iz  |> Tables.rowtable
+
+    d = Dict{Int, Union{Float64, Missing}}([nt.degree => nt.energy for nt in nts])
+    for n in 1:atomic_number
+        if ! haskey(d, n)
+            push!(d, n=>missing)
+        end
+    end
+
+    v = [d[i] for i in 1:atomic_number]
+    return v
+end
+
+# allionizenergies() = Dict(n => ionizenergies(n) for n in 1:LAST_NO)
 
 # (;type=nmtp, fields=x)
 s_def_text = make_struct("Element_M", cnames, ctypes)
