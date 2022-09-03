@@ -52,6 +52,7 @@ Be = ELEMENTS_M[:Be]
 @test unit(O.vdw_radius_uff) === u"pm"
 @test unit(Zr.thermal_conductivity) === u"W/(m*K)"
 @test unit(H.atomic_weight) === u"u"
+@test unit(Zr.ionenergy[2]) === u"eV"
 
 
 end
