@@ -3,7 +3,7 @@ using SQLite, DataFrames, PeriodicTable, Unitful
 using JSONTables
 using Scratch, Pkg.TOML
 
-dev = false
+dev = true
 
 function get_version()
     return VersionNumber(TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"])
@@ -27,9 +27,11 @@ end
     include("make_static_data.jl")
 if ! dev
     make_static_data(static_data_fl, vs, f_unames)
-        # oxidation states are my own work now
-        # make_oxstates_data(oxstate_fl)
     make_screening_data(screening_fl)
+    make_ionization_data(ionization_fl)
+
+    # oxidation states are my own work now, no import from Mendeleev db
+    # make_oxstates_data(oxstate_fl)
 end
-make_ionization_data(ionization_fl)
+
 end  # module Generate_MFiles

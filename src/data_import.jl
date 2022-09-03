@@ -122,7 +122,7 @@ function alloxstates()
 end
 
 
-function round_pos(x, pos::Int)
+function round_pos(x, pos::Int=13)
     f = 10^pos
     return round(x*f)/f
 end
@@ -132,7 +132,7 @@ const scr = dfs.screeningconstants
 rename!(scr, :s => :orb_type)
 rename!(scr, :n => :shell)
 transform!(scr, :orb_type => (x->Symbol.(x)); renamecols=false)
-transform!(scr, :screening => (x->round_pos.(x, 13)); renamecols=false)
+transform!(scr, :screening => (x->round_pos.(x)); renamecols=false)
 
 getscreening(no) = scr[scr.atomic_number.==no, [:atomic_number, :shell, :orb_type, :screening]] |> Tables.rowtable .|> Tuple
 
@@ -180,7 +180,7 @@ function ionizenergies(atomic_number)
     isempty(iz) && return missing
     nts = iz  |> Tables.rowtable
 
-    d = Dict{Int, Union{Float64, Missing}}([nt.degree => nt.energy for nt in nts])
+    d = Dict{Int, Union{Float64, Missing}}([nt.degree => round_pos(nt.energy) for nt in nts])
     for n in 1:atomic_number
         if ! haskey(d, n)
             push!(d, n=>missing)
