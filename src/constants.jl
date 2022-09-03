@@ -37,6 +37,7 @@ const f_unames = Dict(
     :vdw_radius_uff => "pm",
     :thermal_conductivity => "W/(m*K)",
     :atomic_weight => "u",
+    :ionenergy => "eV"
 )
 
 function s2unit(s)
