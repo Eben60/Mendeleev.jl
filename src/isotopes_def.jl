@@ -10,4 +10,8 @@ end
 Isotope(atomic_number, mass_number, mass::Float64, abundance, is_radioactive, half_life::Union{Float64, Missing}) =
     Isotope(atomic_number, mass_number, mass*u"u", abundance, is_radioactive, half_life*u"yr")
 
+struct Isotopes
+    isotopes::Vector{Isotope}
+end
+
 # Isotope(x::Vector) = Isotope(x...)

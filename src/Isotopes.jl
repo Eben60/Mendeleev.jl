@@ -74,7 +74,7 @@ end
 function isots_string(x)
     ismissing(x) && return "missing"
     j = join(isot_string.(x), ", ")
-    return "[$j]"
+    return "Isotopes([$j])"
 end
 
 # function print_isotopes(io, atomic_number)
@@ -92,7 +92,7 @@ function make_isotopes_data(fl)
     open(fl, "w") do io
         println(io, "# this is computer generated file - better not edit")
         println(io)
-        println(io, "const isotopes_data = Dict{Int64, Union{Missing, Vector{Isotope}}}(")
+        println(io, "const isotopes_data = Dict{Int64, Union{Missing, Isotopes}}(")
         for no in 1:LAST_NO
             println(io, "    $no => ", isots_string(d_isot[no]), ",")
         end
