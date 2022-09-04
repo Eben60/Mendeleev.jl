@@ -122,11 +122,14 @@ function alloxstates()
 end
 
 
-function round_pos(x, pos::Int=13)
+function round_pos(x::Float64, pos::Int=13)
     f = 10^pos
     return round(x*f)/f
 end
 
+round_pos(x, pos::Int=13) = x
+
+round_pos(x::Array, pos::Int=13) = round_pos.(x, pos)
 
 const scr = dfs.screeningconstants
 rename!(scr, :s => :orb_type)
