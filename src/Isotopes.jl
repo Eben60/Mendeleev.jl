@@ -2,7 +2,7 @@ module IS
 using Mendeleev, Unitful, Tables, DataFrames, CSV
 using Main.Generate_MFiles
 
-using Main.Generate_MFiles: dfs, round_pos, LAST_NO
+using Main.Generate_MFiles: dfs, round_pos, LAST_NO, isotopes_fl
 
 isot_fl = "auxillary/isotopes.txt"
 
@@ -26,8 +26,8 @@ end
 Isotope(x::Vector) = Isotope(x...)
 
 isot = dfs.isotopes
-i2 = select(isot, :id, :atomic_number, :mass_number, :mass, :abundance, :half_life)
-i3 = select(isot, :id, :atomic_number, :atomic_number => (x -> sym.(x))  => :sym, :mass_number, :mass, :abundance, :half_life)
+# i2 = select(isot, :id, :atomic_number, :mass_number, :mass, :abundance, :half_life)
+# i3 = select(isot, :id, :atomic_number, :atomic_number => (x -> sym.(x))  => :sym, :mass_number, :mass, :abundance, :half_life)
 
 i4 = select(isot, :id, :atomic_number, :atomic_number => (x -> sym.(x))  => :sym, :atomic_number => (x -> abund.(x))  => :abund_elem, :mass_number, :mass, :abundance, :half_life, :is_radioactive  => (x -> Bool.(x)); renamecols=false)
 
@@ -72,9 +72,36 @@ function isot_string(x)
 end
 
 function isots_string(x)
+    ismissing(x) && return "missing"
     j = join(isot_string.(x), ", ")
     return "[$j]"
 end
+
+# function print_isotopes(io, atomic_number)
+#     is = isots_string(d_isot[atomic_number])
+#     if ismissing(ie)
+#         println(io, "    $atomic_number => missing,")
+#     else
+#         en_strings = join(string.(ie), ", ")
+#         println(io, "    $atomic_number => [$en_strings],")
+#     end
+#     return nothing
+# end
+
+function make_isotopes_data(fl)
+    open(fl, "w") do io
+        println(io, "# this is computer generated file - better not edit")
+        println(io)
+        println(io, "const isotopes_data = Dict{Int64, Union{Missing, Vector{Isotope}}}(")
+        for no in 1:LAST_NO
+            println(io, "    $no => ", isots_string(d_isot[no]), ",")
+        end
+        println(io, ")")
+    end
+    return nothing
+end
+
+ make_isotopes_data(isotopes_fl)
 
 # i5tr = Generate_MFiles.round_pos.(i5t, 13)
 

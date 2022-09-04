@@ -35,3 +35,5 @@ function fn_sconst(e)
     ! haskey(screenings_data, n) && return missing
     return screenings_data[n]
 end
+
+fn_isotopes(e) = isotopes_data[e.atomic_number]

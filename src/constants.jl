@@ -53,5 +53,6 @@ static_data_fl = "src/elements_data.jl"
 oxstate_fl = "src/oxistates_data.jl"
 screening_fl = "src/screening_data.jl"
 ionization_fl = "src/ionization_data.jl"
+isotopes_fl = "src/isotopes_data.jl"
 
 const intNaN = -9223372033146270158 # big negative random value as proxy for NaN / missing
