@@ -1,5 +1,5 @@
 module Mendeleev
-using Unitful #, PeriodicTable
+using Unitful
 
 function inst_elements(xs)
     e = Element_M[]

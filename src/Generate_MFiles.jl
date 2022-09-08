@@ -1,9 +1,9 @@
 module Generate_MFiles
-using SQLite, DataFrames, PeriodicTable, Unitful
+using SQLite, DataFrames, Tables, PeriodicTable, Unitful
 using JSONTables
 using Scratch, Pkg.TOML
 
-dev = true
+dev = false
 
 function get_version()
     return VersionNumber(TOML.parsefile(joinpath(dirname(@__DIR__), "Project.toml"))["version"])
@@ -23,6 +23,7 @@ include("data_import.jl")
 if ! dev
     write_struct_jl(struct_fl, s_def_text)
     include("Element_M_def.jl") # file just computer-generated
+    include("Isotopes.jl")
 end
     include("make_static_data.jl")
 if ! dev
