@@ -7,3 +7,4 @@ include("ScreeningConstantsTests.jl")
 include("OxiStatesTests.jl")
 include("GroupsSeriesTests.jl")
 include("IonenergyTests.jl")
+# TODO isotopes tests

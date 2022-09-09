@@ -37,3 +37,10 @@ Base.isless(is1::Isotope, is2::Isotope) = (i1.atomic_number, i1.mass_number) < (
 
 # Provide a simple way to iterate over all isotopes.
 Base.eachindex(iss::Isotopes) = eachindex(iss.isotopes)
+
+
+function Base.show(io::IO, iss::Isotopes)
+    is_strings = [string(is) for is in iss]
+    println(io, "(", join(is_strings, ", "), ")")
+    return nothing
+end
