@@ -53,7 +53,7 @@ struct Element_M
     mendeleev_number::Int64
     metallic_radius::Union{Missing, typeof(1.0*u"pm")}
     metallic_radius_c12::Union{Missing, typeof(1.0*u"pm")}
-    molar_heat_capacity::Union{Missing, typeof(1.0*u"J*mol*K^-1")}
+    molar_heat_capacity::Union{Missing, typeof(1.0*u"J*K^-1*mol^-1")}
     molcas_gv_color::Union{Missing, String}
     name::String
     name_origin::String

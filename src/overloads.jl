@@ -5,7 +5,7 @@ ispresent(x::Union{AbstractArray, AbstractString}) = !  isempty(x)
 ispresent(x::Union{AbstractFloat, Quantity}) = ! isnan(x)
 ispresent(x::Int) = x >= 0 # TODO check!
 ispresent(x::Group_M) = true
-
+ispresent(x::Isotopes) = true
 
 function printpresent(io::IO, name, v, suffix=""; pad=16)
     if ispresent(v)
@@ -17,6 +17,7 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
     println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
     printpresent(io, "category", el.category)
     printpresent(io, "atomic mass", el.atomic_mass, " u")
+    printpresent(io, "natural isotopes", el.isotopes)
     printpresent(io, "density", el.density, " g/cm³")
     printpresent(io, "molar heat cap.", el.molar_heat, " J/mol⋅K")
     printpresent(io, "melting point", el.melt, " K")

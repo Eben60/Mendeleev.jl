@@ -1,5 +1,5 @@
 module Mendeleev
-using Unitful #, PeriodicTable
+using Unitful
 
 function inst_elements(xs)
     e = Element_M[]
@@ -14,6 +14,9 @@ include("oxistates_data.jl")
 include("Group_M_def_data.jl")
 include("screeniningconsts_def.jl")
 include("screening_data.jl")
+include("ionization_data.jl")
+include("isotopes_def.jl")
+include("isotopes_data.jl")
 include("Element_M_def.jl")
 include("elements_data.jl")
 Element_M(x) = Element_M(x...)

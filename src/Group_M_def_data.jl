@@ -14,7 +14,7 @@ end
 
 
 function Base.show(io::IO, g::Group_M)
-    show(group_fullname(g))
+    print(io, group_fullname(g))
 end
 
 groups_m = (

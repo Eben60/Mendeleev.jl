@@ -25,7 +25,7 @@ const f_unames = Dict(
     :covalent_radius_pyykko_triple => "pm",
     :metallic_radius => "pm",
     :metallic_radius_c12 => "pm",
-    :molar_heat_capacity => "J/K*mol",
+    :molar_heat_capacity => "J/(mol*K)",
     :vdw_radius => "pm",
     :vdw_radius_alvarez => "pm",
     :vdw_radius_batsanov => "pm",
@@ -37,6 +37,7 @@ const f_unames = Dict(
     :vdw_radius_uff => "pm",
     :thermal_conductivity => "W/(m*K)",
     :atomic_weight => "u",
+    :ionenergy => "eV"
 )
 
 function s2unit(s)
@@ -51,5 +52,7 @@ struct_fl = "src/Element_M_def.jl"
 static_data_fl = "src/elements_data.jl"
 oxstate_fl = "src/oxistates_data.jl"
 screening_fl = "src/screening_data.jl"
+ionization_fl = "src/ionization_data.jl"
+isotopes_fl = "src/isotopes_data.jl"
 
 const intNaN = -9223372033146270158 # big negative random value as proxy for NaN / missing
