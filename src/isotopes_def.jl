@@ -41,7 +41,7 @@ Base.eachindex(iss::Isotopes) = eachindex(iss.isotopes)
 
 function Base.show(io::IO, iss::Isotopes)
     is_strings = [string(is) for is in iss]
-    println(io, "(", join(is_strings, ", "), ")")
+    print(io, "(", join(is_strings, ", "), ")")
     return nothing
 end
 
