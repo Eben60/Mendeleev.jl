@@ -90,9 +90,12 @@ Base.getindex(e::Elements_M, v::AbstractVector) = Element_M[e[i] for i in v]
 Base.haskey(e::Elements_M, i::Integer) = haskey(e.bynumber, i)
 Base.haskey(e::Elements_M, i::AbstractString) = haskey(e.byname, lowercase(i))
 Base.haskey(e::Elements_M, i::Symbol) = haskey(e.bysymbol, i)
-Base.get(e::Elements_M, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
-Base.get(e::Elements_M, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
-Base.get(e::Elements_M, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)
+
+# TODO get(::Element_M, ::Int64, ::Element_M)
+# @test_broken F === get(ELEMENTS_M, 9, O) === get(ELEMENTS_M, "oops", F) === get(ELEMENTS_M, :F, O)
+# Base.get(e::Elements_M, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
+# Base.get(e::Elements_M, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
+# Base.get(e::Elements_M, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)
 
 # support iterating over Elements_M
 Base.eltype(e::Elements_M) = Element_M
