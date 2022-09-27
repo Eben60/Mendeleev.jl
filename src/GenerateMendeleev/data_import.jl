@@ -1,8 +1,8 @@
-elements_src = joinpath(@__DIR__ , "../data/elements.db")
-tmp_dir = @get_scratch!("mendeleev_files")
-
-elements_dbfile = joinpath(tmp_dir, "mendeleev-elements.db")
-chembook_jsonfile = joinpath(@__DIR__ , "../data/el_chembook.json")
+# elements_src = joinpath(@__DIR__ , "../data/elements.db")
+# tmp_dir = @get_scratch!("mendeleev_files")
+#
+# elements_dbfile = joinpath(tmp_dir, "mendeleev-elements.db")
+# chembook_jsonfile = joinpath(@__DIR__ , "../data/el_chembook.json")
 
 if !isfile(elements_dbfile)
     cp(elements_src, elements_dbfile)
