@@ -11,10 +11,10 @@ end
 const pkg_version = get_version()
 
 include("constants.jl")
-include("seriesnames.jl")
-include("Group_M_def_data.jl")
-include("synonym_fields.jl")
-include("screeniningconsts_def.jl")
+include("seriesnames.jl") # part of Mendeleev
+include("Group_M_def_data.jl") # part of Mendeleev
+include("synonym_fields.jl") # part of Mendeleev
+include("screeniningconsts_def.jl") # part of Mendeleev
 include("PeriodicTable2df.jl")
 include("make_struct.jl")
 include("utype2str.jl")
