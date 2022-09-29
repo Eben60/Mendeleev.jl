@@ -61,10 +61,10 @@ end
 # end
 
 function coltypes(cols, udict)
-    nms = Symbol.(names(cols))
+    nms = Symbol.(names(cols))  
     tps = String[]
 
-    for i in 1:length(nms)
+    for i in 1:length(nms)  # TODO for (i, n) in pairs(nms)
         n = nms[i]
         if haskey(udict, n)
             tp = "typeof(1.0*$(udict[n]))"
