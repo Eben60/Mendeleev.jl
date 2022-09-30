@@ -5,7 +5,8 @@ using Scratch
 
 dev = false
 
-include("constants.jl")
+include("paths.jl")
+include("../units.jl") # part of Mendeleev
 include("../seriesnames.jl") # part of Mendeleev
 include("../Group_M_def_data.jl") # part of Mendeleev
 include("../synonym_fields.jl") # part of Mendeleev
