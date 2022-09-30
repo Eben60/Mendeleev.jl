@@ -47,25 +47,10 @@ function inst_elements(xs)
     return e
 end
 
-# function col2unitful!(df, lbl, u)
-#     replacecol!(df, lbl, *, u)
-#     return nothing
-# end
-#
-# function df2unitful!(df, fu_dict)
-#     is =intersect(Symbol.(names(df)), keys(fu_dict))
-#     for l in is
-#         col2unitful!(df, l, fu_dict[l])
-#     end
-#     return nothing
-# end
-
 function coltypes(cols, udict)
-    nms = Symbol.(names(cols))  
+    nms = Symbol.(names(cols))
     tps = String[]
-
-    for i in 1:length(nms)  # TODO for (i, n) in pairs(nms)
-        n = nms[i]
+    for (i, n) in pairs(nms)
         if haskey(udict, n)
             tp = "typeof(1.0*$(udict[n]))"
             if eltype(cols[i]) isa Union
