@@ -25,3 +25,6 @@ Manifest.toml
 
 # MS Office temporary files
 ~$*.*
+
+# Mac
+**/.DS_Store
