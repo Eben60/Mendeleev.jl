@@ -1,7 +1,7 @@
 # this is computer generated file - better not edit
 
-const elements_data = Dict{Symbol, Vector{Any}}(
-    abundance_crust => 
+const elements_data = Dict{Symbol, Vector}(
+    :abundance_crust => 
     [
     1400.0 , # H
     0.008 , # He
@@ -123,7 +123,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    abundance_sea => 
+    :abundance_sea => 
     [
     108000.0 , # H
     7.0e-6 , # He
@@ -245,7 +245,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    annotation => 
+    :annotation => 
     [
     "density(@ -253C), evaporation_heat(H-H), fusion_heat(H-H), " , # H
     "density(@ -270C), " , # He
@@ -367,7 +367,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    appearance => 
+    :appearance => 
     [
     "colorless gas" , # H
     "colorless gas, exhibiting a red-orange glow when placed in a high-voltage electric field" , # He
@@ -489,7 +489,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    atomic_radius => 
+    :atomic_radius => 
     [
     25.0 , # H
     120.0 , # He
@@ -611,7 +611,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    atomic_radius_rahm => 
+    :atomic_radius_rahm => 
     [
     154.0 , # H
     134.0 , # He
@@ -733,7 +733,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    atomic_volume => 
+    :atomic_volume => 
     [
     14.1 , # H
     31.8 , # He
@@ -855,7 +855,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    atomic_weight => 
+    :atomic_weight => 
     [
     1.008 , # H
     4.002602 , # He
@@ -977,7 +977,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     294.0 , # Og
     ]
     ,
-    atomic_weight_uncertainty => 
+    :atomic_weight_uncertainty => 
     [
     missing , # H
     2.0e-6 , # He
@@ -1099,7 +1099,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    block => 
+    :block => 
     [
     "s" , # H
     "s" , # He
@@ -1221,7 +1221,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "p" , # Og
     ]
     ,
-    boiling_point => 
+    :boiling_point => 
     [
     20.28 , # H
     4.216 , # He
@@ -1343,7 +1343,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    c6 => 
+    :c6 => 
     [
     6.499026705 , # H
     1.42 , # He
@@ -1465,7 +1465,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    c6_gb => 
+    :c6_gb => 
     [
     6.51 , # H
     1.47 , # He
@@ -1587,7 +1587,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    cas => 
+    :cas => 
     [
     "1333-74-0" , # H
     "7440-59-7" , # He
@@ -1709,7 +1709,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "54144-19-3" , # Og
     ]
     ,
-    category => 
+    :category => 
     [
     "diatomic nonmetal" , # H
     "noble gas" , # He
@@ -1831,7 +1831,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "unknown, predicted to be noble gas" , # Og
     ]
     ,
-    covalent_radius_bragg => 
+    :covalent_radius_bragg => 
     [
     missing , # H
     missing , # He
@@ -1953,7 +1953,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    covalent_radius_cordero => 
+    :covalent_radius_cordero => 
     [
     31.0 , # H
     28.0 , # He
@@ -2075,7 +2075,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    covalent_radius_pyykko => 
+    :covalent_radius_pyykko => 
     [
     32.0 , # H
     46.0 , # He
@@ -2197,7 +2197,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     157.0 , # Og
     ]
     ,
-    covalent_radius_pyykko_double => 
+    :covalent_radius_pyykko_double => 
     [
     missing , # H
     missing , # He
@@ -2319,7 +2319,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    covalent_radius_pyykko_triple => 
+    :covalent_radius_pyykko_triple => 
     [
     missing , # H
     missing , # He
@@ -2441,7 +2441,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    cpk_color => 
+    :cpk_color => 
     [
     "#ffffff" , # H
     "#ffc0cb" , # He
@@ -2563,7 +2563,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    density => 
+    :density => 
     [
     8.2e-5 , # H
     0.000164 , # He
@@ -2685,7 +2685,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     7.0 , # Og
     ]
     ,
-    description => 
+    :description => 
     [
     "Colourless, odourless gaseous chemical element. Lightest and most abundant element in the universe. Present in water and in all organic compounds. Chemically reacts with most elements. Discovered by Henry Cavendish in 1776." , # H
     "Colourless, odourless gaseous nonmetallic element. Belongs to group 18 of the periodic table. Lowest boiling point of all elements and can only be solidified under pressure. Chemically inert, no known compounds. Discovered in the solar spectrum in 1868 by Lockyer." , # He
@@ -2807,7 +2807,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    dipole_polarizability => 
+    :dipole_polarizability => 
     [
     4.50711 , # H
     1.38375 , # He
@@ -2929,7 +2929,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     58.0 , # Og
     ]
     ,
-    dipole_polarizability_unc => 
+    :dipole_polarizability_unc => 
     [
     3.0e-5 , # H
     2.0e-5 , # He
@@ -3051,7 +3051,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     6.0 , # Og
     ]
     ,
-    discoverers => 
+    :discoverers => 
     [
     "Henry Cavendish" , # H
     "Sir William Ramsey, Nils Langet, P.T.Cleve" , # He
@@ -3173,7 +3173,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Joint Institute for Nuclear Research" , # Og
     ]
     ,
-    discovery_location => 
+    :discovery_location => 
     [
     "England" , # H
     "Scotland/Sweden" , # He
@@ -3295,7 +3295,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Russia" , # Og
     ]
     ,
-    discovery_year => 
+    :discovery_year => 
     [
     1766 , # H
     1895 , # He
@@ -3417,7 +3417,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     2002 , # Og
     ]
     ,
-    el_config => 
+    :el_config => 
     [
     "1s¹" , # H
     "1s²" , # He
@@ -3539,7 +3539,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s² 4f¹⁴ 5d¹⁰ 6p⁶ 7s² 5f¹⁴ 6d¹⁰ 7p⁶" , # Og
     ]
     ,
-    electron_affinity => 
+    :electron_affinity => 
     [
     0.754195 , # H
     -19.7 , # He
@@ -3661,7 +3661,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     0.056 , # Og
     ]
     ,
-    electronic_configuration => 
+    :electronic_configuration => 
     [
     "1s" , # H
     "1s2" , # He
@@ -3783,7 +3783,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "[Rn] 5f14 6d10 7s2 7p6" , # Og
     ]
     ,
-    en_allen => 
+    :en_allen => 
     [
     13.61 , # H
     24.59 , # He
@@ -3905,7 +3905,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    en_ghosh => 
+    :en_ghosh => 
     [
     0.2638 , # H
     0.442712 , # He
@@ -4027,7 +4027,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    en_pauling => 
+    :en_pauling => 
     [
     2.2 , # H
     missing , # He
@@ -4149,7 +4149,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    evaporation_heat => 
+    :evaporation_heat => 
     [
     0.904 , # H
     0.08 , # He
@@ -4271,7 +4271,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    fusion_heat => 
+    :fusion_heat => 
     [
     0.117 , # H
     missing , # He
@@ -4393,7 +4393,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    gas_basicity => 
+    :gas_basicity => 
     [
     missing , # H
     148.5 , # He
@@ -4515,7 +4515,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    geochemical_class => 
+    :geochemical_class => 
     [
     "volatile" , # H
     "volatile" , # He
@@ -4637,7 +4637,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    glawe_number => 
+    :glawe_number => 
     [
     103 , # H
     1 , # He
@@ -4759,7 +4759,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    goldschmidt_class => 
+    :goldschmidt_class => 
     [
     "atmophile" , # H
     "atmophile" , # He
@@ -4881,7 +4881,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "synthetic" , # Og
     ]
     ,
-    group_id => 
+    :group_id => 
     [
     1 , # H
     18 , # He
@@ -5003,7 +5003,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     18 , # Og
     ]
     ,
-    heat_of_formation => 
+    :heat_of_formation => 
     [
     217.998 , # H
     missing , # He
@@ -5125,7 +5125,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    is_monoisotopic => 
+    :is_monoisotopic => 
     [
     false , # H
     false , # He
@@ -5247,7 +5247,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     false , # Og
     ]
     ,
-    is_radioactive => 
+    :is_radioactive => 
     [
     false , # H
     false , # He
@@ -5369,7 +5369,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     true , # Og
     ]
     ,
-    jmol_color => 
+    :jmol_color => 
     [
     "#ffffff" , # H
     "#d9ffff" , # He
@@ -5491,7 +5491,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    lattice_constant => 
+    :lattice_constant => 
     [
     3.75 , # H
     3.57 , # He
@@ -5613,7 +5613,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    lattice_structure => 
+    :lattice_structure => 
     [
     "HEX" , # H
     "HEX" , # He
@@ -5735,7 +5735,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    melting_point => 
+    :melting_point => 
     [
     14.01 , # H
     0.95 , # He
@@ -5857,7 +5857,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    mendeleev_number => 
+    :mendeleev_number => 
     [
     105 , # H
     112 , # He
@@ -5979,7 +5979,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     118 , # Og
     ]
     ,
-    metallic_radius => 
+    :metallic_radius => 
     [
     missing , # H
     missing , # He
@@ -6101,7 +6101,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    metallic_radius_c12 => 
+    :metallic_radius_c12 => 
     [
     78.0 , # H
     122.0 , # He
@@ -6223,7 +6223,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    molar_heat_capacity => 
+    :molar_heat_capacity => 
     [
     28.836 , # H
     20.786 , # He
@@ -6345,7 +6345,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    molcas_gv_color => 
+    :molcas_gv_color => 
     [
     "#f2f2f2" , # H
     "#d9ffff" , # He
@@ -6467,7 +6467,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    name_origin => 
+    :name_origin => 
     [
     "Greek: hydro (water) and genes (generate)" , # H
     "Greek: hêlios (sun)." , # He
@@ -6589,7 +6589,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Named in honor of the scientist Yuri Oganessian." , # Og
     ]
     ,
-    nist_webbook => 
+    :nist_webbook => 
     [
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/H2/h1H" , # H
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/He" , # He
@@ -6711,7 +6711,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    period => 
+    :period => 
     [
     1 , # H
     1 , # He
@@ -6833,7 +6833,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     7 , # Og
     ]
     ,
-    pettifor_number => 
+    :pettifor_number => 
     [
     103 , # H
     1 , # He
@@ -6955,7 +6955,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    phase => 
+    :phase => 
     [
     "Gas" , # H
     "Gas" , # He
@@ -7077,7 +7077,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Solid" , # Og
     ]
     ,
-    proton_affinity => 
+    :proton_affinity => 
     [
     missing , # H
     177.8 , # He
@@ -7199,7 +7199,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    series_id => 
+    :series_id => 
     [
     1 , # H
     2 , # He
@@ -7321,7 +7321,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     2 , # Og
     ]
     ,
-    shells => 
+    :shells => 
     [
     [1] , # H
     [2] , # He
@@ -7443,7 +7443,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     [2, 8, 18, 32, 32, 18, 8] , # Og
     ]
     ,
-    sources => 
+    :sources => 
     [
     "Commercial quantities are produced by reacting superheated steam with methane or carbon. In lab work from reaction of metals with acid solutions or electrolysis." , # H
     "Found in natural gas deposits & in the air (5 parts per billion) Constantly lost to space; replenished by radioactive decay (alpha particles)." , # He
@@ -7565,7 +7565,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Made by bombarding californium-249 with calcium-48." , # Og
     ]
     ,
-    specific_heat_capacity => 
+    :specific_heat_capacity => 
     [
     14.304 , # H
     5.193 , # He
@@ -7687,7 +7687,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    spectral_img => 
+    :spectral_img => 
     [
     "https://en.wikipedia.org/wiki/File:Hydrogen_Spectra.jpg" , # H
     "https://en.wikipedia.org/wiki/File:Helium_spectrum.jpg" , # He
@@ -7809,7 +7809,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    summary => 
+    :summary => 
     [
     "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass." , # H
     "Helium is a chemical element with symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the noble gas group in the periodic table. Its boiling and melting points are the lowest among all the elements." , # He
@@ -7931,7 +7931,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "Oganesson is IUPAC's name for the transactinide element with the atomic number 118 and element symbol Og. It is also known as eka-radon or element 118, and on the periodic table of the elements it is a p-block element and the last one of the 7th period. Oganesson is currently the only synthetic member of group 18." , # Og
     ]
     ,
-    thermal_conductivity => 
+    :thermal_conductivity => 
     [
     0.1815 , # H
     0.152 , # He
@@ -8053,7 +8053,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    uses => 
+    :uses => 
     [
     "Most hydrogen is used in the production of ammonia. Also used in balloons and in metal refining. Also used as fuel in rockets. Its two heavier isotopes are: deuterium (D) and tritium (T) used respectively for nuclear fission and fusion." , # H
     "Used in balloons, deep sea diving & welding. Also used in very low temperature research." , # He
@@ -8175,7 +8175,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius => 
+    :vdw_radius => 
     [
     110.0 , # H
     140.0 , # He
@@ -8297,7 +8297,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_alvarez => 
+    :vdw_radius_alvarez => 
     [
     120.0 , # H
     143.0 , # He
@@ -8419,7 +8419,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_batsanov => 
+    :vdw_radius_batsanov => 
     [
     missing , # H
     missing , # He
@@ -8541,7 +8541,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_bondi => 
+    :vdw_radius_bondi => 
     [
     120.0 , # H
     140.0 , # He
@@ -8663,7 +8663,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_dreiding => 
+    :vdw_radius_dreiding => 
     [
     319.5 , # H
     missing , # He
@@ -8785,7 +8785,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_mm3 => 
+    :vdw_radius_mm3 => 
     [
     162.0 , # H
     153.0 , # He
@@ -8907,7 +8907,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_rt => 
+    :vdw_radius_rt => 
     [
     110.0 , # H
     missing , # He
@@ -9029,7 +9029,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_truhlar => 
+    :vdw_radius_truhlar => 
     [
     missing , # H
     missing , # He
@@ -9151,7 +9151,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    vdw_radius_uff => 
+    :vdw_radius_uff => 
     [
     288.6 , # H
     236.2 , # He
@@ -9273,7 +9273,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     missing , # Og
     ]
     ,
-    wikipedia => 
+    :wikipedia => 
     [
     "https://en.wikipedia.org/wiki/Hydrogen" , # H
     "https://en.wikipedia.org/wiki/Helium" , # He
@@ -9395,7 +9395,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     "https://en.wikipedia.org/wiki/Oganesson" , # Og
     ]
     ,
-    xpos => 
+    :xpos => 
     [
     1 , # H
     18 , # He
@@ -9517,7 +9517,7 @@ const elements_data = Dict{Symbol, Vector{Any}}(
     18 , # Og
     ]
     ,
-    ypos => 
+    :ypos => 
     [
     1 , # H
     1 , # He
