@@ -18,8 +18,8 @@ include("synonym_fields.jl")
 include("property_functions.jl")
 include("overloads.jl")
 
-els = chem_elements
+elements = chem_elements
 export ChemElem # struct definition
-export chem_elements, els # all elements data
+export chem_elements, els, elements # all elements data
 
 end  # module Mendeleev
