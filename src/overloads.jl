@@ -137,14 +137,12 @@ Base.eachindex(elms::Elements_M) = eachindex(elms.data)
 # TODO for all overloads
 # types that overload getproperty should generally overload propertynames
 function Base.getproperty(e::Element_M, s::Symbol)
-    haskey(synonym_fields, s) && return getfield(e, synonym_fields[s])
-    s in calculated_properties && return eval(property_fns[s])(e)
     s in fieldnames(Element_M)  && return getfield(e, s)
+    haskey(elements_data, s) && return elements_data[s][e.atomic_number]
+    s in calculated_properties && return eval(property_fns[s])(e)
+    haskey(synonym_fields, s) && return getproperty(e, synonym_fields[s])
+    
     throw(DomainError(s, "nonexistent Element_M property"))
-    # # in case it is a field of PeriodicTable elements only
-    # no = getfield(e, :atomic_number)
-    # e_pt = elements[no]
-    # return getfield(e_pt, s)
 end
 
-Base.propertynames(e::Element_M) = sort(union(keys(synonym_fields), calculated_properties, fieldnames(Element_M)))
+Base.propertynames(e::Element_M) = sort(union(keys(synonym_fields), keys(elements_data  ), calculated_properties, fieldnames(Element_M)))
