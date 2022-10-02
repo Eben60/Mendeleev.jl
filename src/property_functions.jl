@@ -22,13 +22,13 @@ end
 
 fn_number(e) = e.atomic_number
 
-fn_series(e) = seriesnames[getfield(e, :series)]
+fn_series(e) = seriesnames[e.series_id]
 
-fn_group(e) = groups_m[getfield(e, :group)]
+fn_group(e) = groups_m[e.group_id]
 
 fn_oxistates(e) = oxistates_data[e.atomic_number]
 
-fn_ionenergy(e) = ionization_data[e.atomic_number].*u"eV"
+fn_ionenergy(e) = ionization_data[e.atomic_number]
 
 function fn_sconst(e)
     n = e.atomic_number
