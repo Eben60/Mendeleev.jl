@@ -1,4 +1,4 @@
-struct Element_M
+struct ChemElem
     atomic_number::Int
     name::String
     symbol::Symbol

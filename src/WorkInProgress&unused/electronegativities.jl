@@ -13,7 +13,7 @@ Args:
 #
 #     return zeff / math.pow(radius, 2)
 
-function fn_en_allred_rochow(e::Element_M)
+function fn_en_allred_rochow(e::ChemElem)
     radius = e.covalent_radius_pyykko
 
 end

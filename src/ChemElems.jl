@@ -18,12 +18,12 @@ function sortifneed!(data)
     return data
 end
 
-struct Elements_M
-    data::Vector{Element_M}
+struct ChemElems
+    data::Vector{ChemElem}
     bynumber::Dict{Int, Int}
     byname::Dict{String, Int}
     bysymbol::Dict{Symbol, Int}
-    Elements_M(data::Vector{Element_M}) = new(
+    ChemElems(data::Vector{ChemElem}) = new(
         sortifneed!(data), # data should already be pre-sorted, thus we can save a couple of seconds here
         # sort!(data; by=d->d.atomic_number),
         # data,

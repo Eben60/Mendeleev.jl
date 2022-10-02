@@ -2,13 +2,13 @@ module Mtmp
 using Unitful, Dates #, PeriodicTable,
 
 function inst_elements(xs)
-    e = Element_M[]
-    # el = Element_M(xs[1]...)
+    e = ChemElem[]
+    # el = ChemElem(xs[1]...)
     # @show length(xs)
     for x in xs
         # x = collect(x)
         # @show x[55]
-        el = Element_M(collect(x)...)
+        el = ChemElem(collect(x)...)
         # @show el.name
         push!(e, el)
     end
@@ -20,16 +20,16 @@ include("Element_M_def.jl")
 t0 = time()
 include("elements_data.jl")
 
-# Element_M(x) = Element_M(x...)
+# ChemElem(x) = ChemElem(x...)
 
 # this way is slow
-# EM(x) = Element_M(x...)
+# EM(x) = ChemElem(x...)
 # function inst_elements(xs)
 #     return map(EM, xs)
 # end
 
 
-include("Elements_M.jl")
+include("ChemElems.jl")
 include("synonym_fields.jl")
 include("property_functions.jl")
 include("overloads.jl")
@@ -47,16 +47,16 @@ elements_arr = inst_elements(els_data[e_st:e_st+e_len-1])
 els_data = nothing
 # # elements_arr = inst_elements(els_data)
 #
-# # elements_arr = Vector{Element_M}(Element_M.(els_data[ix])) # no idea why not working without this type casting
+# # elements_arr = Vector{ChemElem}(ChemElem.(els_data[ix])) # no idea why not working without this type casting
 t2 = time()
 # @show "we are continuing"
-# const chem_elements = Elements_M(Vector{Element_M}(elements_arr))  # no idea why not working without this type casting
+# const chem_elements = ChemElems(Vector{ChemElem}(elements_arr))  # no idea why not working without this type casting
 
-const chem_elements = Elements_M(elements_arr)
+const chem_elements = ChemElems(elements_arr)
 
 t3 = time()
 
-export Element_M # struct definition
+export ChemElem # struct definition
 
 export chem_elements # all elements data
 

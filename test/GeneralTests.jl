@@ -1,7 +1,7 @@
 module GeneralTests
 using Mendeleev, Test
 
-@test eltype(chem_elements) == Element_M
+@test eltype(chem_elements) == ChemElem
 @test length(chem_elements) == 118 == length(collect(chem_elements))
 
 O = chem_elements[8]
@@ -29,7 +29,7 @@ F = chem_elements[9]
 @test iterate(chem_elements, length(chem_elements)+1) === nothing
 
 # 2-argument show functions
-@test repr([O, F]) == "Element_M[Element(Oxygen), Element(Fluorine)]"
+@test repr([O, F]) == "ChemElem[Element(Oxygen), Element(Fluorine)]"
 
 @test_throws ErrorException O.name = "Issue21"
 @test O.name == "Oxygen"
@@ -53,7 +53,7 @@ F = chem_elements[9]
 @test chem_elements[38] ≠ chem_elements[39]
 
 # # Ensure that the hashcode works in Dict{}
-# elmdict = Dict{Element_M,Int}( chem_elements[z] => z for z in eachindex(chem_elements))
+# elmdict = Dict{ChemElem,Int}( chem_elements[z] => z for z in eachindex(chem_elements))
 # @test length(elmdict) == 118
 # for z in eachindex(chem_elements)
 #     @test haskey(elmdict, chem_elements[z])

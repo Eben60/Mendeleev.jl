@@ -1,4 +1,4 @@
-Base.show(io::IO, el::Element_M) = print(io, "Element(", el.name, ')')
+Base.show(io::IO, el::ChemElem) = print(io, "Element(", el.name, ')')
 
 ispresent(x::Missing) = false
 ispresent(x::Union{AbstractArray, AbstractString}) = !  isempty(x)
@@ -13,7 +13,7 @@ function printpresent(io::IO, name, v, suffix=""; pad=16)
     end
 end
 
-function Base.show(io::IO, ::MIME"text/plain", el::Element_M)
+function Base.show(io::IO, ::MIME"text/plain", el::ChemElem)
     println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
     printpresent(io, "category", el.category)
     printpresent(io, "atomic mass", el.atomic_mass, " u")
@@ -42,7 +42,7 @@ function printpresenthtml(io::IO, name, val, suffix="")
     end
 end
 
-function Base.show(io::IO, ::MIME"text/html", el::Element_M)
+function Base.show(io::IO, ::MIME"text/html", el::ChemElem)
     println(io, "<style>")
     println(io, "th{text-align:right; padding:5px;}td{text-align:left; padding:5px}")
     println(io, "</style>")
@@ -83,30 +83,30 @@ function Base.show(io::IO, ::MIME"text/html", el::Element_M)
     end
 end
 
-Base.getindex(e::Elements_M, i::Integer) = e.data[e.bynumber[i]]
-Base.getindex(e::Elements_M, i::AbstractString) = e.data[e.byname[lowercase(i)]]
-Base.getindex(e::Elements_M, i::Symbol) = e.data[e.bysymbol[i]]
-Base.getindex(e::Elements_M, v::AbstractVector) = Element_M[e[i] for i in v]
-Base.haskey(e::Elements_M, i::Integer) = haskey(e.bynumber, i)
-Base.haskey(e::Elements_M, i::AbstractString) = haskey(e.byname, lowercase(i))
-Base.haskey(e::Elements_M, i::Symbol) = haskey(e.bysymbol, i)
+Base.getindex(e::ChemElems, i::Integer) = e.data[e.bynumber[i]]
+Base.getindex(e::ChemElems, i::AbstractString) = e.data[e.byname[lowercase(i)]]
+Base.getindex(e::ChemElems, i::Symbol) = e.data[e.bysymbol[i]]
+Base.getindex(e::ChemElems, v::AbstractVector) = ChemElem[e[i] for i in v]
+Base.haskey(e::ChemElems, i::Integer) = haskey(e.bynumber, i)
+Base.haskey(e::ChemElems, i::AbstractString) = haskey(e.byname, lowercase(i))
+Base.haskey(e::ChemElems, i::Symbol) = haskey(e.bysymbol, i)
 
-# TODO get(::Element_M, ::Int64, ::Element_M)
+# TODO get(::ChemElem, ::Int64, ::ChemElem)
 # @test_broken F === get(chem_elements, 9, O) === get(chem_elements, "oops", F) === get(chem_elements, :F, O)
-# Base.get(e::Elements_M, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
-# Base.get(e::Elements_M, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
-# Base.get(e::Elements_M, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)
+# Base.get(e::ChemElems, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
+# Base.get(e::ChemElems, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
+# Base.get(e::ChemElems, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)
 
-# support iterating over Elements_M
-Base.eltype(e::Elements_M) = Element_M
-Base.length(e::Elements_M) = length(e.data)
-Base.iterate(e::Elements_M, state...) = iterate(e.data, state...)
+# support iterating over ChemElems
+Base.eltype(e::ChemElems) = ChemElem
+Base.length(e::ChemElems) = length(e.data)
+Base.iterate(e::ChemElems, state...) = iterate(e.data, state...)
 
 # compact one-line printing
-Base.show(io::IO, e::Elements_M) = print(io, "Elements(…", length(e), " elements…)")
+Base.show(io::IO, e::ChemElems) = print(io, "Elements(…", length(e), " elements…)")
 
 # pretty-printing as a periodic table
-function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
+function Base.show(io::IO, ::MIME"text/plain", e::ChemElems)
      println(io, e, ':')
      table = fill("   ", 10,18)
      for el in e
@@ -121,35 +121,35 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements_M)
 end
 
 # Since Element equality is determined by atomic number alone...
-Base.isequal(elm1::Element_M, elm2::Element_M) = elm1.number == elm2.number
+Base.isequal(elm1::ChemElem, elm2::ChemElem) = elm1.number == elm2.number
 
 # There is no need to use all the data in Element to calculated the hash
 # since Element equality is determined by atomic number alone.
-Base.hash(elm::Element_M, h::UInt) = hash(elm.number, h)
+Base.hash(elm::ChemElem, h::UInt) = hash(elm.number, h)
 
 # Compare elements by atomic number to produce the most common way elements
 # are sorted.
-Base.isless(elm1::Element_M, elm2::Element_M) = elm1.number < elm2.number
+Base.isless(elm1::ChemElem, elm2::ChemElem) = elm1.number < elm2.number
 
 # Provide a simple way to iterate over all elements.
-Base.eachindex(elms::Elements_M) = eachindex(elms.data)
+Base.eachindex(elms::ChemElems) = eachindex(elms.data)
 
 # TODO for all overloads
 # types that overload getproperty should generally overload propertynames
 
-function getprop_unitless(e::Element_M, s::Symbol)
-    s in fieldnames(Element_M)  && return getfield(e, s)
+function getprop_unitless(e::ChemElem, s::Symbol)
+    s in fieldnames(ChemElem)  && return getfield(e, s)
     haskey(elements_data, s) && return elements_data[s][e.atomic_number]
     s in calculated_properties && return eval(property_fns[s])(e)
     haskey(synonym_fields, s) && return getproperty(e, synonym_fields[s])
 
-    throw(DomainError(s, "nonexistent Element_M property"))
+    throw(DomainError(s, "nonexistent ChemElem property"))
 end
 
-function Base.getproperty(e::Element_M, s::Symbol)
-    p = getprop_unitless(e::Element_M, s::Symbol)
+function Base.getproperty(e::ChemElem, s::Symbol)
+    p = getprop_unitless(e::ChemElem, s::Symbol)
     haskey(f_units, s) && return p * f_units[s]
     return p
 end
 
-Base.propertynames(e::Element_M) = sort(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(Element_M)))
+Base.propertynames(e::ChemElem) = sort(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(ChemElem)))
