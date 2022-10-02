@@ -1,6 +1,7 @@
 module Mendeleev
 using Unitful
 
+include("units.jl")
 include("seriesnames.jl")
 include("oxistates_data.jl")
 include("Group_M_def_data.jl")
