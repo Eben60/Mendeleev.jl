@@ -3,8 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# PeriodicTable.jl
-A somewhat advanced package for accessing chemical elements data. It's code was initially based on PeriodicTable Julia package, whereas the data come mainly from the Python Mendelev package. 
+# Mendeleev.jl
+A package for accessing chemical elements data. It's code was initially based on PeriodicTable Julia package, whereas the data come mainly from the Python Mendelev package. 
 
 ### Installation
 As usual
@@ -14,8 +14,8 @@ As usual
 
 ### Usage
 PeriodicTable.jl provides a Julia interface to a database of element
-properties for all of the elements in the periodic table. In particular `PeriodicTable` exports a global variable called `elements`, which is a collection of
-`Element` data structures.
+properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `elements`, which is a collection of
+`ChemElem` data structures.
 
 ```julia
 julia> using Mendeleev
@@ -49,41 +49,41 @@ julia> elements["oxygen"]
 Oxygen (O), number 8:
         category: diatomic nonmetal
      atomic mass: 15.999 u
-         density: 1.429 g/cm³
-   melting point: 54.36 K
-   boiling point: 90.188 K
+natural isotopes: ((99.738% ¹⁶O m=15.99491462 u ), (0.04% ¹⁷O m=16.999131757 u ), (0.222% ¹⁸O m=17.999159613 u ))
+         density: 0.001308 g/cm³
+ molar heat cap.: 29.378 J/mol⋅K
+   melting point: 54.8 K
+   boiling point: 90.19 K
            phase: Gas
           shells: [2, 6]
 e⁻-configuration: 1s² 2s² 2p⁴
          summary: Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium.
-   discovered by: Carl Wilhelm Scheele
-        named by: Antoine Lavoisier
-          source: https://en.wikipedia.org/wiki/Oxygen
+  CAS identifier: 7782-44-7
+   discovered by: 1774 by Joseph Priestly, Carl Wilhelm Scheele in England/Sweden
+    NIST webbook: https://webbook.nist.gov/cgi/inchi/InChI%3D1S/O2/c1-2
+   wikipedia URL: https://en.wikipedia.org/wiki/Oxygen
   spectral image: https://en.wikipedia.org/wiki/File:Oxygen_spectre.jpg
+
  
 ```
 Alternatively, you may want to get a list of elements,
 ```julia
 julia> elements[1:4]
-4-element Array{PeriodicTable.Element,1}:
- Element(Hydrogen) 
- Element(Helium)   
- Element(Lithium)  
+4-element Vector{ChemElem}:
+ Element(Hydrogen)
+ Element(Helium)
+ Element(Lithium)
  Element(Beryllium)
  ```
- 
- A nice interactive visualization of the periodic table, based on PeriodicTable.jl, can be found [here](https://github.com/lancebeet/julia-scripts#periodictabletoyjl).
 
 ### Data by
-The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
-Some information has been (and will be) added over time.
+The data used for this package has been pulled up mainly from [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON)
 
-### Developed together with
-* [Steven G. Johnson](https://github.com/stevengj)
-* [Jacob Wikmark](https://github.com/lancebeet)
-* [Carsten Bauer](https://github.com/crstnbr)
 
-### Facing issues? :scream:
+### Developed by
+* [Eben60](https://github.com/Eben60)
+
+### Facing issues? 
 * Open a PR with the detailed expaination of the issue
-* Reach me out [here](https://www.rahullakhanpal.in)
+
 
