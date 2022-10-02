@@ -14,7 +14,7 @@ function printpresent(io::IO, name, v, suffix=""; pad=16)
 end
 
 function Base.show(io::IO, ::MIME"text/plain", el::ChemElem)
-    println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
+    println(io, el.name, " (", el.symbol, "), number ", el.atomic_number, ':')
     printpresent(io, "category", el.category)
     printpresent(io, "atomic mass", el.atomic_mass, " u")
     printpresent(io, "natural isotopes", el.isotopes)
@@ -46,7 +46,7 @@ function Base.show(io::IO, ::MIME"text/html", el::ChemElem)
     println(io, "<style>")
     println(io, "th{text-align:right; padding:5px;}td{text-align:left; padding:5px}")
     println(io, "</style>")
-    println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
+    println(io, el.name, " (", el.symbol, "), number ", el.atomic_number, ':')
     println(io, "<table>")
     printpresenthtml(io, "category", el.category)
     printpresenthtml(io, "atomic mass", el.atomic_mass, " u")
@@ -91,7 +91,9 @@ Base.haskey(e::ChemElems, i::Integer) = haskey(e.bynumber, i)
 Base.haskey(e::ChemElems, i::AbstractString) = haskey(e.byname, lowercase(i))
 Base.haskey(e::ChemElems, i::Symbol) = haskey(e.bysymbol, i)
 
-# TODO get(::ChemElem, ::Int64, ::ChemElem)
+# TODO or not TODO
+# actually I don't see any need for get with default value
+# get(::ChemElem, ::Int64, ::ChemElem)
 # @test_broken F === get(chem_elements, 9, O) === get(chem_elements, "oops", F) === get(chem_elements, :F, O)
 # Base.get(e::ChemElems, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
 # Base.get(e::ChemElems, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
@@ -121,15 +123,15 @@ function Base.show(io::IO, ::MIME"text/plain", e::ChemElems)
 end
 
 # Since Element equality is determined by atomic number alone...
-Base.isequal(elm1::ChemElem, elm2::ChemElem) = elm1.number == elm2.number
+Base.isequal(elm1::ChemElem, elm2::ChemElem) = elm1.atomic_number == elm2.atomic_number
 
 # There is no need to use all the data in Element to calculated the hash
 # since Element equality is determined by atomic number alone.
-Base.hash(elm::ChemElem, h::UInt) = hash(elm.number, h)
+Base.hash(elm::ChemElem, h::UInt) = hash(elm.atomic_number, h)
 
 # Compare elements by atomic number to produce the most common way elements
 # are sorted.
-Base.isless(elm1::ChemElem, elm2::ChemElem) = elm1.number < elm2.number
+Base.isless(elm1::ChemElem, elm2::ChemElem) = elm1.atomic_number < elm2.atomic_number
 
 # Provide a simple way to iterate over all elements.
 Base.eachindex(elms::ChemElems) = eachindex(elms.data)
@@ -152,4 +154,4 @@ function Base.getproperty(e::ChemElem, s::Symbol)
     return p
 end
 
-Base.propertynames(e::ChemElem) = sort(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(ChemElem)))
+Base.propertynames(e::ChemElem) = sort(collect(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(ChemElem))))

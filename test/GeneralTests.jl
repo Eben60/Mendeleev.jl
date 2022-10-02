@@ -12,7 +12,10 @@ F = chem_elements[9]
 @test O === chem_elements["oxygen"] == chem_elements[:O]
 @test haskey(chem_elements, 8) && haskey(chem_elements, "oxygen") && haskey(chem_elements, :O)
 @test !haskey(chem_elements, -8) && !haskey(chem_elements, "ooxygen") && !haskey(chem_elements, :Oops)
-@test_broken F === get(chem_elements, 9, O) === get(chem_elements, "oops", F) === get(chem_elements, :F, O)
+
+# TODO or not TODO
+# actually I don't see any need for get with default value
+# @test_broken F === get(chem_elements, 9, O) === get(chem_elements, "oops", F) === get(chem_elements, :F, O)
 @test chem_elements[8:9] == [O, F]
 @test O.name == "Oxygen"
 @test O.symbol == :O
@@ -51,6 +54,16 @@ F = chem_elements[9]
 @test !(chem_elements[92] <= chem_elements[91])
 @test chem_elements[38] == chem_elements[38]
 @test chem_elements[38] ≠ chem_elements[39]
+
+pns = propertynames(F)
+@test length(pns) == 95
+@test :abundance_sea in pns # elements_data
+@test :number in pns # synonym
+@test :melt in pns # synonym for melting_point
+@test :melting_point in pns # elements_data
+@test :atomic_number in pns # struct field
+@test :symbol in pns # struct field
+@test :ionenergy in pns # fn_ionenergy from property_functions.jl
 
 # # Ensure that the hashcode works in Dict{}
 # elmdict = Dict{ChemElem,Int}( chem_elements[z] => z for z in eachindex(chem_elements))

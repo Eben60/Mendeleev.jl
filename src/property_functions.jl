@@ -1,4 +1,9 @@
+
+
 function ispresent() end
+
+# these functions are calculated properties
+# the function name consists of the prefix fn_ and the property name
 
 function fn_discovered_by(e)
     knwn = r"^\s*Known"i
@@ -20,7 +25,7 @@ function fn_discovered_by(e)
     return join([d_yr, d_ds, d_lcn], "")
 end
 
-fn_number(e) = e.atomic_number
+# fn_number(e) = e.atomic_number
 
 fn_series(e) = seriesnames[e.series_id]
 

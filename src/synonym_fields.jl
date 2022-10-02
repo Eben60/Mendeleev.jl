@@ -5,7 +5,7 @@ PeriodicTableFields = (:name, :appearance, :atomic_mass, :boil, :category, :colo
 
 const properties2omit = [:color, :named_by, :discovered_by]
 const properties2rename = [:source => :wikipedia, :number => :atomic_number,]
-const calculated_properties = [:discovered_by, :number, :series, :group, :oxistates, :sconst, :ionenergy, :isotopes]
+const calculated_properties = [:discovered_by, :series, :group, :oxistates, :sconst, :ionenergy, :isotopes]
 
 const synonym_fields = Dict(
     :atomic_mass => :atomic_weight,
@@ -18,6 +18,7 @@ const synonym_fields = Dict(
     :density => :density,
     :period => :period,
     :symbol => :symbol,
+    :number => :atomic_number
     )
 
 fname2prop(s::Symbol) = Symbol("fn_$s")
