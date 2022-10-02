@@ -28,7 +28,7 @@ fn_group(e) = groups_m[getfield(e, :group)]
 
 fn_oxistates(e) = oxistates_data[e.atomic_number]
 
-fn_ionenergy(e) = ionization_data[e.atomic_number].*u"eV"
+fn_ionenergy(e) = ionization_data[e.atomic_number]
 
 function fn_sconst(e)
     n = e.atomic_number

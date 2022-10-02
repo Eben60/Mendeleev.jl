@@ -16,7 +16,7 @@ F = ELEMENTS_M[9]
 @test ELEMENTS_M[8:9] == [O, F]
 @test O.name == "Oxygen"
 @test O.symbol == :O
-@test nfields(O) == 82
+@test nfields(O) == 3
 
 # cpk colors
 @test O.cpk_hex == "#f00000" # deviates from PeriodicTable.jl
