@@ -92,7 +92,7 @@ Base.haskey(e::Elements_M, i::AbstractString) = haskey(e.byname, lowercase(i))
 Base.haskey(e::Elements_M, i::Symbol) = haskey(e.bysymbol, i)
 
 # TODO get(::Element_M, ::Int64, ::Element_M)
-# @test_broken F === get(ELEMENTS_M, 9, O) === get(ELEMENTS_M, "oops", F) === get(ELEMENTS_M, :F, O)
+# @test_broken F === get(chem_elements, 9, O) === get(chem_elements, "oops", F) === get(chem_elements, :F, O)
 # Base.get(e::Elements_M, i::Integer, default) = get(e.data[e.bynumber[i]], i, default)
 # Base.get(e::Elements_M, i::AbstractString, default) = get(e.data[e.byname[i]], lowercase(i), default)
 # Base.get(e::Elements_M, i::Symbol, default) = get(e.data[e.bysymbol[i]], i, default)

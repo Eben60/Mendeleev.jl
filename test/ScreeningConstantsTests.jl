@@ -3,8 +3,8 @@ using Mendeleev, Test
 
 using Mendeleev: ScreenConst, ScreenConstants
 
-K = ELEMENTS_M[:K]
-Ts = ELEMENTS_M[:Ts]
+K = chem_elements[:K]
+Ts = chem_elements[:Ts]
 
 K_s1 = ScreenConst(19, 1, :s, 0.5105)
 

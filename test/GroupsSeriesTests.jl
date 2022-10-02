@@ -3,11 +3,11 @@ using Mendeleev, Test
 
 using Mendeleev: Group_M
 
-He = ELEMENTS_M[:He]
-N = ELEMENTS_M[:N]
-Cu = ELEMENTS_M[:Cu]
-Zr = ELEMENTS_M[:Zr]
-Sn = ELEMENTS_M[:Sn]
+He = chem_elements[:He]
+N = chem_elements[:N]
+Cu = chem_elements[:Cu]
+Zr = chem_elements[:Zr]
+Sn = chem_elements[:Sn]
 
 @test N.group == Group_M(15, "VA", "Pnictogens")
 @test Cu.group == Group_M(11, "IB", "Coinage metals")

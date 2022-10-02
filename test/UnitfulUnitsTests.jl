@@ -3,10 +3,10 @@ using Mendeleev, Test, Unitful
 import Unitful: u, g, cm, K, J, mol
 
 # Unitful units
-H = ELEMENTS_M[1]
-O = ELEMENTS_M[:O]
-Zr = ELEMENTS_M[:Zr]
-Be = ELEMENTS_M[:Be]
+H = chem_elements[1]
+O = chem_elements[:O]
+Zr = chem_elements[:Zr]
+Be = chem_elements[:Be]
 
 @test unit(H.density) === g/cm^3
 @test unit(H.boil) === K

@@ -50,15 +50,15 @@ els_data = nothing
 # # elements_arr = Vector{Element_M}(Element_M.(els_data[ix])) # no idea why not working without this type casting
 t2 = time()
 # @show "we are continuing"
-# const ELEMENTS_M = Elements_M(Vector{Element_M}(elements_arr))  # no idea why not working without this type casting
+# const chem_elements = Elements_M(Vector{Element_M}(elements_arr))  # no idea why not working without this type casting
 
-const ELEMENTS_M = Elements_M(elements_arr)
+const chem_elements = Elements_M(elements_arr)
 
 t3 = time()
 
 export Element_M # struct definition
 
-export ELEMENTS_M # all elements data
+export chem_elements # all elements data
 
 t_read = t1-t0
 t_init_arr = t2-t1

@@ -1,6 +1,6 @@
 using Unitful
 
-em = Mendeleev.ELEMENTS_M
+em = Mendeleev.chem_elements
 a = Be.atomic_mass |> ustrip
 s = Be.specific_heat |> ustrip
 m = Be.molar_heat |> ustrip

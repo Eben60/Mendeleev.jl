@@ -20,7 +20,7 @@ ScreenConst(a, s, ss::T, v) where T <: Union{AbstractString, Symbol} = ScreenCon
 ScreenConst(t::T) where T <: Tuple = ScreenConst(t...)
 
 function Base.show(io::IO, sc::ScreenConst)
-    elem = ELEMENTS_M[sc.atomic_number].symbol
+    elem = chem_elements[sc.atomic_number].symbol
     orb_type = orb_typenames[sc.orb_type]
     orbital = "$(sc.shell)$orb_type"
     print(io, "$elem $orbital: $(sc.screening)")

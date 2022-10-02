@@ -15,7 +15,7 @@ end
 
 
 function Base.show(io::IO, ir::IonicRadius)
-    elem = ELEMENTS_M[ir.atomic_number].symbol
+    elem = chem_elements[ir.atomic_number].symbol
     charge = ir.charge
     scharge = charge > 0 ? "+$charge" : "$charge"
     show("$elem $scharge $(ir.econf) $(ir.coordination) $(ir.spin): cryst. rad = $(ir.crystal_radius), ion. rad = $(ir.ionic_radius)")

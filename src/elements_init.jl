@@ -1,6 +1,6 @@
 # this is computer generated file - better not edit
 
-const ELEMENTS_M = Elements_M([
+const chem_elements = Elements_M([
     Element_M(1, "Hydrogen", :H),
     Element_M(2, "Helium", :He),
     Element_M(3, "Lithium", :Li),

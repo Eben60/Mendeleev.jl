@@ -87,15 +87,15 @@ end
 function Base.show(io::IO, is::Isotope)
     # println("----")
     # @show i = is.atomic_number
-    # @show el = ELEMENTS_M[i]
+    # @show el = chem_elements[i]
     # @show sym = el.symbol
     #
     # @show i = is.atomic_number
-    # @show el = ELEMENTS_M[is.atomic_number].symbol
+    # @show el = chem_elements[is.atomic_number].symbol
     # @show sym = el.symbol
     #
 
-    sym = ELEMENTS_M[is.atomic_number].symbol |> string
+    sym = chem_elements[is.atomic_number].symbol |> string
     mass_no_superscript = subsuperstring(is.mass_number)
 
     print(io, "($((is.abundance)*100)% $mass_no_superscript$sym m=$(is.mass) )")
