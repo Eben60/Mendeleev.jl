@@ -1,7 +1,7 @@
-# unused in program
-PeriodicTableFields = (:name, :appearance, :atomic_mass, :boil, :category, :color, :cpk_hex,
-:density, :discovered_by, :el_config, :melt, :molar_heat, :named_by, :number,
-:period, :phase, :source, :spectral_img, :summary, :symbol, :xpos, :ypos, :shells)
+# # unused in program
+# PeriodicTableFields = (:name, :appearance, :atomic_mass, :boil, :category, :color, :cpk_hex,
+# :density, :discovered_by, :el_config, :melt, :molar_heat, :named_by, :number,
+# :period, :phase, :source, :spectral_img, :summary, :symbol, :xpos, :ypos, :shells)
 
 const properties2omit = [:color, :named_by, :discovered_by]
 const properties2rename = [:source => :wikipedia, :number => :atomic_number,]

@@ -1,6 +1,3 @@
-# module SC
-# using Mendeleev, Test
-
 const orb_typenums = Dict('s' => 1,
                            'p' => 2,
                            'd' => 3,
@@ -8,12 +5,25 @@ const orb_typenums = Dict('s' => 1,
 
 const orb_typenames = Dict([v=>k for (k, v) in zip(keys(orb_typenums), values(orb_typenums))])
 
+
+"""
+    ScreenConst
+This struct describes screening constant for a given orbital of a given element. 
+It is not exported.
+```
+    atomic_number::Int
+    shell::Int
+    orb_type::Int
+    screening::Float64
+```    
+"""
 struct ScreenConst
     atomic_number::Int
     shell::Int
     orb_type::Int
     screening::Float64
 end
+
 
 ScreenConst(a, s, ss::AbstractChar, v) = ScreenConst(a, s, orb_typenums[ss], v)
 ScreenConst(a, s, ss::T, v) where T <: Union{AbstractString, Symbol} = ScreenConst(a, s, orb_typenums[String(ss)[1]], v)
@@ -32,8 +42,24 @@ function Base.isless(sc1::ScreenConst, sc2::ScreenConst)
     return sc1.orb_type < sc2.orb_type
 end
 
-####
+"""
+    ScreenConstants
+This struct is a container for screening constants of an element. See examples below for indexing access. 
+It is not exported.
 
+# Examples
+```julia-repl
+julia> els[:Sc].sconst[2, 's']
+Sc 2s: 6.4264
+
+julia> els[:Sc].sconst[2, "s"]
+Sc 2s: 6.4264
+
+julia> els[:Sc].sconst["2s"]
+Sc 2s: 6.4264
+```
+
+"""  
 struct ScreenConstants
     atomic_number::Int
     data::Vector{ScreenConst}

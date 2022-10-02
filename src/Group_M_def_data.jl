@@ -1,3 +1,12 @@
+"""
+    Group_M
+This struct describes a group of the periodic table. It is not exported.
+```
+    no::Int
+    symbol::String
+    name::String
+```    
+"""
 struct Group_M
     no::Int
     symbol::String
@@ -11,7 +20,6 @@ function group_fullname(g::Group_M)
     isempty(name) && return "$no[$symbol]"
     return "$no[$symbol] ($name)"
 end
-
 
 function Base.show(io::IO, g::Group_M)
     print(io, group_fullname(g))

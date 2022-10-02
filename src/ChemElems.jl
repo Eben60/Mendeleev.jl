@@ -20,7 +20,7 @@ end
 
 """
     ChemElems
-This struct is a contained for elements and provides access by number, symbol, or name. It is not exported.
+This struct is a container for elements and provides access by number, symbol, or name. It is not exported.
 """
 struct ChemElems
     data::Vector{ChemElem}

@@ -136,9 +136,6 @@ Base.isless(elm1::ChemElem, elm2::ChemElem) = elm1.atomic_number < elm2.atomic_n
 # Provide a simple way to iterate over all elements.
 Base.eachindex(elms::ChemElems) = eachindex(elms.data)
 
-# TODO for all overloads
-# types that overload getproperty should generally overload propertynames
-
 function getprop_unitless(e::ChemElem, s::Symbol)
     s in fieldnames(ChemElem)  && return getfield(e, s)
     haskey(elements_data, s) && return elements_data[s][e.atomic_number]

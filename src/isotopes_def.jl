@@ -1,3 +1,14 @@
+"""
+    Isotope
+This struct describes a single isotope. Only naturally occuring stable or almost stable isotopes are included.
+It is not exported.
+```
+    atomic_number::Int
+    mass_number::Int
+    mass::typeof(1.0*u"u")
+    abundance::Float64
+```    
+"""
 struct Isotope
     atomic_number::Int
     mass_number::Int
@@ -8,6 +19,14 @@ end
 Isotope(atomic_number, mass_number, mass::Float64, abundance) =
     Isotope(atomic_number, mass_number, mass*u"u", abundance)
 
+
+"""
+    Isotopes
+This struct is a container for isotopes of an element. It provides access only by 
+position(s) in the array of the (stable or almost stable) isotopes of this elements.
+More comprehensive isotopes data to be published in a separate package.
+It is not exported.
+"""   
 struct Isotopes
     isotopes::Vector{Isotope}
 end
@@ -16,7 +35,6 @@ Base.getindex(iss::Isotopes, i::Integer) = iss.isotopes[i]
 Base.getindex(iss::Isotopes, v::AbstractVector) = [iss[i] for i in v]
 
 Base.get(iss::Isotopes, i::Integer, default) = get(iss.isotopes[i], i, default)
-
 
 # support iterating over Isotopes
 Base.eltype(iss::Isotopes) = Isotope
