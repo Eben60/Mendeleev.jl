@@ -1,3 +1,8 @@
+"""
+    Mendeleev
+Package package for accessing chemical elements data. Exports them as `chem_elements`, 
+enabling access by name, symbol, or atomic number.
+"""
 module Mendeleev
 using Unitful
 
@@ -18,8 +23,14 @@ include("synonym_fields.jl")
 include("property_functions.jl")
 include("overloads.jl")
 
-elements = chem_elements
+
 export ChemElem # struct definition
-export chem_elements, els, elements # all elements data
+export chem_elements # all elements data
+
+# import these explicitly for legacy (formerly PeriodicTable.jl based) applications
+elements = chem_elements
+Element = ChemElem 
+
+els = chem_elements # import this short form if you like
 
 end  # module Mendeleev

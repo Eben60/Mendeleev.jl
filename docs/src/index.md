@@ -1,18 +1,23 @@
-# Mendeleev
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-
 # Mendeleev.jl
+
 A package for accessing chemical elements data. It's code was initially based on [PeriodicTable](https://github.com/JuliaPhysics/PeriodicTable.jl) Julia package, whereas the data come mainly from the Python [mendeleev](https://github.com/lmmentel/mendeleev) package. 
 
-### Installation
+## Installation
 As usual
 ```julia
 ] add Mendeleev
 ```
 
-### Usage
+## Intentions
+The aim was to have a package compatible with `PeriodicTable` as possible, but with much more comprehensive data 
+from possibly reliable and traceable sources. The package should still be possibly lightweight like `PeriodicTable`. `Mendeleev`, like it's predessor, has only one direct dependence (`Unitful`), keeps data in static form, and takes about the same time to load (about half a second on a medium-range medium-aged notebook). See below for compatibility details.
+
+Another aim was to make it easier to update data. Most data are read out from the (Python) `mendeleev` database by a separate external skript and converted to static Julia code, which further can be relatively straightforwardly edited, should that be necessary.
+
+## Usage
 Mendeleev.jl provides a Julia interface to a database of element
 properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `chem_elements`, which is a collection of
 `ChemElem` data structures.
@@ -37,14 +42,6 @@ Uue
 You can look up elements by name (case-insensitive)
 via `chem_elements["oxygen"]`, by symbol via `chem_elements[:O]`, or by number via
 `chem_elements[8]`, for example.
-
-
-The complete list of element's properties is here: 
-
-```@contents
-Pages = ["elements_data_fields.md"]
-Depth = 1
-```
 
 
 All physical quantities are [unitful](https://painterqubits.github.io/Unitful.jl).
@@ -84,18 +81,47 @@ julia> chem_elements[1:4]
 
 ```
 
-### Data by
-The data used for this package has been pulled up mainly from [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON)
+## Data by
+The data used for this package has been pulled up mainly from [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
 
-### Types and Functions
+##  List of `ChemElement` properties: 
+
+```@contents
+Pages = ["elements_data_fields.md"]
+Depth = 3
+```
+
+## Types and Functions
 ```@autodocs
 Modules = [Mendeleev]
 Order   = [:type, :function]
 ```
 
-### Developed by
+## Compatibility Issues
+`PeriodicTable.jl` exports global variable called `elements`, which is a collection of `Element` data structures.
+In `Mendeleev.jl` these called correspondingly `chem_elements` and `ChemElem`, the word "element" having too much 
+meanings IMO. For legacy application you however still may use the old names:
+
+```julia
+julia> using Mendeleev: elements, Element
+```
+
+One property (`source`) got a different meaning, one (`color`) was omitted completely, and two (`discovered_by`, `named_by`) are omitted, but there exist similar properties. For details, see _Elements Data_ section. Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we using `Missing`.
+
+## Developed by
 * [Eben60](https://github.com/Eben60)
 
+## Credits
+Developers of `PeriodicTable.jl`
+* [Rahul Lakhanpal](https://www.rahullakhanpal.in)
+* [Steven G. Johnson](https://github.com/stevengj)
+* [Jacob Wikmark](https://github.com/lancebeet)
+* [Carsten Bauer](https://github.com/crstnbr)
 
+Some data originally from 
+* [here](https://github.com/Bowserinator/Periodic-Table-JSON)
 
+Most data from 
+[mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel)
 
+_Wikipedia_ and _CRC Handbook of Chemistry and Physics (ISBN 9781482208689)_ were the most used primary data sources. 

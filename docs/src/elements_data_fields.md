@@ -1,7 +1,7 @@
-﻿Elements Data
+﻿### Elements Data
 ========
 
-## The following data are from [mendeleev](https://mendeleev.readthedocs.io/en/stable/data.html) (see there for data sources):
+#### The following data are from [mendeleev](https://mendeleev.readthedocs.io/en/stable/data.html) (see there for data sources):
 
 | Name                            | Comment                                              |
 |---------------------------------|------------------------------------------------------|
@@ -98,7 +98,7 @@
 [^3]: Retrieved by me mostly from Wikipedia - see comments in the source file `oxistates_data.jl`     
 
 
-## Further properties, mostly from `PeriodicTable` (in part supported just for compatibility)
+#### Further properties, mostly from `PeriodicTable` (in part supported just for compatibility)
 
 | Name           | Comment or synonym field                             |
 |----------------|------------------------------------------------------|
@@ -126,7 +126,7 @@
 [^4]: In `PeriodicTable` the `source` field was the data source (in all cases a Wikipedia article on the element), whereas in (Python) `Mendeleev` this is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 
 
-## Properties from PeriodicTable omitted in this package
+#### Properties from PeriodicTable omitted in this package
 
 | Name             | Comment                            |
 |------------------|------------------------------------------------------|

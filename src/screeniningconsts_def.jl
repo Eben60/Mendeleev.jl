@@ -61,7 +61,6 @@ Mo 2s: 11.1232
 julia> chem_elements[:Mo].sconst["2s"]
 Mo 2s: 11.1232
 ```
-
 """  
 struct ScreenConstants
     atomic_number::Int
