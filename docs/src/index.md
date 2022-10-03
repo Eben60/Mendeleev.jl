@@ -86,10 +86,7 @@ The data used for this package has been pulled up mainly from [mendeleev](https:
 
 ##  List of `ChemElement` properties: 
 
-```@contents
-Pages = ["elements_data_fields.md"]
-Depth = 3
-```
+* [Elements Data Fields](./elements_data_fields.md)
 
 ## Types and Functions
 ```@autodocs
@@ -124,4 +121,4 @@ Some data originally from
 Most data from 
 [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel)
 
-_Wikipedia_ and _CRC Handbook of Chemistry and Physics (ISBN 9781482208689)_ were the most used primary data sources. 
+_Wikipedia_ and _CRC Handbook of Chemistry and Physics (ISBN 9781482208689)_ were the most used primary data sources for _words, words, words_ and for _numbers_, respectively. 

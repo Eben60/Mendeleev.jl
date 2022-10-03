@@ -1,4 +1,4 @@
-push!(LOAD_PATH,"../src/")
+# push!(LOAD_PATH,"../src/")
 using Documenter, Mendeleev
 
 makedocs(
@@ -6,7 +6,7 @@ makedocs(
     format = Documenter.HTML(; prettyurls = get(ENV, "CI", nothing) == "true"),
     authors = "Eben60",
     sitename = "Mendeleev.jl",
-    pages = Any["index.md"]
+    pages = Any["Home" => "index.md", "Elements Data Fields" => "elements_data_fields.md"]
     # strict = true,
     # clean = true,
     # checkdocs = :exports,
