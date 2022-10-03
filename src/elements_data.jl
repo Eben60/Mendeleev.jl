@@ -6589,7 +6589,7 @@ const elements_data = Dict{Symbol, Vector}(
     "Named in honor of the scientist Yuri Oganessian." , # Og
     ]
     ,
-    :nist_webbook => 
+    :nist_webbook_url => 
     [
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/H2/h1H" , # H
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/He" , # He

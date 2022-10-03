@@ -49,17 +49,17 @@ It is not exported.
 
 # Examples
 ```julia-repl
-julia> els[:Sc].sconst[2, 1]
-Sc 2s: 6.4264
+julia> chem_elements[:Mo].sconst[2, 1]
+Mo 2s: 11.1232
 
-julia> els[:Sc].sconst[2, 's']
-Sc 2s: 6.4264
+julia> chem_elements[:Mo].sconst[2, 's']
+Mo 2s: 11.1232
 
-julia> els[:Sc].sconst[2, "s"]
-Sc 2s: 6.4264
+julia> chem_elements[:Mo].sconst[2, "s"]
+Mo 2s: 11.1232
 
-julia> els[:Sc].sconst["2s"]
-Sc 2s: 6.4264
+julia> chem_elements[:Mo].sconst["2s"]
+Mo 2s: 11.1232
 ```
 
 """  

@@ -4,7 +4,7 @@
 
 
 # Mendeleev.jl
-A package for accessing chemical elements data. It's code was initially based on PeriodicTable Julia package, whereas the data come mainly from the Python Mendelev package. 
+A package for accessing chemical elements data. It's code was initially based on [PeriodicTable](https://github.com/JuliaPhysics/PeriodicTable.jl) Julia package, whereas the data come mainly from the Python [mendeleev](https://github.com/lmmentel/mendeleev) package. 
 
 ### Installation
 As usual
@@ -13,15 +13,15 @@ As usual
 ```
 
 ### Usage
-PeriodicTable.jl provides a Julia interface to a database of element
-properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `elements`, which is a collection of
+Mendeleev.jl provides a Julia interface to a database of element
+properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `chem_elements`, which is a collection of
 `ChemElem` data structures.
 
 ```julia
 julia> using Mendeleev
 
-julia> elements
-Elements(…119 elements…):
+julia> chem_elements
+Elements(…118 elements…):
 H                                                  He
 Li Be                               B  C  N  O  F  Ne
 Na Mg                               Al Si P  S  Cl Ar
@@ -35,17 +35,24 @@ Uue
 ```
 
 You can look up elements by name (case-insensitive)
-via `elements["oxygen"]`, by symbol via `elements[:O]`, or by number via
-`elements[8]`, for example.
+via `chem_elements["oxygen"]`, by symbol via `chem_elements[:O]`, or by number via
+`chem_elements[8]`, for example.
 
-Each element has a lot of fields (properties, to be exact) `name`, `appearance`, `atomic_mass`, `boil`, `category`, `color`, `density`, `discovered_by`, `melt`, `molar_heat`, `named_by`, `number`, `period`, `phase`, `source`, `spectral_img`, `summary`, `symbol`, `xpos`, `ypos`, `shells`.
+
+The complete list of element's properties is here: 
+
+```@contents
+Pages = ["elements_data_fields.md"]
+Depth = 1
+```
+
 
 All physical quantities are [unitful](https://painterqubits.github.io/Unitful.jl).
 
 The data is pretty-printed when you look up an element in the Julia REPL.
 For example:
 ```julia
-julia> elements["oxygen"]
+julia> chem_elements["oxygen"]
 Oxygen (O), number 8:
         category: diatomic nonmetal
      atomic mass: 15.999 u
@@ -64,26 +71,31 @@ e⁻-configuration: 1s² 2s² 2p⁴
    wikipedia URL: https://en.wikipedia.org/wiki/Oxygen
   spectral image: https://en.wikipedia.org/wiki/File:Oxygen_spectre.jpg
 
- 
 ```
+
 Alternatively, you may want to get a list of elements,
 ```julia
-julia> elements[1:4]
+julia> chem_elements[1:4]
 4-element Vector{ChemElem}:
- Element(Hydrogen)
- Element(Helium)
- Element(Lithium)
- Element(Beryllium)
- ```
+    Element(Hydrogen)
+    Element(Helium)
+    Element(Lithium)
+    Element(Beryllium)
+
+```
 
 ### Data by
 The data used for this package has been pulled up mainly from [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON)
 
+### Types and Functions
+```@autodocs
+Modules = [Mendeleev]
+Order   = [:type, :function]
+```
 
 ### Developed by
 * [Eben60](https://github.com/Eben60)
 
-### Facing issues? 
-* Open a PR with the detailed expaination of the issue
+
 
 
