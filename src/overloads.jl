@@ -152,3 +152,4 @@ function Base.getproperty(e::ChemElem, s::Symbol)
 end
 
 Base.propertynames(e::ChemElem) = sort(collect(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(ChemElem))))
+Base.hasproperty(e::ChemElem, p::Symbol) = p in propertynames(e)
