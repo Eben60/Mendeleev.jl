@@ -38,9 +38,9 @@
 | `electrophilicity`              | Electrophilicity index                               |
 | `en_allen`                      | Allen's scale of electronegativity                   |
 | `en_ghosh`                      | Ghosh's scale of electronegativity                   |
-| `en_mulliken`                   | Mulliken's scale of electronegativity                |
+| `en_mulliken`                   | Mulliken's scale of electronegativity (not yet implemented in `Mendeleev.jl`)               |
 | `en_pauling`                    | Pauling's scale of electronegativity                 |
-| `econf`                         | Ground state electron configuration                  |
+| `electronic_configuration`       | Ground state electron configuration (or is it econf ??)                 |
 | `evaporation_heat`              | Evaporation heat                                     |
 | `fusion_heat`                   | Fusion heat                                          |
 | `gas_basicity`                  | Gas basicity                                         |
@@ -49,7 +49,7 @@
 | `goldschmidt_class`             | Goldschmidt classification                           |
 | `group`                         | Group in periodic table                              |
 | `heat_of_formation`             | Heat of formation                                    |
-| `inchi`                         | International Chemical Identifier                    |
+| `inchi`                         | International Chemical Identifier # to import on next update from Mendeleev        |
 | `ionenergy`                     | Ionization energies                                  |
 | `ionic_radii`                   | Ionic and crystal radii in pm                        |
 | `is_monoisotopic`               | Is the element monoisotopic                          |

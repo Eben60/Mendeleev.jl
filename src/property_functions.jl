@@ -42,3 +42,8 @@ function fn_sconst(e)
 end
 
 fn_isotopes(e) = isotopes_data[e.atomic_number]
+
+fn_electrons(e) = e.atomic_number
+fn_protons(e) = e.atomic_number
+
+fn_neutrons(e) = e.mass_number - e.atomic_number
