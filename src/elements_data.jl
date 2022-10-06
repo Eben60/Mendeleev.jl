@@ -3204,7 +3204,7 @@ const elements_data = Dict{Symbol, Vector}(
     "Sweden" , # Co
     "Sweden" , # Ni
     missing , # Cu
-    "Germany" , # Zn
+    missing , # Zn
     "France" , # Ga
     "Germany" , # Ge
     missing , # As
