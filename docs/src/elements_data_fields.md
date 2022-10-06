@@ -109,6 +109,7 @@
 | `category`     |           |
 | `color`        |           |
 | `cpk_hex`      | -> `cpk_color`          |
+| `discovered_by` | year of discovery, names of discoverers, and discovery location |
 | `el_config`    |           |
 | `melt`         | -> `melting_point`          |
 | `molar_heat`   | -> `molar_heat_capacity`          |
@@ -132,7 +133,6 @@
 | Name             | Comment                            |
 |------------------|------------------------------------------------------|
 | `color`          | see `appearance` (`color` was missing for all elements but one anyway)         |
-| `discovered_by`  | see  `discoverers`          |
 | `named_by`       | see `name_origin`          |
 
 

@@ -4,7 +4,10 @@ function ispresent() end
 
 # these functions are calculated properties
 # the function name consists of the prefix fn_ and the property name
-
+"""
+    fn_discovered_by(e::ChemElem)
+Returns a string with information (if available) about the year of discovery, names of discoverers, and discovery location
+"""
 function fn_discovered_by(e)
     knwn = r"^\s*Known"i
     yr = e.discovery_year
@@ -46,4 +49,25 @@ fn_isotopes(e) = isotopes_data[e.atomic_number]
 fn_electrons(e) = e.atomic_number
 fn_protons(e) = e.atomic_number
 
+function most_abundant_is(e) 
+    abuns = [i.abundance for i in e.isotopes]
+    _, ix = findmax(abuns)
+    return e.isotopes[ix]
+end
+
+"""
+    fn_mass_number(e::ChemElem)
+Return the mass number of the most abundant isotope, if there are any stable isotopes for this element.
+Otherwise returns `missing`
+"""
+function fn_mass_number(e)
+    ismissing(e.isotopes) && return missing
+    return most_abundant_is(e).mass_number
+end
+
+"""
+fn_neutrons(e::ChemElem)
+Return the number of neutrons for the most abundant isotope, if there are any stable isotopes for this element.
+Otherwise returns `missing`
+"""
 fn_neutrons(e) = e.mass_number - e.atomic_number
