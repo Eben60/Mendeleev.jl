@@ -38,7 +38,7 @@
 | `electrophilicity`              | Electrophilicity index                               |
 | `en_allen`                      | Allen's scale of electronegativity                   |
 | `en_ghosh`                      | Ghosh's scale of electronegativity                   |
-| `en_mulliken`                   | Mulliken's scale of electronegativity (not yet implemented in `Mendeleev.jl`)               |
+| `en_mulliken`                   | Mulliken's scale of electronegativity _(not yet implemented in `Mendeleev.jl`)_ |
 | `en_pauling`                    | Pauling's scale of electronegativity                 |
 | `electronic_configuration`       | Ground state electron configuration (or is it econf ??)                 |
 | `evaporation_heat`              | Evaporation heat                                     |
@@ -49,9 +49,9 @@
 | `goldschmidt_class`             | Goldschmidt classification                           |
 | `group`                         | Group in periodic table                              |
 | `heat_of_formation`             | Heat of formation                                    |
-| `inchi`                         | International Chemical Identifier # to import on next update from Mendeleev        |
+| `inchi`                         | International Chemical Identifier _(not yet implemented in `Mendeleev.jl`)_ |
 | `ionenergy`                     | Ionization energies                                  |
-| `ionic_radii`                   | Ionic and crystal radii in pm                        |
+| `ionic_radii`                   | Ionic and crystal radii in pm _(not yet implemented in `Mendeleev.jl`)_ |
 | `is_monoisotopic`               | Is the element monoisotopic                          |
 | `is_radioactive`                | Is the element radioactive                           |
 | `isotopes`                      | Isotopes [^2] . Returns `Isotopes` type              |
@@ -116,7 +116,6 @@
 | `number`       | -> `atomic_number`          |
 | `phase`        |           |
 | `shells`       |           |
-| `source`       | -> `source` Name conflict! [^4]      |
 | `spectral_img` | Wikipedia picture URL          |
 | `summary`      | Some arbitrary general information          |
 | `xpos`         | x-position of the element in the Periodic Table          |
@@ -128,11 +127,12 @@
 [^4]: In `PeriodicTable` the `source` field was the data source (in all cases a Wikipedia article on the element), whereas in (Python) `Mendeleev` this is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 
 
-## Properties from PeriodicTable omitted in this package
+## Properties from PeriodicTable omitted or changed in this package
 
 | Name             | Comment                            |
 |------------------|------------------------------------------------------|
 | `color`          | see `appearance` (`color` was missing for all elements but one anyway)         |
 | `named_by`       | see `name_origin`          |
+| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` |
 
 
