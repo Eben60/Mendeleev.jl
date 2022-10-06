@@ -1,7 +1,7 @@
 name = "Mendeleev"
 uuid = "c116f080-063d-490a-9873-2b5b2cce4c34"
 authors = ["Eben60"]
-version = "0.0.70"
+version = "0.0.71"
 
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
