@@ -1,6 +1,7 @@
 module PropertiesTests
 using Mendeleev, Test
 
+@testset "PropertiesTests" begin
 K = chem_elements[:K]
 He = chem_elements[:He]
 N = chem_elements[:N]
@@ -13,5 +14,5 @@ Ts = chem_elements[:Ts]
 @test Fe.neutrons == 30
 @test ismissing(Ts.mass_number)
 
-
+end # @testset "PropertiesTests"
 end # module

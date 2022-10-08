@@ -1,8 +1,8 @@
 module UnitfulUnitsTests
 using Mendeleev, Test, Unitful
-import Unitful: u, g, cm, K, J, mol
+using Unitful: u, g, cm, K, J, mol
+@testset "UnitfulUnitsTests" begin
 
-# Unitful units
 H = chem_elements[1]
 O = chem_elements[:O]
 Zr = chem_elements[:Zr]
@@ -17,9 +17,8 @@ Be = chem_elements[:Be]
 @test unit(H.lattice_constant) === u"angstrom"
 @test unit(H.atomic_volume) === u"cm^3/mol"
 @test unit(H.electron_affinity) === u"eV"
-@test_broken unit(H.electrophilicity) === u"eV"
+@test_broken unit(H.electrophilicity) === u"eV" # electrophilicity not implemented yet
 @test unit(H.en_allen) === u"eV"
-@test_broken unit(H.en_mulliken) === u"eV"
 @test unit(H.density) === u"g/cm^3"
 @test unit(H.specific_heat_capacity) === u"J/(g*K)"
 @test unit(H.boiling_point) === u"K"
@@ -54,5 +53,5 @@ Be = chem_elements[:Be]
 @test unit(H.atomic_weight) === u"u"
 @test unit(Zr.ionenergy[2]) === u"eV"
 
-
+end
 end

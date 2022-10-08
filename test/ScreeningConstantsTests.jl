@@ -1,8 +1,8 @@
 module ScreeningConstantsTests
 using Mendeleev, Test
-
 using Mendeleev: ScreenConst, ScreenConstants
 
+@testset "ScreeningConstantsTests" begin
 K = chem_elements[:K]
 Ts = chem_elements[:Ts]
 
@@ -27,9 +27,11 @@ scs = ScreenConstants([e1_s1, e1_s2, e1_p1])
 
 @test K.sconst[2, 2] == K.sconst[2, 'p'] == K.sconst[2, "p"] == K.sconst["2p"]
 @test repr(K.sconst["2p"]) == "K 2p: 3.9728"
+# @test repr(K.sconst) == "ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 @test repr(K.sconst) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 @test K.sconst["2p"].screening == 3.9728
 
 @test ismissing(Ts.sconst)
 
+end # @testset "ScreeningConstantsTests"
 end # module

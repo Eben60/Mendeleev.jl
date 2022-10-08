@@ -1,7 +1,8 @@
 module GroupsSeriesTests
 using Mendeleev, Test
-
 using Mendeleev: Group_M
+
+@testset "GroupsSeriesTests" begin
 
 He = chem_elements[:He]
 N = chem_elements[:N]
@@ -22,4 +23,6 @@ Sn = chem_elements[:Sn]
 @test Cu.series == "Transition metals"
 @test He.series == "Noble gases"
 @test Sn.series == "Poor metals"
+
+end # @testset "GroupsSeriesTests" 
 end # module

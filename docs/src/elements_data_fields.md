@@ -35,7 +35,7 @@
 | `discovery_year`                | The year the element was discovered                  |
 | `electron_affinity`             | Electron affinity                                    |
 | `electrons`                     | Number of electrons                                  |
-| `electrophilicity`              | Electrophilicity index                               |
+| `electrophilicity`              | Electrophilicity index  _(not yet implemented in `Mendeleev.jl`)_  |
 | `en_allen`                      | Allen's scale of electronegativity                   |
 | `en_ghosh`                      | Ghosh's scale of electronegativity                   |
 | `en_mulliken`                   | Mulliken's scale of electronegativity _(not yet implemented in `Mendeleev.jl`)_ |

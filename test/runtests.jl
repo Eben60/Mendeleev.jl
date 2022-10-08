@@ -1,5 +1,6 @@
-using Mendeleev, Unitful
-using Test
+using Mendeleev
+
+# using Test, Unitful
 
 include("GeneralTests.jl")
 include("UnitfulUnitsTests.jl")

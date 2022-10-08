@@ -1,6 +1,8 @@
 module OxiStatesTests
 using Mendeleev, Test
 
+@testset "OxiStatesTests" begin
+
 K = chem_elements[:K]
 He = chem_elements[:He]
 N = chem_elements[:N]
@@ -11,4 +13,5 @@ Ts = chem_elements[:Ts]
 @test isempty(He.oxistates)
 @test ismissing(Ts.oxistates)
 
+end # @testset "OxiStatesTests"
 end # module
