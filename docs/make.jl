@@ -12,8 +12,8 @@ makedocs(
     # checkdocs = :exports,
 )
 
-# deploydocs(
-#     repo = "github.com/Eben60/Mendeleev.jl.git",
-#     versions = nothing,
-#     push_preview = true
-# )
+deploydocs(
+    repo = "github.com/Eben60/Mendeleev.jl.git",
+    versions = nothing,
+    push_preview = true
+)
