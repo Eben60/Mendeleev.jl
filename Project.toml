@@ -4,7 +4,6 @@ authors = ["Eben60"]
 version = "0.0.71"
 
 [deps]
-Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [compat]
