@@ -13,4 +13,5 @@
 [![codecov.io](http://codecov.io/github/Eben60/Mendeleev.jl/coverage.svg?branch=main](http://codecov.io/github/Eben60/Mendeleev.jl?branch=main)
 -->
 [![][ci-img]][ci-url]
+[ci-img]: https://github.com/stephenbnicar/BeaData.jl/workflows/CI/badge.svg
 [ci-url]: https://github.com/stephenbnicar/BeaData.jl/actions?workflow=CI
