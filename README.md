@@ -2,8 +2,7 @@
 
 
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
-<!--
-![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
+<!--![Lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 ![Lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)
 ![Lifecycle](https://img.shields.io/badge/lifecycle-retired-orange.svg)
 ![Lifecycle](https://img.shields.io/badge/lifecycle-archived-red.svg)
@@ -13,3 +12,5 @@
 <!--
 [![codecov.io](http://codecov.io/github/Eben60/Mendeleev.jl/coverage.svg?branch=main](http://codecov.io/github/Eben60/Mendeleev.jl?branch=main)
 -->
+[![][ci-img]][ci-url]
+[ci-url]: https://github.com/stephenbnicar/BeaData.jl/actions?workflow=CI
