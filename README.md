@@ -1,6 +1,5 @@
 # Mendeleev.jl
 
-
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg) 
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://Eben60.github.io/Mendeleev.jl) 
 [![Build Status](https://github.com/Eben60/Mendeleev.jl/workflows/CI/badge.svg)](https://github.com/Eben60/Mendeleev.jl/actions?query=workflow%3ACI) 
@@ -18,3 +17,7 @@
 [![][[ci-img]](https://github.com/Eben60/Mendeleev.jl/workflows/CI/badge.svg)][[ci-url](https://github.com/Eben60/Mendeleev.jl/actions?workflow=CI)]
 -->
 
+A package for accessing chemical elements data. 
+
+## Documentation at 
+[https://eben60.github.io/Mendeleev.jl/](https://eben60.github.io/Mendeleev.jl/)
