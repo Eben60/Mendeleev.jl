@@ -38,7 +38,6 @@
 | `electrophilicity`              | Electrophilicity index  _(not yet implemented in `Mendeleev.jl`)_  |
 | `en_allen`                      | Allen's scale of electronegativity                   |
 | `en_ghosh`                      | Ghosh's scale of electronegativity                   |
-| `en_mulliken`                   | Mulliken's scale of electronegativity _(not yet implemented in `Mendeleev.jl`)_ |
 | `en_pauling`                    | Pauling's scale of electronegativity                 |
 | `electronic_configuration`       | Ground state electron configuration (or is it econf ??)                 |
 | `evaporation_heat`              | Evaporation heat                                     |
@@ -124,7 +123,7 @@
 
 
 
-[^4]: In `PeriodicTable` the `source` field was the data source (in all cases a Wikipedia article on the element), whereas in (Python) `Mendeleev` this is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
+[^4]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `Mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 
 
 ## Properties from PeriodicTable omitted or changed in this package

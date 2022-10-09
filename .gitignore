@@ -29,4 +29,5 @@ Manifest.toml
 # Mac
 **/.DS_Store
 
+auxillary/
 lcov.info

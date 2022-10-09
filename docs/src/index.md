@@ -3,7 +3,7 @@
 
 # Mendeleev.jl
 
-A package for accessing chemical elements data. It's code was initially based on [PeriodicTable](https://github.com/JuliaPhysics/PeriodicTable.jl) Julia package, whereas the data come mainly from the Python [mendeleev](https://github.com/lmmentel/mendeleev) package. 
+A package for accessing chemical elements data. It's code was initially based on [PeriodicTable](https://github.com/JuliaPhysics/PeriodicTable.jl) Julia package, whereas the data come mainly from the Python [mendeleev](https://github.com/lmmentel/mendeleev) package. It can be used as a replacement for [PeriodicTable](https://github.com/JuliaPhysics/PeriodicTable.jl).
 
 ## Installation
 As usual
@@ -103,7 +103,9 @@ meanings IMO. For legacy application you however still may use the old names:
 julia> using Mendeleev: elements, Element
 ```
 
-One property (`source`) got a different meaning, one (`color`) was omitted completely, and two (`discovered_by`, `named_by`) are omitted, but there exist similar properties. For details, see _Elements Data_ section. Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we using `Missing`.
+One property (`source`) got a different meaning, one (`color`) was omitted completely, and one (`named_by`) are omitted, but there exist similar property. For details, see _Elements Data_ section. 
+
+Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we are using `Missing`.
 
 ## Developed by
 * [Eben60](https://github.com/Eben60)

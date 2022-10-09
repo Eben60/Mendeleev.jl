@@ -1,7 +1,0 @@
-allred_rochow
-cottrell_sutton
-gordy
-en_li_xue(charge=4)
-en_martynov_batsanov
-nagle
-Sanderson
