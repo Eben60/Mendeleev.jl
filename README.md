@@ -15,3 +15,4 @@
 [![][[ci-img]](https://github.com/Eben60/Mendeleev.jl/workflows/CI/badge.svg)][[ci-url](https://github.com/Eben60/Mendeleev.jl/actions?workflow=CI)]
 -->
 
+[![Build Status](https://github.com/Eben60/Mendeleev.jl/workflows/CI/badge.svg)](https://github.com/Eben60/Mendeleev.jl/actions?query=workflow%3ACI)
