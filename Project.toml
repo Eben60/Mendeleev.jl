@@ -4,7 +4,6 @@ authors = ["Eben60"]
 version = "0.1.0"
 
 [deps]
-Coverage = "a2441757-f6aa-5fb2-8edb-039e3f45d037"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [compat]
