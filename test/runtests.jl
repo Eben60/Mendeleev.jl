@@ -8,4 +8,6 @@ include("ScreeningConstantsTests.jl")
 include("OxiStatesTests.jl")
 include("GroupsSeriesTests.jl")
 include("IonenergyTests.jl")
+include("ReprTests.jl")
+include("DefsTests.jl")
 # TODO isotopes tests

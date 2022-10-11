@@ -17,8 +17,6 @@ Sn = chem_elements[:Sn]
 @test Cu.group.name == "Coinage metals"
 @test Cu.group.symbol == "IB"
 
-@test repr(Cu.group) == "11[IB] (Coinage metals)"
-@test repr(Zr.group) == "4[IVB]"
 
 @test Cu.series == "Transition metals"
 @test He.series == "Noble gases"
