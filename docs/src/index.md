@@ -82,7 +82,7 @@ julia> chem_elements[1:4]
 ```
 
 ## Data by
-The data used for this package has been pulled up mainly from [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
+The data used for this package has been pulled up mainly from the Python package [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
 
 ##  List of `ChemElement` properties: 
 
@@ -103,7 +103,7 @@ meanings IMO. For legacy application you however still may use the old names:
 julia> using Mendeleev: elements, Element
 ```
 
-One property (`source`) got a different meaning, one (`color`) was omitted completely, and one (`named_by`) are omitted, but there exist similar property. For details, see _Elements Data_ section. 
+One property (`color`) was omitted completely, one (`named_by`) are omitted, but there exist similar property. The `PeriodicTable.jl` property `source` contained link to Wikipedia article, and is named `wikipedia` in this package. For details, see _Elements Data_ section. 
 
 Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we are using `Missing`.
 
