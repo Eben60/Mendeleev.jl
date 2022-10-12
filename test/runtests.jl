@@ -10,4 +10,4 @@ include("GroupsSeriesTests.jl")
 include("IonenergyTests.jl")
 include("ReprTests.jl")
 include("DefsTests.jl")
-# TODO isotopes tests
+# TODO all-properties test
