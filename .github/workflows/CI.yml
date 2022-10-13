@@ -23,11 +23,16 @@ jobs:
           # - 'nightly'
         os:
           - ubuntu-latest
-            arch: - x64
           - windows-latest
-            arch: - x64
-         - macOS-latest
-            arch: - arm64
+        arch:
+          - x64
+        # os:
+        #   - ubuntu-latest
+        #     arch: - x64
+        #   - windows-latest
+        #     arch: - x64
+        #  - macOS-latest
+        #     arch: - arm64
 
     steps:
       - uses: actions/checkout@v2
