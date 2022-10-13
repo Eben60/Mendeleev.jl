@@ -88,10 +88,10 @@ The data used for this package has been pulled up mainly from the Python package
 
 * [Elements Data Fields](./elements_data_fields.md)
 
-## Types and Functions
+## Types
 ```@autodocs
 Modules = [Mendeleev]
-Order   = [:type, :function]
+Order   = [:type]
 ```
 
 ## Compatibility Issues
