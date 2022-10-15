@@ -119,7 +119,7 @@ const ionrad_ranges = (
     missing, # Og
 )
 const ionrad_data = (;
-    charge = (
+    charge = [
     1, # H1
     1, # H1
     1, # Li1
@@ -627,8 +627,8 @@ const ionrad_data = (;
     2, # No2
     3, # No3
     3, # Lr3
-    ),
-    coordination = (
+    ],
+    coordination = [
     Symbol("I"), # H1
     Symbol("II"), # H1
     Symbol("IV"), # Li1
@@ -1136,8 +1136,8 @@ const ionrad_data = (;
     Symbol("VI"), # No2
     Symbol("IX"), # No3
     Symbol("IX"), # Lr3
-    ),
-    crystal_radius = (
+    ],
+    crystal_radius = [
     -24.0, # H1
     -4.0, # H1
     73.0, # Li1
@@ -1645,8 +1645,8 @@ const ionrad_data = (;
     124.0, # No2
     122.5, # No3
     121.4, # Lr3
-    ),
-    econf = (
+    ],
+    econf = [
     "1s0", # H1
     "1s0", # H1
     "1s2", # Li1
@@ -2154,8 +2154,8 @@ const ionrad_data = (;
     "5f14", # No2
     missing, # No3
     missing, # Lr3
-    ),
-    ionic_radius = (
+    ],
+    ionic_radius = [
     -38.0, # H1
     -18.0, # H1
     59.0, # Li1
@@ -2663,8 +2663,8 @@ const ionrad_data = (;
     110.0, # No2
     108.5, # No3
     107.4, # Lr3
-    ),
-    most_reliable = (
+    ],
+    most_reliable = [
     0, # H1
     0, # H1
     1, # Li1
@@ -3172,8 +3172,8 @@ const ionrad_data = (;
     0, # No2
     missing, # No3
     missing, # Lr3
-    ),
-    origin = (
+    ],
+    origin = [
     missing, # H1
     missing, # H1
     missing, # Li1
@@ -3681,8 +3681,8 @@ const ionrad_data = (;
     "estimated, ", # No2
     missing, # No3
     missing, # Lr3
-    ),
-    spin = (
+    ],
+    spin = [
     missing, # H1
     missing, # H1
     missing, # Li1
@@ -4190,6 +4190,6 @@ const ionrad_data = (;
     missing, # No2
     missing, # No3
     missing, # Lr3
-    ),
+    ],
 )
 ;
