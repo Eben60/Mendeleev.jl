@@ -1,8 +1,8 @@
 # this is computer generated file - better not edit
 
-const elements_data = Dict{Symbol, Vector}(
-    :abundance_crust => 
-    [
+const elements_data = (; 
+    abundance_crust = 
+    (
     1400.0 , # H
     0.008 , # He
     20.0 , # Li
@@ -121,10 +121,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :abundance_sea => 
-    [
+    abundance_sea = 
+    (
     108000.0 , # H
     7.0e-6 , # He
     0.18 , # Li
@@ -243,10 +243,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :annotation => 
-    [
+    annotation = 
+    (
     "density(@ -253C), evaporation_heat(H-H), fusion_heat(H-H), " , # H
     "density(@ -270C), " , # He
     missing , # Li
@@ -365,10 +365,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :appearance => 
-    [
+    appearance = 
+    (
     "colorless gas" , # H
     "colorless gas, exhibiting a red-orange glow when placed in a high-voltage electric field" , # He
     "silvery-white" , # Li
@@ -487,10 +487,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :atomic_radius => 
-    [
+    atomic_radius = 
+    (
     25.0 , # H
     120.0 , # He
     145.0 , # Li
@@ -609,10 +609,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :atomic_radius_rahm => 
-    [
+    atomic_radius_rahm = 
+    (
     154.0 , # H
     134.0 , # He
     220.0 , # Li
@@ -731,10 +731,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :atomic_volume => 
-    [
+    atomic_volume = 
+    (
     14.1 , # H
     31.8 , # He
     13.1 , # Li
@@ -853,10 +853,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :atomic_weight => 
-    [
+    atomic_weight = 
+    (
     1.008 , # H
     4.002602 , # He
     6.94 , # Li
@@ -975,10 +975,10 @@ const elements_data = Dict{Symbol, Vector}(
     293.0 , # Lv
     294.0 , # Ts
     294.0 , # Og
-    ]
+    )
     ,
-    :atomic_weight_uncertainty => 
-    [
+    atomic_weight_uncertainty = 
+    (
     missing , # H
     2.0e-6 , # He
     missing , # Li
@@ -1097,10 +1097,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :block => 
-    [
+    block = 
+    (
     "s" , # H
     "s" , # He
     "s" , # Li
@@ -1219,10 +1219,10 @@ const elements_data = Dict{Symbol, Vector}(
     "p" , # Lv
     "p" , # Ts
     "p" , # Og
-    ]
+    )
     ,
-    :boiling_point => 
-    [
+    boiling_point = 
+    (
     20.28 , # H
     4.216 , # He
     1118.15 , # Li
@@ -1341,10 +1341,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :c6 => 
-    [
+    c6 = 
+    (
     6.499026705 , # H
     1.42 , # He
     1392.0 , # Li
@@ -1463,10 +1463,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :c6_gb => 
-    [
+    c6_gb = 
+    (
     6.51 , # H
     1.47 , # He
     1410.0 , # Li
@@ -1585,10 +1585,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :cas => 
-    [
+    cas = 
+    (
     "1333-74-0" , # H
     "7440-59-7" , # He
     "7439-93-2" , # Li
@@ -1707,10 +1707,10 @@ const elements_data = Dict{Symbol, Vector}(
     "54100-71-9" , # Lv
     "87658-56-8" , # Ts
     "54144-19-3" , # Og
-    ]
+    )
     ,
-    :category => 
-    [
+    category = 
+    (
     "diatomic nonmetal" , # H
     "noble gas" , # He
     "alkali metal" , # Li
@@ -1829,10 +1829,10 @@ const elements_data = Dict{Symbol, Vector}(
     "unknown, probably post-transition metal" , # Lv
     "unknown, probably metalloid" , # Ts
     "unknown, predicted to be noble gas" , # Og
-    ]
+    )
     ,
-    :covalent_radius_bragg => 
-    [
+    covalent_radius_bragg = 
+    (
     missing , # H
     missing , # He
     150.0 , # Li
@@ -1951,10 +1951,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :covalent_radius_cordero => 
-    [
+    covalent_radius_cordero = 
+    (
     31.0 , # H
     28.0 , # He
     128.0 , # Li
@@ -2073,10 +2073,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :covalent_radius_pyykko => 
-    [
+    covalent_radius_pyykko = 
+    (
     32.0 , # H
     46.0 , # He
     133.0 , # Li
@@ -2195,10 +2195,10 @@ const elements_data = Dict{Symbol, Vector}(
     175.0 , # Lv
     165.0 , # Ts
     157.0 , # Og
-    ]
+    )
     ,
-    :covalent_radius_pyykko_double => 
-    [
+    covalent_radius_pyykko_double = 
+    (
     missing , # H
     missing , # He
     124.0 , # Li
@@ -2317,10 +2317,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :covalent_radius_pyykko_triple => 
-    [
+    covalent_radius_pyykko_triple = 
+    (
     missing , # H
     missing , # He
     missing , # Li
@@ -2439,10 +2439,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :cpk_color => 
-    [
+    cpk_color = 
+    (
     "#ffffff" , # H
     "#ffc0cb" , # He
     "#b22222" , # Li
@@ -2561,10 +2561,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :density => 
-    [
+    density = 
+    (
     8.2e-5 , # H
     0.000164 , # He
     0.534 , # Li
@@ -2683,10 +2683,10 @@ const elements_data = Dict{Symbol, Vector}(
     12.9 , # Lv
     7.2 , # Ts
     7.0 , # Og
-    ]
+    )
     ,
-    :description => 
-    [
+    description = 
+    (
     "Colourless, odourless gaseous chemical element. Lightest and most abundant element in the universe. Present in water and in all organic compounds. Chemically reacts with most elements. Discovered by Henry Cavendish in 1776." , # H
     "Colourless, odourless gaseous nonmetallic element. Belongs to group 18 of the periodic table. Lowest boiling point of all elements and can only be solidified under pressure. Chemically inert, no known compounds. Discovered in the solar spectrum in 1868 by Lockyer." , # He
     "Socket silvery metal. First member of group 1 of the periodic table. Lithium salts are used in psychomedicine." , # Li
@@ -2805,10 +2805,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :dipole_polarizability => 
-    [
+    dipole_polarizability = 
+    (
     4.50711 , # H
     1.38375 , # He
     164.1125 , # Li
@@ -2927,10 +2927,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     76.0 , # Ts
     58.0 , # Og
-    ]
+    )
     ,
-    :dipole_polarizability_unc => 
-    [
+    dipole_polarizability_unc = 
+    (
     3.0e-5 , # H
     2.0e-5 , # He
     0.0005 , # Li
@@ -3049,10 +3049,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     15.0 , # Ts
     6.0 , # Og
-    ]
+    )
     ,
-    :discoverers => 
-    [
+    discoverers = 
+    (
     "Henry Cavendish" , # H
     "Sir William Ramsey, Nils Langet, P.T.Cleve" , # He
     "Johann Arfwedson" , # Li
@@ -3171,10 +3171,10 @@ const elements_data = Dict{Symbol, Vector}(
     "Lawrence Livermore National Laboratory" , # Lv
     "Joint Institute for Nuclear Research/Oak Ridge National Laboratory" , # Ts
     "Joint Institute for Nuclear Research" , # Og
-    ]
+    )
     ,
-    :discovery_location => 
-    [
+    discovery_location = 
+    (
     "England" , # H
     "Scotland/Sweden" , # He
     "Sweden" , # Li
@@ -3293,10 +3293,10 @@ const elements_data = Dict{Symbol, Vector}(
     "United States" , # Lv
     "Russia/United States" , # Ts
     "Russia" , # Og
-    ]
+    )
     ,
-    :discovery_year => 
-    [
+    discovery_year = 
+    (
     1766 , # H
     1895 , # He
     1817 , # Li
@@ -3415,10 +3415,10 @@ const elements_data = Dict{Symbol, Vector}(
     2000 , # Lv
     2010 , # Ts
     2002 , # Og
-    ]
+    )
     ,
-    :el_config => 
-    [
+    el_config = 
+    (
     "1s¹" , # H
     "1s²" , # He
     "1s² 2s¹" , # Li
@@ -3537,10 +3537,10 @@ const elements_data = Dict{Symbol, Vector}(
     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s² 4f¹⁴ 5d¹⁰ 6p⁶ 7s² 5f¹⁴ 6d¹⁰ 7p⁴" , # Lv
     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s² 4f¹⁴ 5d¹⁰ 6p⁶ 7s² 5f¹⁴ 6d¹⁰ 7p⁵" , # Ts
     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s² 4f¹⁴ 5d¹⁰ 6p⁶ 7s² 5f¹⁴ 6d¹⁰ 7p⁶" , # Og
-    ]
+    )
     ,
-    :electron_affinity => 
-    [
+    electron_affinity = 
+    (
     0.754195 , # H
     -19.7 , # He
     0.618049 , # Li
@@ -3659,10 +3659,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     0.056 , # Og
-    ]
+    )
     ,
-    :electronic_configuration => 
-    [
+    electronic_configuration = 
+    (
     "1s" , # H
     "1s2" , # He
     "[He] 2s" , # Li
@@ -3781,10 +3781,10 @@ const elements_data = Dict{Symbol, Vector}(
     "[Rn] 5f14 6d10 7s2 7p4" , # Lv
     "[Rn] 5f14 6d10 7s2 7p5" , # Ts
     "[Rn] 5f14 6d10 7s2 7p6" , # Og
-    ]
+    )
     ,
-    :en_allen => 
-    [
+    en_allen = 
+    (
     13.61 , # H
     24.59 , # He
     5.392 , # Li
@@ -3903,10 +3903,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :en_ghosh => 
-    [
+    en_ghosh = 
+    (
     0.2638 , # H
     0.442712 , # He
     0.105093 , # Li
@@ -4025,10 +4025,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :en_pauling => 
-    [
+    en_pauling = 
+    (
     2.2 , # H
     missing , # He
     0.98 , # Li
@@ -4147,10 +4147,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :evaporation_heat => 
-    [
+    evaporation_heat = 
+    (
     0.904 , # H
     0.08 , # He
     148.0 , # Li
@@ -4269,10 +4269,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :fusion_heat => 
-    [
+    fusion_heat = 
+    (
     0.117 , # H
     missing , # He
     2.89 , # Li
@@ -4391,10 +4391,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :gas_basicity => 
-    [
+    gas_basicity = 
+    (
     missing , # H
     148.5 , # He
     missing , # Li
@@ -4513,10 +4513,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :geochemical_class => 
-    [
+    geochemical_class = 
+    (
     "volatile" , # H
     "volatile" , # He
     "alkali metal" , # Li
@@ -4635,10 +4635,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :glawe_number => 
-    [
+    glawe_number = 
+    (
     103 , # H
     1 , # He
     12 , # Li
@@ -4757,10 +4757,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :goldschmidt_class => 
-    [
+    goldschmidt_class = 
+    (
     "atmophile" , # H
     "atmophile" , # He
     "litophile" , # Li
@@ -4879,10 +4879,10 @@ const elements_data = Dict{Symbol, Vector}(
     "synthetic" , # Lv
     "synthetic" , # Ts
     "synthetic" , # Og
-    ]
+    )
     ,
-    :group_id => 
-    [
+    group_id = 
+    (
     1 , # H
     18 , # He
     1 , # Li
@@ -5001,10 +5001,10 @@ const elements_data = Dict{Symbol, Vector}(
     16 , # Lv
     17 , # Ts
     18 , # Og
-    ]
+    )
     ,
-    :heat_of_formation => 
-    [
+    heat_of_formation = 
+    (
     217.998 , # H
     missing , # He
     159.3 , # Li
@@ -5123,10 +5123,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :is_monoisotopic => 
-    [
+    is_monoisotopic = 
+    (
     false , # H
     false , # He
     false , # Li
@@ -5245,10 +5245,10 @@ const elements_data = Dict{Symbol, Vector}(
     false , # Lv
     false , # Ts
     false , # Og
-    ]
+    )
     ,
-    :is_radioactive => 
-    [
+    is_radioactive = 
+    (
     false , # H
     false , # He
     false , # Li
@@ -5367,10 +5367,10 @@ const elements_data = Dict{Symbol, Vector}(
     true , # Lv
     true , # Ts
     true , # Og
-    ]
+    )
     ,
-    :jmol_color => 
-    [
+    jmol_color = 
+    (
     "#ffffff" , # H
     "#d9ffff" , # He
     "#cc80ff" , # Li
@@ -5489,10 +5489,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :lattice_constant => 
-    [
+    lattice_constant = 
+    (
     3.75 , # H
     3.57 , # He
     3.49 , # Li
@@ -5611,10 +5611,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :lattice_structure => 
-    [
+    lattice_structure = 
+    (
     "HEX" , # H
     "HEX" , # He
     "BCC" , # Li
@@ -5733,10 +5733,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :melting_point => 
-    [
+    melting_point = 
+    (
     14.01 , # H
     0.95 , # He
     553.69 , # Li
@@ -5855,10 +5855,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :mendeleev_number => 
-    [
+    mendeleev_number = 
+    (
     105 , # H
     112 , # He
     1 , # Li
@@ -5977,10 +5977,10 @@ const elements_data = Dict{Symbol, Vector}(
     104 , # Lv
     111 , # Ts
     118 , # Og
-    ]
+    )
     ,
-    :metallic_radius => 
-    [
+    metallic_radius = 
+    (
     missing , # H
     missing , # He
     123.0 , # Li
@@ -6099,10 +6099,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :metallic_radius_c12 => 
-    [
+    metallic_radius_c12 = 
+    (
     78.0 , # H
     122.0 , # He
     155.0 , # Li
@@ -6221,10 +6221,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :molar_heat_capacity => 
-    [
+    molar_heat_capacity = 
+    (
     28.836 , # H
     20.786 , # He
     24.86 , # Li
@@ -6343,10 +6343,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :molcas_gv_color => 
-    [
+    molcas_gv_color = 
+    (
     "#f2f2f2" , # H
     "#d9ffff" , # He
     "#cc80ff" , # Li
@@ -6465,10 +6465,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :name_origin => 
-    [
+    name_origin = 
+    (
     "Greek: hydro (water) and genes (generate)" , # H
     "Greek: hêlios (sun)." , # He
     "Greek: lithos (stone)." , # Li
@@ -6587,10 +6587,10 @@ const elements_data = Dict{Symbol, Vector}(
     "Named after the Lawrence Livermore National Laboratory in the United States." , # Lv
     "Named after the state of Tennessee in United States." , # Ts
     "Named in honor of the scientist Yuri Oganessian." , # Og
-    ]
+    )
     ,
-    :nist_webbook_url => 
-    [
+    nist_webbook_url = 
+    (
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/H2/h1H" , # H
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/He" , # He
     "https://webbook.nist.gov/cgi/inchi/InChI%3D1S/Li" , # Li
@@ -6709,10 +6709,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :period => 
-    [
+    period = 
+    (
     1 , # H
     1 , # He
     2 , # Li
@@ -6831,10 +6831,10 @@ const elements_data = Dict{Symbol, Vector}(
     7 , # Lv
     7 , # Ts
     7 , # Og
-    ]
+    )
     ,
-    :pettifor_number => 
-    [
+    pettifor_number = 
+    (
     103 , # H
     1 , # He
     12 , # Li
@@ -6953,10 +6953,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :phase => 
-    [
+    phase = 
+    (
     "Gas" , # H
     "Gas" , # He
     "Solid" , # Li
@@ -7075,10 +7075,10 @@ const elements_data = Dict{Symbol, Vector}(
     "Solid" , # Lv
     "Solid" , # Ts
     "Solid" , # Og
-    ]
+    )
     ,
-    :proton_affinity => 
-    [
+    proton_affinity = 
+    (
     missing , # H
     177.8 , # He
     missing , # Li
@@ -7197,10 +7197,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :series_id => 
-    [
+    series_id = 
+    (
     1 , # H
     2 , # He
     3 , # Li
@@ -7319,10 +7319,10 @@ const elements_data = Dict{Symbol, Vector}(
     7 , # Lv
     6 , # Ts
     2 , # Og
-    ]
+    )
     ,
-    :shells => 
-    [
+    shells = 
+    (
     [1] , # H
     [2] , # He
     [2, 1] , # Li
@@ -7441,10 +7441,10 @@ const elements_data = Dict{Symbol, Vector}(
     [2, 8, 18, 32, 32, 18, 6] , # Lv
     [2, 8, 18, 32, 32, 18, 7] , # Ts
     [2, 8, 18, 32, 32, 18, 8] , # Og
-    ]
+    )
     ,
-    :sources => 
-    [
+    sources = 
+    (
     "Commercial quantities are produced by reacting superheated steam with methane or carbon. In lab work from reaction of metals with acid solutions or electrolysis." , # H
     "Found in natural gas deposits & in the air (5 parts per billion) Constantly lost to space; replenished by radioactive decay (alpha particles)." , # He
     "Obtained by passing electric charge through melted lithium chloride and from the silicate mineral called spodumene [LiAl(Si2O6)]." , # Li
@@ -7563,10 +7563,10 @@ const elements_data = Dict{Symbol, Vector}(
     "Made by bombardng curium-248 with calcium-48." , # Lv
     "Made by bombarding berkelium-249 with calcium-48." , # Ts
     "Made by bombarding californium-249 with calcium-48." , # Og
-    ]
+    )
     ,
-    :specific_heat_capacity => 
-    [
+    specific_heat_capacity = 
+    (
     14.304 , # H
     5.193 , # He
     3.582 , # Li
@@ -7685,10 +7685,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :spectral_img => 
-    [
+    spectral_img = 
+    (
     "https://en.wikipedia.org/wiki/File:Hydrogen_Spectra.jpg" , # H
     "https://en.wikipedia.org/wiki/File:Helium_spectrum.jpg" , # He
     missing , # Li
@@ -7807,10 +7807,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :summary => 
-    [
+    summary = 
+    (
     "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass." , # H
     "Helium is a chemical element with symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the noble gas group in the periodic table. Its boiling and melting points are the lowest among all the elements." , # He
     "Lithium (from Greek:λίθος lithos, \"stone\") is a chemical element with the symbol Li and atomic number 3. It is a soft, silver-white metal belonging to the alkali metal group of chemical elements. Under standard conditions it is the lightest metal and the least dense solid element." , # Li
@@ -7929,10 +7929,10 @@ const elements_data = Dict{Symbol, Vector}(
     "Livermorium is a synthetic superheavy element with symbol Lv and atomic number 116. It is an extremely radioactive element that has only been created in the laboratory and has not been observed in nature. The element is named after the Lawrence Livermore National Laboratory in the United States, which collaborated with the Joint Institute for Nuclear Research in Dubna, Russia to discover livermorium in 2000." , # Lv
     "Tennessine is a superheavy artificial chemical element with an atomic number of 117 and a symbol of Ts. Also known as eka-astatine or element 117, it is the second-heaviest known element and penultimate element of the 7th period of the periodic table. As of 2016, fifteen tennessine atoms have been observed:six when it was first synthesized in 2010, seven in 2012, and two in 2014." , # Ts
     "Oganesson is IUPAC's name for the transactinide element with the atomic number 118 and element symbol Og. It is also known as eka-radon or element 118, and on the periodic table of the elements it is a p-block element and the last one of the 7th period. Oganesson is currently the only synthetic member of group 18." , # Og
-    ]
+    )
     ,
-    :thermal_conductivity => 
-    [
+    thermal_conductivity = 
+    (
     0.1815 , # H
     0.152 , # He
     84.8 , # Li
@@ -8051,10 +8051,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :uses => 
-    [
+    uses = 
+    (
     "Most hydrogen is used in the production of ammonia. Also used in balloons and in metal refining. Also used as fuel in rockets. Its two heavier isotopes are: deuterium (D) and tritium (T) used respectively for nuclear fission and fusion." , # H
     "Used in balloons, deep sea diving & welding. Also used in very low temperature research." , # He
     "Used in batteries. Also for certain kinds of glass and ceramics.  Some is used in lubricants." , # Li
@@ -8173,10 +8173,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius => 
-    [
+    vdw_radius = 
+    (
     110.0 , # H
     140.0 , # He
     182.0 , # Li
@@ -8295,10 +8295,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_alvarez => 
-    [
+    vdw_radius_alvarez = 
+    (
     120.0 , # H
     143.0 , # He
     212.0 , # Li
@@ -8417,10 +8417,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_batsanov => 
-    [
+    vdw_radius_batsanov = 
+    (
     missing , # H
     missing , # He
     220.0 , # Li
@@ -8539,10 +8539,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_bondi => 
-    [
+    vdw_radius_bondi = 
+    (
     120.0 , # H
     140.0 , # He
     181.0 , # Li
@@ -8661,10 +8661,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_dreiding => 
-    [
+    vdw_radius_dreiding = 
+    (
     319.5 , # H
     missing , # He
     missing , # Li
@@ -8783,10 +8783,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_mm3 => 
-    [
+    vdw_radius_mm3 = 
+    (
     162.0 , # H
     153.0 , # He
     255.0 , # Li
@@ -8905,10 +8905,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_rt => 
-    [
+    vdw_radius_rt = 
+    (
     110.0 , # H
     missing , # He
     missing , # Li
@@ -9027,10 +9027,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_truhlar => 
-    [
+    vdw_radius_truhlar = 
+    (
     missing , # H
     missing , # He
     missing , # Li
@@ -9149,10 +9149,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :vdw_radius_uff => 
-    [
+    vdw_radius_uff = 
+    (
     288.6 , # H
     236.2 , # He
     245.1 , # Li
@@ -9271,10 +9271,10 @@ const elements_data = Dict{Symbol, Vector}(
     missing , # Lv
     missing , # Ts
     missing , # Og
-    ]
+    )
     ,
-    :wikipedia => 
-    [
+    wikipedia = 
+    (
     "https://en.wikipedia.org/wiki/Hydrogen" , # H
     "https://en.wikipedia.org/wiki/Helium" , # He
     "https://en.wikipedia.org/wiki/Lithium" , # Li
@@ -9393,10 +9393,10 @@ const elements_data = Dict{Symbol, Vector}(
     "https://en.wikipedia.org/wiki/Livermorium" , # Lv
     "https://en.wikipedia.org/wiki/Tennessine" , # Ts
     "https://en.wikipedia.org/wiki/Oganesson" , # Og
-    ]
+    )
     ,
-    :xpos => 
-    [
+    xpos = 
+    (
     1 , # H
     18 , # He
     1 , # Li
@@ -9515,10 +9515,10 @@ const elements_data = Dict{Symbol, Vector}(
     16 , # Lv
     17 , # Ts
     18 , # Og
-    ]
+    )
     ,
-    :ypos => 
-    [
+    ypos = 
+    (
     1 , # H
     1 , # He
     2 , # Li
@@ -9637,6 +9637,6 @@ const elements_data = Dict{Symbol, Vector}(
     7 , # Lv
     7 , # Ts
     7 , # Og
-    ]
+    )
     ,
 )
