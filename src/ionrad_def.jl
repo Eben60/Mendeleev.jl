@@ -42,6 +42,36 @@ function IonicRadius(atomic_number::Integer, row::Integer)
     return IonicRadius(all_args...)
 end
 
+function sigchar(x)
+    x > 0 && return "+"
+    x < 0 && return "-"
+    x == 0 && return ""
+end
+
+function stringpresent(ir::IonicRadius, field::Symbol)
+    f = getfield(ir, field)
+    ismissing(f) && return ""
+    f isa Union{String, Symbol, Bool} && return "$field=$f"
+    if f isa Quantity
+        f_uless = f |> ustrip
+        f = round(f_uless; sigdigits = 4)*unit(f)
+    else
+        f = round(f; sigdigits = 4)
+    end    
+    return "$field=$f"
+end
+
+
+function Base.show(io::IO, ir::IonicRadius)
+    sym = (chem_elements[ir.atomic_number].symbol |> string) * "$(abs(ir.charge))" * sigchar(ir.charge)
+    fnames = [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable]
+    parts = [stringpresent(ir, f) for f in fnames]
+    filter!(x -> x != "", parts)
+    parts = join(vcat(sym, parts), ", ")
+    print(io, "($parts)")
+    return nothing
+end
+
 function Base.isless(sc1::IonicRadius, sc2::IonicRadius)
     sc1.atomic_number != sc2.atomic_number && throw(DomainError("cannot compare IonicRadius for different elements"))
     return sc1.charge < sc2.charge
@@ -50,12 +80,11 @@ end
 # IonicRadii equality is determined by atomic number and charge
 Base.isequal(ir1::IonicRadius, ir2::IonicRadius) = (ir1.atomic_number, ir1.charge) == (ir2.atomic_number, ir2.charge)
 
-
 struct IonicRadii
-    atomic_number::Int
+    # atomic_number::Int
     data::Vector{IonicRadius}
     IonicRadii(data::Vector{IonicRadius}) = new(
-        data[1].atomic_number,
+        # data[1].atomic_number,
         sort!(data) )
 end
 
@@ -69,4 +98,22 @@ end
 
 IonicRadii(e::ChemElem) = IonicRadii(e.atomic_number)
 
-# end
+function Base.show(io::IO, irs::IonicRadii)
+    nm = chem_elements[irs[1].atomic_number].name 
+    println(io, "ionic radii for $nm")
+    for ir in irs
+        println(io, ir)
+    end
+end
+
+Base.eachindex(irs::IonicRadii) = eachindex(irs.data)
+Base.getindex(irs::IonicRadii, i::Integer) = irs.data[i]
+Base.getindex(irs::IonicRadii, v::AbstractVector) = [irs[i] for i in v]
+
+# Base.get(irs::IonicRadii, i::Integer, default) = get(irs.data[i], i, default)
+
+# support iterating over IonicRadii
+Base.eltype(irs::IonicRadii) = IonicRadius
+Base.length(irs::IonicRadii) = length(irs.data)
+Base.iterate(irs::IonicRadii, state...) = iterate(irs.data, state...)
+
