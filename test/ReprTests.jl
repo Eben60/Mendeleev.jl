@@ -15,19 +15,17 @@ Zr = chem_elements[:Zr]
 Depending on some unknown to me factors, Mendeleev types sometimes are shown with `Mendeleev` prefix, sometimes not.
 Thus we add it anyway before doing test
 """
-# mend_repr(x) = startswith(x, "Mendeleev.") ? x : "Mendeleev." * x
+mend_repr(x) = startswith(x, "Mendeleev.") ? x : "Mendeleev." * x
 
 # 2-argument show functions
-# @test mend_repr(repr([O, F])) == "Mendeleev.ChemElem[Element(Oxygen), Element(Fluorine)]"
-
-# @test_broken repr("text/plain", chem_elements) == "Elements(…118 elements…):\nH                                                  He \nLi Be                               B  C  N  O  F  Ne \nNa Mg                               Al Si P  S  Cl Ar \nK  Ca Sc Ti V  Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr \nRb Sr Y  Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe \nCs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn \nFr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og \n                 \n      La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    \n      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr    \n"
+@test mend_repr(repr([O, F])) == "Mendeleev.ChemElem[Element(Oxygen), Element(Fluorine)]"
 
 @test repr(Cu.group) == "11[IB] (Coinage metals)"
 @test repr(Zr.group) == "4[IVB]"
 
 @test repr(K.sconst["2p"]) == "K 2p: 3.9728"
-# @test repr(K.sconst) == "ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
-# @test mend_repr(repr(K.sconst)) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
+
+@test mend_repr(repr(K.sconst)) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 
 
 repr_O = """Oxygen (O), number 8:
@@ -92,17 +90,26 @@ Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
       La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    
       Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr    
 """
-# @test repr("text/plain", chem_elements) == repr_els
+@test repr("text/plain", chem_elements) == repr_els
 
 Cl = chem_elements[:Cl]
-repr_ionrad =
+repr_ionrad_mac =
 """ionic radii for Chlorine
 (Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-8.852e-10 C m⁻¹, origin=Pauling's (1960) crystal radius, , most_reliable=false)
 (Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
 (Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m⁻¹, most_reliable=true)
 (Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=4.154e-8 C m⁻¹, origin=Ahrens (1952) ionic radius, , most_reliable=false)
 """
-@test repr("text/plain", Cl.ionic_radii) == repr_ionrad
+
+repr_ionrad_win =
+"""ionic radii for Chlorine
+(Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-8.852e-10 C m^-1, origin=Pauling's (1960) crystal radius, , most_reliable=false)
+(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m^-1, most_reliable=false)
+(Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m^-1, most_reliable=true)
+(Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=4.154e-8 C m^-1, origin=Ahrens (1952) ionic radius, , most_reliable=false)
+"""
+
+@test repr("text/plain", Cl.ionic_radii) in [repr_ionrad_mac, repr_ionrad_win]
 
 end #@testset "ReprTests"
 end # ReprTests
