@@ -71,3 +71,5 @@ Return the number of neutrons for the most abundant isotope, if there are any st
 Otherwise returns `missing`
 """
 fn_neutrons(e) = e.mass_number - e.atomic_number
+
+fn_ionic_radii(e) = IonicRadii(e)
