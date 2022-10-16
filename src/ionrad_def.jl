@@ -53,12 +53,8 @@ function stringpresent(ir::IonicRadius, field::Symbol)
     f = getfield(ir, field)
     ismissing(f) && return ""
     f isa Union{String, Symbol, Bool} && return "$field=$f"
-    if f isa Quantity
-        f_uless = f |> ustrip
-        f = round(f_uless; sigdigits = 4)*unit(f)
-    else
-        f = round(f; sigdigits = 4)
-    end    
+    f_uless = f |> ustrip
+    f = round(f_uless; sigdigits = 4)*oneunit(f)
     return "$field=$f"
 end
 

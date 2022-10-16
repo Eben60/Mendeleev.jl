@@ -11,8 +11,14 @@ K = chem_elements[:K]
 Cu = chem_elements[:Cu]
 Zr = chem_elements[:Zr]
 
+"""
+Depending on some unknown to me factors, Mendeleev types sometimes are shown with `Mendeleev` prefix, sometimes not.
+Thus we add it anyway before doing test
+"""
+mend_repr(x) = startswith(x, "Mendeleev.") ? x : "Mendeleev." * x
+
 # 2-argument show functions
-@test repr([O, F]) == "ChemElem[Element(Oxygen), Element(Fluorine)]"
+@test mend_repr(repr([O, F])) == "Mendeleev.ChemElem[Element(Oxygen), Element(Fluorine)]"
 
 # @test_broken repr("text/plain", chem_elements) == "Elements(…118 elements…):\nH                                                  He \nLi Be                               B  C  N  O  F  Ne \nNa Mg                               Al Si P  S  Cl Ar \nK  Ca Sc Ti V  Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr \nRb Sr Y  Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe \nCs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn \nFr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og \n                 \n      La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    \n      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr    \n"
 
@@ -21,7 +27,7 @@ Zr = chem_elements[:Zr]
 
 @test repr(K.sconst["2p"]) == "K 2p: 3.9728"
 # @test repr(K.sconst) == "ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
-@test repr(K.sconst) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
+@test mend_repr(repr(K.sconst)) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 
 
 repr_O = """Oxygen (O), number 8:
