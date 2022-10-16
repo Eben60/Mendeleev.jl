@@ -48,7 +48,7 @@ e⁻-configuration: 1s² 2s² 2p⁴
    wikipedia URL: https://en.wikipedia.org/wiki/Oxygen
   spectral image: https://en.wikipedia.org/wiki/File:Oxygen_spectre.jpg
 """
-@test repr("text/plain", O) == repr_O
+@test repr("text/plain", O) == repr_O # OK
 
 
 repr_O_html = 
@@ -77,7 +77,7 @@ Oxygen (O), number 8:
 <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Oxygen_spectre.jpg&width=500" alt="Oxygen_spectre.jpg">
 """
 
-@test repr("text/html", O) == repr_O_html
+@test repr("text/html", O) == repr_O_html # ok
 
 repr_els =
 """Elements(…118 elements…):
@@ -102,7 +102,7 @@ repr_ionrad =
 (Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m⁻¹, most_reliable=true)
 (Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=4.154e-8 C m⁻¹, origin=Ahrens (1952) ionic radius, , most_reliable=false)
 """
-# @test repr("text/plain", Cl.ionic_radii) == repr_ionrad
+@test repr("text/plain", Cl.ionic_radii) == repr_ionrad
 
 end #@testset "ReprTests"
 end # ReprTests
