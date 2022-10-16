@@ -50,7 +50,7 @@
 | `heat_of_formation`             | Heat of formation                                    |
 | `inchi`                         | International Chemical Identifier _(not yet implemented in `Mendeleev.jl`)_ |
 | `ionenergy`                     | Ionization energies                                  |
-| `ionic_radii`                   | Ionic and crystal radii in pm _(not yet implemented in `Mendeleev.jl`)_ |
+| `ionic_radii`                   | Ionic and crystal radii                              |
 | `is_monoisotopic`               | Is the element monoisotopic                          |
 | `is_radioactive`                | Is the element radioactive                           |
 | `isotopes`                      | Isotopes [^2] . Returns `Isotopes` type              |
@@ -121,17 +121,14 @@
 | `ypos`         | y-position (both used for pretty print only)          |
 | `wikipedia`    | Wikipedia URL          |
 
-
-
-[^4]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `Mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
-
-
 ## Properties from PeriodicTable omitted or changed in this package
 
 | Name             | Comment                            |
 |------------------|------------------------------------------------------|
 | `color`          | see `appearance` (`color` was missing for all elements but one anyway)         |
 | `named_by`       | see `name_origin`          |
-| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` |
+| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^4] |
 
+
+[^4]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 

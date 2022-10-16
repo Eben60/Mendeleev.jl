@@ -10,4 +10,5 @@ include("GroupsSeriesTests.jl")
 include("IonenergyTests.jl")
 include("ReprTests.jl")
 include("DefsTests.jl")
+include("IonicRadiiTest.jl")
 # TODO all-properties test

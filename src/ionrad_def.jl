@@ -1,5 +1,5 @@
-
 const e_charge = Unitful.q # elementary charge 
+
 """
     IonicRadius
 This struct describes ionic radius for a given charge state of a given element. 
@@ -8,12 +8,13 @@ It is not exported.
     atomic_number::Int
     charge::Int
     coordination::Symbol
-    crystal_radius::Float64
+    crystal_radius::typeof(1.0u"pm")
     econf::Union{String, Missing}
-    ionic_radius::Float64
+    ionic_radius::typeof(1.0u"pm")
     most_reliable::Union{Bool, Missing}
     origin::Union{String, Missing}
     spin::Union{Symbol, Missing}
+    ionic_potential::typeof(1.0u"C"/u"m")
 ```    
 """
 struct IonicRadius
@@ -88,6 +89,22 @@ struct IonicRadii
         sort!(data) )
 end
 
+"""
+    IonicRadii
+This struct is a container for ionic radii of an element. It provides access only by 
+position(s) in the array of IonicRadius structs for the given element.
+It is not exported.
+# Examples
+```julia-repl
+julia> chem_elements[:Cl].ionic_radii[2]
+(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
+
+julia> chem_elements[:Cl].ionic_radii[[2,3]]
+2-element Vector{Mendeleev.IonicRadius}:
+ (Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
+ (Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m⁻¹, most_reliable=true)
+``` 
+""" 
 function IonicRadii(atomic_number::Integer)
     range = ionrad_ranges[atomic_number]
     ismissing(range) && return missing
