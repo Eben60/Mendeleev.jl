@@ -1,0 +1,7 @@
+julia> using Mendeleev
+
+julia> Cl = chem_elements[:Cl];
+
+julia> r = repr("text/plain", Cl.ionic_radii);
+
+julia> open("repr.txt", "w") do io; print(io, r); end;
