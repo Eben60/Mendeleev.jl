@@ -103,7 +103,7 @@ meanings IMO. For legacy application you however still may use the old names:
 julia> using Mendeleev: elements, Element
 ```
 
-One property (`color`) was omitted completely, one (`named_by`) are omitted, but there exist similar property. The `PeriodicTable.jl` property `source` contained link to Wikipedia article, and is named `wikipedia` in this package. For details, see _Elements Data_ section. 
+One property (`color`) was omitted completely, one (`named_by`) is omitted, but there exists a similar property. The `PeriodicTable.jl` property `source` contained link to Wikipedia article, and is re-named to `wikipedia` in this package. For details, see _Elements Data_ section. 
 
 Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we are using `Missing`.
 

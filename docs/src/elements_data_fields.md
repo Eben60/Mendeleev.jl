@@ -125,7 +125,7 @@
 
 | Name             | Comment                            |
 |------------------|------------------------------------------------------|
-| `color`          | see `appearance` (`color` was missing for all elements but one anyway)         |
+| `color`          | see `appearance` (`color` was anyway missing for all elements but one)         |
 | `named_by`       | see `name_origin`          |
 | `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^4] |
 
