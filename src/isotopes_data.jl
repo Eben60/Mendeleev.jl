@@ -3,7 +3,7 @@
 const isotopes_data = Dict{Int64, Union{Missing, Isotopes}}(
     1 => Isotopes([Isotope(1, 1, 1.0078250322, 0.99972), Isotope(1, 2, 2.0141017781, 0.00028)]),
     2 => Isotopes([Isotope(2, 3, 3.01602932, 2.0e-6), Isotope(2, 4, 4.0026032541, 0.999998)]),
-    3 => Isotopes([Isotope(3, 6, 6.015122887, 0.078), Isotope(3, 7, 7.01600344, 0.922)]),
+    3 => Isotopes([Isotope(3, 6, 6.015122887, 0.076), Isotope(3, 7, 7.01600344, 0.924)]), # the most plausible value from https://ciaaw.org/natural-variations.htm?el=lithium
     4 => Isotopes([Isotope(4, 9, 9.0121831, 1.0)]),
     5 => Isotopes([Isotope(5, 10, 10.012937, 0.204), Isotope(5, 11, 11.009305, 0.796)]),
     6 => Isotopes([Isotope(6, 12, 12.0, 0.9884), Isotope(6, 13, 13.003354835, 0.0116)]),
