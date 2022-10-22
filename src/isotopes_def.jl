@@ -24,7 +24,7 @@ Isotope(atomic_number, mass_number, mass::Float64, abundance) =
     Isotopes
 This struct is a container for isotopes of an element. It provides access only by 
 position(s) in the array of the (stable or almost stable) isotopes of this elements.
-More comprehensive isotopes data to be published in a separate package.
+More comprehensive isotopes data is published in a separate package `IsotopeTable.jl`
 It is not exported.
 """   
 struct Isotopes
