@@ -1,11 +1,12 @@
 """
     Mendeleev
-Package package for accessing chemical elements data. Exports them as `chem_elements`, 
+Package package for accessing chemical elements data. Exports them as `chem_elements`,
 enabling access by name, symbol, or atomic number.
 """
 module Mendeleev
 using Unitful
 
+include("helpers.jl")
 include("units.jl")
 include("seriesnames.jl")
 include("oxistates_data.jl")
@@ -31,7 +32,7 @@ export chem_elements # all elements data
 
 # import these explicitly for legacy (formerly PeriodicTable.jl based) applications
 elements = chem_elements
-Element = ChemElem 
+Element = ChemElem
 
 els = chem_elements # import this short form if you like
 

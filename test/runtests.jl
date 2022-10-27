@@ -1,4 +1,4 @@
-using Mendeleev
+using .Mendeleev
 
 # using Test, Unitful
 
