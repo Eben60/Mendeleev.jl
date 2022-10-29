@@ -4,10 +4,6 @@ function fields(t)
     return NamedTuple{nms}(tps)
 end
 
-struct LiXue
-    data::Float64
-end
-
 struct Electronegativities
     atomic_number::Int
     Allen::Union{typeof(1.0*u"eV"), Missing} # eV or Ry ??
@@ -20,7 +16,7 @@ struct Electronegativities
     Nagle::Union{typeof(1.0u"Å^-1"), Missing}
     Pauling::Union{typeof(1.0*u"eV^(1//2)"), Missing}
     Sanderson::Union{Float64, Missing} # unitless
-    Li::LiXue # Union{typeof(1.0/u"pm"), Missing} # ::EnegLiXue
+    Li::Union{LiXue, Missing}
 end
 
 Electronegativities(; atomic_number, Allen, Allred, Cottrell, Ghosh, Gordy, Martynov, Mulliken, Nagle, Pauling, Sanderson, Li) = 
@@ -31,6 +27,7 @@ totype(x, T) = ismissing(x) ? missing : T(x)
 function Electronegativities(i::Integer)
     fs = fields(Electronegativities)
     data = (;[k => totype(v[i], fs[k]) for (k, v) in pairs(eneg_data)]...)
-    return Electronegativities(;atomic_number=i, Li=LiXue(i), data...)
+    return Electronegativities(;atomic_number=i, Li=lx_or_missing(i), data...)
 end
+
 
