@@ -1,3 +1,16 @@
+module Eneg
+
+# module ElementaryChargeUnit
+# using Unitful
+# @unit qu "qu" ElementaryCharge Unitful.q true; 
+# # @unit(symb,abbr,name,equals,tf,autodocs=false)
+# end
+
+using Unitful
+using UnitfulAtomic # : e_au
+
+include("data.jl/eneg_data.jl")
+
 function fields(t)
     nms = fieldnames(t)
     tps = nonmissingtype.(fieldtypes(t))
@@ -23,8 +36,9 @@ struct Electronegativities
     Li::LiXue # Union{typeof(1.0/u"pm"), Missing} # ::EnegLiXue
 end
 
-Electronegativities(; atomic_number, Allen, Allred, Cottrell, Ghosh, Gordy, Martynov, Mulliken, Nagle, Pauling, Sanderson, Li) = 
-    Electronegativities(atomic_number, Allen, Allred, Cottrell, Ghosh, Gordy, Martynov, Mulliken, Nagle, Pauling, Sanderson, Li)
+Electronegativities(; atomic_number, Allen, Allred, Cottrell, Ghosh, Gordy, Martynov, Mulliken, Nagle, Pauling, Sanderson, Li) = Electronegativities(atomic_number, Allen, Allred, Cottrell, Ghosh, Gordy, Martynov, Mulliken, Nagle, Pauling, Sanderson, Li)
+
+# e = Electronegativities(; atomic_number=1, Allen=missing, Allred=missing, Cottrell=missing, Ghosh=missing, Gordy=missing, Martynov=missing, Mulliken=missing, Nagle=missing, Pauling=missing, Sanderson=missing, Li=LiXue(2.2))
 
 totype(x, T) = ismissing(x) ? missing : T(x)
 
@@ -34,3 +48,7 @@ function Electronegativities(i::Integer)
     return Electronegativities(;atomic_number=i, Li=LiXue(i), data...)
 end
 
+p = 2u"e_au"/172u"pm"
+
+
+end # module Eneg
