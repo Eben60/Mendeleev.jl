@@ -8,14 +8,14 @@ const orb_typenames = Dict([v=>k for (k, v) in zip(keys(orb_typenums), values(or
 
 """
     ScreenConst
-This struct describes screening constant for a given orbital of a given element.
+This struct describes screening constant for a given orbital of a given element. 
 It is not exported.
 ```
     atomic_number::Int
     shell::Int
     orb_type::Int
     screening::Float64
-```
+```    
 """
 struct ScreenConst
     atomic_number::Int
@@ -38,12 +38,13 @@ end
 
 function Base.isless(sc1::ScreenConst, sc2::ScreenConst)
     sc1.atomic_number != sc2.atomic_number && throw(DomainError("cannot compare ScreenConst for different elements"))
-    return s2t_isless(sc1, sc2, 2)
+    sc1.shell != sc2.shell && return sc1.shell < sc2.shell
+    return sc1.orb_type < sc2.orb_type
 end
 
 """
     ScreenConstants
-This struct is a container for screening constants of an element. See examples below for indexing access.
+This struct is a container for screening constants of an element. See examples below for indexing access. 
 It is not exported.
 
 # Examples
@@ -60,7 +61,7 @@ Mo 2s: 11.1232
 julia> chem_elements[:Mo].sconst["2s"]
 Mo 2s: 11.1232
 ```
-"""
+"""  
 struct ScreenConstants
     atomic_number::Int
     data::Vector{ScreenConst}
