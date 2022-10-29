@@ -44,13 +44,11 @@ totype(x, T) = ismissing(x) ? missing : T(x)
 
 function Electronegativities(i::Integer)
     fs = fields(Electronegativities)
-    data = (;[k => totype(v[i], fs[k]) for (k, v) in eneg_data]...)
+    data = (;[k => totype(v[i], fs[k]) for (k, v) in pairs(eneg_data)]...)
     return Electronegativities(;atomic_number=i, Li=LiXue(i), data...)
 end
 
 p = 2u"e_au"/172u"pm"
-
-
 
 
 end # module Eneg
