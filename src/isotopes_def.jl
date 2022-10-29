@@ -7,7 +7,7 @@ It is not exported.
     mass_number::Int
     mass::typeof(1.0*u"u")
     abundance::Float64
-```    
+```
 """
 struct Isotope
     atomic_number::Int
@@ -22,11 +22,11 @@ Isotope(atomic_number, mass_number, mass::Float64, abundance) =
 
 """
     Isotopes
-This struct is a container for isotopes of an element. It provides access only by 
+This struct is a container for isotopes of an element. It provides access only by
 position(s) in the array of the (stable or almost stable) isotopes of this elements.
-More comprehensive isotopes data is published in a separate package `IsotopeTable.jl`. 
+More comprehensive isotopes data is published in a separate package `IsotopeTable.jl`.
 It is not exported.
-"""   
+"""
 struct Isotopes
     isotopes::Vector{Isotope}
 end
@@ -52,7 +52,8 @@ Base.hash(is::Isotope, h::UInt) = hash((is.atomic_number, is.mass_number), h)
 
 # Compare isotopes by by atomic number and isotope mass number to produce the most common way isotopes
 # are sorted.
-Base.isless(is1::Isotope, is2::Isotope) = (is1.atomic_number, is1.mass_number) < (is2.atomic_number, is2.mass_number)
+Base.isless(is1::Isotope, is2::Isotope) = s2t_isless(is1, is2, 2)
+# (is1.atomic_number, is1.mass_number) < (is2.atomic_number, is2.mass_number)
 
 # Provide a simple way to iterate over all isotopes.
 Base.eachindex(iss::Isotopes) = eachindex(iss.isotopes)
