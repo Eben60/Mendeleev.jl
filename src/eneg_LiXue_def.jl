@@ -37,3 +37,10 @@ end
 
 lx_or_missing(atomic_number::Integer) = ismissing(lixue_data[atomic_number]) ? missing : LiXue(lixue_data[atomic_number], atomic_number)
 
+fs_eq_or_nothing(x; kwargs...) = 
+    all([(isnothing(v) || (!ismissing(getfield(x, k)) && v == getfield(x, k))) for (k,v) in kwargs])
+
+(lx::LiXue)(; charge=nothing, coordination=nothing, spin=nothing) = 
+    [x for x in lx.data if fs_eq_or_nothing(x; charge, coordination, spin)]
+
+    # filter(x -> fs_eq_or_nothing(x; charge, coordination, spin), lx.data)
