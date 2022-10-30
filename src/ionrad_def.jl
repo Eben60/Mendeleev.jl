@@ -49,8 +49,8 @@ function sigchar(x)
     x == 0 && return ""
 end
 
-function stringpresent(ir::IonicRadius, field::Symbol)
-    f = getfield(ir, field)
+function stringpresent(x, field::Symbol)
+    f = getfield(x, field)
     ismissing(f) && return ""
     f isa Union{String, Symbol, Bool} && return "$field=$f"
     f_uless = f |> ustrip
@@ -58,16 +58,37 @@ function stringpresent(ir::IonicRadius, field::Symbol)
     return "$field=$f"
 end
 
+"""
+    ionsymb(x)
+The function retuns a string with the ion symbol like `Cl5+`. Used also for Li-Xue electronegativities representation.
+It is not exported.
+"""
+ionsymb(x) = (chem_elements[x.atomic_number].symbol |> string) * "$(abs(x.charge))" * sigchar(x.charge)
 
-function Base.show(io::IO, ir::IonicRadius)
-    sym = (chem_elements[ir.atomic_number].symbol |> string) * "$(abs(ir.charge))" * sigchar(ir.charge)
-    fnames = [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable]
-    parts = [stringpresent(ir, f) for f in fnames]
+"""
+    showpresent(io::IO, x, fnames)
+The function prints ion-related struct. Used also for Li-Xue electronegativities representation.
+It is not exported.
+"""
+function showpresent(io::IO, x, fnames)
+    parts = [stringpresent(x, f) for f in fnames]
     filter!(x -> x != "", parts)
-    parts = join(vcat(sym, parts), ", ")
+    parts = join(vcat(ionsymb(x), parts), ", ")
     print(io, "($parts)")
     return nothing
 end
+
+Base.show(io::IO, ir::IonicRadius) = showpresent(io::IO, ir, [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable])
+
+
+# function Base.show(io::IO, ir::IonicRadius)
+#     fnames = [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable]
+#     parts = [stringpresent(ir, f) for f in fnames]
+#     filter!(x -> x != "", parts)
+#     parts = join(vcat(ionsymb(ir), parts), ", ")
+#     print(io, "($parts)")
+#     return nothing
+# end
 
 function Base.isless(sc1::IonicRadius, sc2::IonicRadius)
     sc1.atomic_number != sc2.atomic_number && throw(DomainError("cannot compare IonicRadius for different elements"))

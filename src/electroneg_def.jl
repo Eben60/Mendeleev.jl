@@ -30,4 +30,13 @@ function Electronegativities(i::Integer)
     return Electronegativities(;atomic_number=i, Li=lx_or_missing(i), data...)
 end
 
-
+function Base.show(io::IO, en::Electronegativities)
+    println(io, "Electronegativities for $(chem_elements[en.atomic_number].symbol)")
+    for f in fieldnames(Electronegativities)
+        x = getfield(en, f)
+        if !ismissing(x) && f != :Li
+            println(io, "    $f=$x")
+        end
+    end
+    show(io, en.Li)
+end
