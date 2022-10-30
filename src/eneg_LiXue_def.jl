@@ -35,12 +35,19 @@ function LiXue(d::Dict, atomic_number)
     return LiXue(data)
 end 
 
-lx_or_missing(atomic_number::Integer) = ismissing(lixue_data[atomic_number]) ? missing : LiXue(lixue_data[atomic_number], atomic_number)
+lx_or_missing(atomic_number::Integer) = 
+    ismissing(lixue_data[atomic_number]) ? missing : LiXue(lixue_data[atomic_number], atomic_number)
 
-fs_eq_or_nothing(x; kwargs...) = 
-    all([(isnothing(v) || (!ismissing(getfield(x, k)) && v == getfield(x, k))) for (k,v) in kwargs])
 
 (lx::LiXue)(; charge=nothing, coordination=nothing, spin=nothing) = 
     [x for x in lx.data if fs_eq_or_nothing(x; charge, coordination, spin)]
 
-    # filter(x -> fs_eq_or_nothing(x; charge, coordination, spin), lx.data)
+Base.eachindex(lx::LiXue) = eachindex(lx.data)
+Base.getindex(lx::LiXue, i::Integer) = lx.data[i]
+Base.getindex(lx::LiXue, v::AbstractVector) = [lx[i] for i in v]
+
+
+# support iterating over LiXue
+Base.eltype(lx::LiXue) = LiXueDSet
+Base.length(lx::LiXue) = length(lx.data)
+Base.iterate(lx::LiXue, state...) = iterate(lx.data, state...)

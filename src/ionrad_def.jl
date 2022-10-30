@@ -78,17 +78,17 @@ function showpresent(io::IO, x, fnames)
     return nothing
 end
 
-Base.show(io::IO, ir::IonicRadius) = showpresent(io::IO, ir, [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable])
+"""
+    fs_eq_or_nothing(x; kwargs...)
+The function checks if `x` satisfies conditions defined by those kwargs which are not `nothing` 
+It is not exported.
+"""
+fs_eq_or_nothing(x; kwargs...) = 
+    all([(isnothing(v) || (!ismissing(getfield(x, k)) && v == getfield(x, k))) for (k,v) in kwargs])
 
 
-# function Base.show(io::IO, ir::IonicRadius)
-#     fnames = [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable]
-#     parts = [stringpresent(ir, f) for f in fnames]
-#     filter!(x -> x != "", parts)
-#     parts = join(vcat(ionsymb(ir), parts), ", ")
-#     print(io, "($parts)")
-#     return nothing
-# end
+Base.show(io::IO, ir::IonicRadius) = showpresent(io::IO, ir, 
+    [:coordination, :econf, :spin, :crystal_radius, :ionic_radius, :ionic_potential, :origin, :most_reliable])
 
 function Base.isless(sc1::IonicRadius, sc2::IonicRadius)
     sc1.atomic_number != sc2.atomic_number && throw(DomainError("cannot compare IonicRadius for different elements"))
@@ -99,10 +99,8 @@ end
 Base.isequal(ir1::IonicRadius, ir2::IonicRadius) = (ir1.atomic_number, ir1.charge) == (ir2.atomic_number, ir2.charge)
 
 struct IonicRadii
-    # atomic_number::Int
     data::Vector{IonicRadius}
     IonicRadii(data::Vector{IonicRadius}) = new(
-        # data[1].atomic_number,
         sort!(data) )
 end
 
@@ -144,10 +142,11 @@ Base.eachindex(irs::IonicRadii) = eachindex(irs.data)
 Base.getindex(irs::IonicRadii, i::Integer) = irs.data[i]
 Base.getindex(irs::IonicRadii, v::AbstractVector) = [irs[i] for i in v]
 
-# Base.get(irs::IonicRadii, i::Integer, default) = get(irs.data[i], i, default)
 
 # support iterating over IonicRadii
 Base.eltype(irs::IonicRadii) = IonicRadius
 Base.length(irs::IonicRadii) = length(irs.data)
 Base.iterate(irs::IonicRadii, state...) = iterate(irs.data, state...)
 
+(irs::IonicRadii)(; charge=nothing, coordination=nothing, spin=nothing, econf=nothing, most_reliable=nothing) = 
+    [x for x in irs.data if fs_eq_or_nothing(x; charge, coordination, spin, econf, most_reliable)]
