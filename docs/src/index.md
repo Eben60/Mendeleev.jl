@@ -40,8 +40,8 @@ Uue
 ```
 
 You can look up elements by name (case-insensitive)
-via `chem_elements["oxygen"]`, by symbol via `chem_elements[:O]`, or by number via
-`chem_elements[8]`, for example.
+via `chem_elements["oxygen"]`, by symbol via `chem_elements[:O]`, by number via
+`chem_elements[8]`, or via the field `chem_elements.O` for example.
 
 
 All physical quantities are [unitful](https://painterqubits.github.io/Unitful.jl).
@@ -105,7 +105,7 @@ julia> using Mendeleev: elements, Element
 
 One property (`color`) was omitted completely, one (`named_by`) is omitted, but there exists a similar property. The `PeriodicTable.jl` property `source` contained link to Wikipedia article, and is re-named to `wikipedia` in this package. For details, see _Elements Data_ section. 
 
-Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predates introduction of `Missing`. Here, we are using `Missing`.
+Missing data were encoded in the `PeriodicTable.jl` resp. by empty strings and by `NaN`, as the package predated introduction of `Missing`. Here, we are using `Missing`.
 
 ## Developed by
 * [Eben60](https://github.com/Eben60)

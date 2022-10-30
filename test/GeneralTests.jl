@@ -11,7 +11,9 @@ F = chem_elements[9]
 
 # test element lookup
 @test O != chem_elements[:F]
-@test O === chem_elements["oxygen"] == chem_elements[:O]
+@test O === chem_elements["oxygen"] == chem_elements[:O] == chem_elements.O
+@test_throws ErrorException chem_elements.O2
+@test_throws KeyError chem_elements[:O2]
 @test haskey(chem_elements, 8) && haskey(chem_elements, "oxygen") && haskey(chem_elements, :O)
 @test !haskey(chem_elements, -8) && !haskey(chem_elements, "ooxygen") && !haskey(chem_elements, :Oops)
 

@@ -147,5 +147,13 @@ function Base.getproperty(e::ChemElem, s::Symbol)
     return p
 end
 
+function Base.getproperty(e::ChemElems, s::Symbol)
+    s in fieldnames(ChemElems)  && return getfield(e, s)
+    haskey(e.bysymbol, s) && return e.data[e.bysymbol[s]]
+    error("type ChemElems has no field $s")
+end
+
+
+
 Base.propertynames(e::ChemElem) = sort(collect(union(keys(synonym_fields), keys(elements_data), calculated_properties, fieldnames(ChemElem))))
 Base.hasproperty(e::ChemElem, p::Symbol) = p in propertynames(e)
