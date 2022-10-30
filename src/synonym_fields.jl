@@ -23,6 +23,6 @@ const synonym_fields = Dict(
     :number => :atomic_number
     )
 
-fname2prop(s::Symbol) = Symbol("fn_$s")
+fname2prop(s::Symbol) = eval(Symbol("fn_$s"))
 
-property_fns = Dict([p => fname2prop(p) for p in calculated_properties])
+property_fns = Dict{Symbol, Function}([p => fname2prop(p) for p in calculated_properties])

@@ -64,7 +64,7 @@ pns = propertynames(F)
 @test :atomic_number in pns # struct field
 @test :symbol in pns # struct field
 @test :ionenergy in pns # fn_ionenergy from property_functions.jl
-@test Mendeleev.property_fns[:series] == :fn_series
+@test Mendeleev.property_fns[:series] == Mendeleev.fn_series
 
 # Ensure that the hashcode works in Dict{}
 elmdict = Dict{ChemElem,Int}( chem_elements[z] => z for z in eachindex(chem_elements))

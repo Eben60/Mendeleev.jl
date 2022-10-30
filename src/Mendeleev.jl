@@ -25,8 +25,8 @@ include("ChemElems.jl")
 include("data.jl/ionrad_data.jl")
 include("ionrad_def.jl")
 include("data.jl/elements_init.jl")
-include("synonym_fields.jl")
 include("property_functions.jl")
+include("synonym_fields.jl")
 include("overloads.jl")
 
 

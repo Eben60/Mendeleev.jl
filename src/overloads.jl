@@ -135,7 +135,7 @@ Base.eachindex(elms::ChemElems) = eachindex(elms.data)
 function getprop_unitless(e::ChemElem, s::Symbol)
     s in fieldnames(ChemElem)  && return getfield(e, s)
     haskey(elements_data, s) && return elements_data[s][e.atomic_number]
-    s in calculated_properties && return eval(property_fns[s])(e)
+    s in calculated_properties && return property_fns[s](e)
     haskey(synonym_fields, s) && return getproperty(e, synonym_fields[s])
 
     throw(DomainError(s, "nonexistent ChemElem property"))
