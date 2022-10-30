@@ -27,7 +27,7 @@ struct IonicRadius
     most_reliable::Union{Bool, Missing}
     origin::Union{String, Missing}
     spin::Union{Symbol, Missing}
-    ionic_potential::typeof(1.0u"C"/u"m")
+    ionic_potential::typeof(1.0u"e_au"/u"pm")
 end 
 
 ionic_potential(ion_rad, charge) = charge*e_charge/ion_rad

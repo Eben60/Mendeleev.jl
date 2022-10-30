@@ -95,18 +95,18 @@ Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
 Cl = chem_elements[:Cl]
 repr_ionrad_mac =
 """ionic radii for Chlorine
-(Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-8.852e-10 C m⁻¹, origin=Pauling's (1960) crystal radius, , most_reliable=false)
-(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
-(Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m⁻¹, most_reliable=true)
-(Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=4.154e-8 C m⁻¹, origin=Ahrens (1952) ionic radius, , most_reliable=false)
+(Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-0.005525 e pm⁻¹, origin=Pauling's (1960) crystal radius, , most_reliable=false)
+(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=0.4167 e pm⁻¹, most_reliable=false)
+(Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=0.875 e pm⁻¹, most_reliable=true)
+(Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=0.2593 e pm⁻¹, origin=Ahrens (1952) ionic radius, , most_reliable=false)
 """
 
 repr_ionrad_win =
 """ionic radii for Chlorine
-(Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-8.852e-10 C m^-1, origin=Pauling's (1960) crystal radius, , most_reliable=false)
-(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m^-1, most_reliable=false)
-(Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m^-1, most_reliable=true)
-(Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=4.154e-8 C m^-1, origin=Ahrens (1952) ionic radius, , most_reliable=false)
+(Cl1-, coordination=VI, econf=3p6, crystal_radius=167.0 pm, ionic_radius=181.0 pm, ionic_potential=-0.005525 e pm^-1, origin=Pauling's (1960) crystal radius, , most_reliable=false)
+(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=0.4167 e pm^-1, most_reliable=false)
+(Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=0.875 e pm^-1, most_reliable=true)
+(Cl7+, coordination=VI, econf=2p6, crystal_radius=41.0 pm, ionic_radius=27.0 pm, ionic_potential=0.2593 e pm^-1, origin=Ahrens (1952) ionic radius, , most_reliable=false)
 """
 
 @test repr("text/plain", Cl.ionic_radii) in [repr_ionrad_mac, repr_ionrad_win]

@@ -25,4 +25,4 @@ const synonym_fields = Dict(
 
 fname2prop(s::Symbol) = eval(Symbol("fn_$s"))
 
-property_fns = Dict{Symbol, Function}([p => fname2prop(p) for p in calculated_properties])
+const property_fns = Dict{Symbol, Function}([p => fname2prop(p) for p in calculated_properties])
