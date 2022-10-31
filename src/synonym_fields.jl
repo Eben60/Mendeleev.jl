@@ -7,7 +7,7 @@ const properties2omit = [:color, :named_by, :discovered_by]
 const properties2rename = [:source => :wikipedia, :number => :atomic_number,]
 const calculated_properties = [:discovered_by, :series, :group, :oxistates, 
     :sconst, :ionenergy, :isotopes, :mass_number, :electrons, :neutrons, 
-    :protons, :ionic_radii, :eneg, :inchi]
+    :protons, :ionic_radii, :eneg, :inchi, :electrophilicity]
 
 const synonym_fields = Dict(
     :atomic_mass => :atomic_weight,

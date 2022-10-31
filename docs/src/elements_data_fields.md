@@ -35,7 +35,7 @@
 | `discovery_year`                | The year the element was discovered                  |
 | `electron_affinity`             | Electron affinity                                    |
 | `electrons`                     | Number of electrons                                  |
-| `electrophilicity`              | Electrophilicity index  _(not yet implemented in `Mendeleev.jl`)_  |
+| `electrophilicity`              | Electrophilicity index                               |
 | `electronic_configuration`      | Ground state electron configuration (see also `el_config`)    |
 | `evaporation_heat`              | Evaporation heat                                     |
 | `fusion_heat`                   | Fusion heat                                          |

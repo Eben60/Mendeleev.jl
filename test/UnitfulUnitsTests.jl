@@ -17,7 +17,7 @@ Be = chem_elements[:Be]
 @test unit(H.lattice_constant) === u"angstrom"
 @test unit(H.atomic_volume) === u"cm^3/mol"
 @test unit(H.electron_affinity) === u"eV"
-@test_broken unit(H.electrophilicity) === u"eV" # electrophilicity not implemented yet
+@test unit(H.electrophilicity) === u"eV" 
 @test unit(H.eneg.Allen) === u"eV"
 @test unit(H.density) === u"g/cm^3"
 @test unit(H.specific_heat_capacity) === u"J/(g*K)"

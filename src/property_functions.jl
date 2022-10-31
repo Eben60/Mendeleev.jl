@@ -77,3 +77,6 @@ fn_ionic_radii(e) = IonicRadii(e)
 fn_eneg(e) = Electronegativities(e.atomic_number)
 
 fn_inchi(e) = inchi[e.atomic_number]
+
+fn_electrophilicity(e) = electrophilicities[e.atomic_number]
+

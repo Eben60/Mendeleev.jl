@@ -1,5 +1,5 @@
 module PropertiesTests
-using Mendeleev, Test
+using Mendeleev, Test, Unitful
 
 @testset "PropertiesTests" begin
 K = chem_elements[:K]
@@ -16,6 +16,7 @@ Ts = chem_elements[:Ts]
 @test Fe.inchi == "InchI=1S/Fe"
 @test els.H.inchi == "InchI=1S/H"
 @test els.Og.inchi == "InchI=1S/Og"
+@test Fe.electrophilicity ≈ 1.045904228706801u"eV"
 
 end # @testset "PropertiesTests"
 end # module
