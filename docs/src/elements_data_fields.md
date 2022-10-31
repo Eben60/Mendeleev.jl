@@ -45,7 +45,7 @@
 | `goldschmidt_class`             | Goldschmidt classification                           |
 | `group`                         | Group in periodic table                              |
 | `heat_of_formation`             | Heat of formation                                    |
-| `inchi`                         | International Chemical Identifier _(not yet implemented in `Mendeleev.jl`)_ |
+| `inchi`                         | International Chemical Identifier                    |
 | `ionenergy`                     | Ionization energies                                  |
 | `ionic_radii`                   | Ionic and crystal radii                              |
 | `is_monoisotopic`               | Is the element monoisotopic                          |

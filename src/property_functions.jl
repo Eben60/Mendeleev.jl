@@ -75,3 +75,5 @@ fn_neutrons(e) = e.mass_number - e.atomic_number
 fn_ionic_radii(e) = IonicRadii(e)
 
 fn_eneg(e) = Electronegativities(e.atomic_number)
+
+fn_inchi(e) = inchi[e.atomic_number]

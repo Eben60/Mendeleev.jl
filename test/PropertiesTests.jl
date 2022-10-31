@@ -13,6 +13,9 @@ Ts = chem_elements[:Ts]
 @test Fe.mass_number == 56
 @test Fe.neutrons == 30
 @test ismissing(Ts.mass_number)
+@test Fe.inchi == "InchI=1S/Fe"
+@test els.H.inchi == "InchI=1S/H"
+@test els.Og.inchi == "InchI=1S/Og"
 
 end # @testset "PropertiesTests"
 end # module
