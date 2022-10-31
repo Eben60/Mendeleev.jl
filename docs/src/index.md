@@ -13,7 +13,7 @@ As usual
 
 ## Intentions
 The aim was to have a package compatible with `PeriodicTable` as possible, but with much more comprehensive data 
-from possibly reliable and traceable sources. The package should still be possibly lightweight like `PeriodicTable`. `Mendeleev`, like it's predessor, has only one direct dependence (`Unitful`), keeps data in static form, and takes about the same time to load (about half a second on a medium-range medium-aged notebook). See below for compatibility details.
+from possibly reliable and traceable sources. The package should still be possibly lightweight like `PeriodicTable`. Like it's predessor, `Mendeleev` has only minimal direct dependencies, keeps data in static form, and takes about the same time to load (about half a second on a medium-range medium-aged notebook), most of the load time due to `Unitful` in both cases. See below for compatibility details.
 
 Another aim was to make it easier to update data. Most data are read out from the (Python) `mendeleev` database by a separate external skript and converted to static Julia code, which further can be relatively straightforwardly edited, should that be necessary.
 
@@ -70,19 +70,81 @@ e⁻-configuration: 1s² 2s² 2p⁴
 
 ```
 
-Alternatively, you may want to get a list of elements,
+
+
+### Data access, indexing and filtering by example
+
+Access to elements and element properties
 ```julia
-julia> chem_elements[1:4]
+julia> using Mendeleev
+
+julia> using Mendeleev: elements # for PeriodicTable compatibility
+
+julia> using Mendeleev: els # for lazy typists
+
+julia> @assert chem_elements === elements === els
+
+julia> @assert chem_elements[26] === chem_elements[:Fe] === chem_elements["iron"] === chem_elements.Fe # four ways to get an element
+
+julia> chem_elements[1:4] # list of elements
 4-element Vector{ChemElem}:
     Element(Hydrogen)
     Element(Helium)
     Element(Lithium)
     Element(Beryllium)
 
+julia> els.Fe.boiling_point # get a property - see Elements Data Fields
+3023.0 K
+```
+Access to ionic radii
+```julia
+julia> feir = els.Fe.ionic_radii # I'm not a good typist, thus ´els´ and not ´chem_elements´ here
+ionic radii for Iron
+(Fe2+, coordination=IV, econf=3d6, spin=HS, crystal_radius=77.0 pm, ionic_radius=63.0 pm, ionic_potential=0.03175 e pm⁻¹, most_reliable=false)
+(Fe2+, coordination=IVSQ, econf=3d6, spin=HS, crystal_radius=78.0 pm, ionic_radius=64.0 pm, ionic_potential=0.03125 e pm⁻¹, most_reliable=false)
+...
+(Fe4+, coordination=VI, econf=3d4, crystal_radius=72.5 pm, ionic_radius=58.5 pm, ionic_potential=0.06838 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=false)
+(Fe6+, coordination=IV, econf=3d2, crystal_radius=39.0 pm, ionic_radius=25.0 pm, ionic_potential=0.24 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=false)
+
+julia> feir[1] # indexing
+(Fe2+, coordination=IV, econf=3d6, spin=HS, crystal_radius=77.0 pm, ionic_radius=63.0 pm, ionic_potential=0.03175 e pm⁻¹, most_reliable=false)
+
+julia> feir[1:2] # indexing
+2-element Vector{Mendeleev.IonicRadius}:
+ (Fe2+, coordination=IV, econf=3d6, spin=HS, crystal_radius=77.0 pm, ionic_radius=63.0 pm, ionic_potential=0.03175 e pm⁻¹, most_reliable=false)
+ (Fe2+, coordination=IVSQ, econf=3d6, spin=HS, crystal_radius=78.0 pm, ionic_radius=64.0 pm, ionic_potential=0.03125 e pm⁻¹, most_reliable=false)
+
+julia> feir(;most_reliable=true) # filtering
+3-element Vector{Mendeleev.IonicRadius}:
+ (Fe2+, coordination=VI, econf=3d6, spin=HS, crystal_radius=92.0 pm, ionic_radius=78.0 pm, ionic_potential=0.02564 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
+ (Fe3+, coordination=IV, econf=3d5, spin=HS, crystal_radius=63.0 pm, ionic_radius=49.0 pm, ionic_potential=0.06122 e pm⁻¹, most_reliable=true)
+ (Fe3+, coordination=VI, econf=3d5, spin=HS, crystal_radius=78.5 pm, ionic_radius=64.5 pm, ionic_potential=0.04651 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
+
+julia> feir(;charge=2, coordination=:VI, econf="3d6", spin=:HS, most_reliable=true) #filtering
+1-element Vector{Mendeleev.IonicRadius}:
+ (Fe2+, coordination=VI, econf=3d6, spin=HS, crystal_radius=92.0 pm, ionic_radius=78.0 pm, ionic_potential=0.02564 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
+
+```
+Access to electronegativities according to Li and Xue scale
+```julia
+julia> feli = els.Fe.eneg.Li
+Li-Xue Electronegativities for Fe
+    (Fe4+, coordination=VI, value=9.56 pm⁻¹)
+    (Fe6+, coordination=IV, value=23.86 pm⁻¹)
+    ...
+    (Fe3+, coordination=VI, spin=LS, value=7.505 pm⁻¹)
+    (Fe3+, coordination=V, value=7.192 pm⁻¹)
+
+julia> feli[1] # indexing
+(Fe4+, coordination=VI, value=9.56 pm⁻¹)
+
+julia> feli(;charge=2, coordination=:IV, spin=:HS) # filtering
+1-element Vector{Mendeleev.LiXueDSet}:
+ (Fe2+, coordination=IV, spin=HS, value=4.889 pm⁻¹)
 ```
 
 ## Data by
-The data used for this package has been pulled up mainly from the Python package [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
+The data used for this package has been pulled up mainly from the Python package [mendeleev](https://github.com/lmmentel/mendeleev) by [Lukasz Mentel](https://github.com/lmmentel). See [mendeleev documentation](https://mendeleev.readthedocs.io/en/stable/data.html) for the data sources. Some information (but no physical quantities) taken over from [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), which was in turn taken mostly from [here](https://github.com/Bowserinator/Periodic-Table-JSON). Some data cross-checked between [mendeleev](https://github.com/lmmentel/mendeleev), [PeriodicTable.jl](https://github.com/JuliaPhysics/PeriodicTable.jl), and [IsotopeTable.jl](https://github.com/Gregstrq/IsotopeTable.jl), and discrepancy cases re-checked by other sources by the autor of this package.
 
 ##  List of `ChemElement` properties: 
 

@@ -36,10 +36,7 @@
 | `electron_affinity`             | Electron affinity                                    |
 | `electrons`                     | Number of electrons                                  |
 | `electrophilicity`              | Electrophilicity index  _(not yet implemented in `Mendeleev.jl`)_  |
-| `en_allen`                      | Allen's scale of electronegativity                   |
-| `en_ghosh`                      | Ghosh's scale of electronegativity                   |
-| `en_pauling`                    | Pauling's scale of electronegativity                 |
-| `electronic_configuration`       | Ground state electron configuration (or is it econf ??)                 |
+| `electronic_configuration`      | Ground state electron configuration (or is it econf ??)                 |
 | `evaporation_heat`              | Evaporation heat                                     |
 | `fusion_heat`                   | Fusion heat                                          |
 | `gas_basicity`                  | Gas basicity                                         |
