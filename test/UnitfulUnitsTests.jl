@@ -18,7 +18,7 @@ Be = chem_elements[:Be]
 @test unit(H.atomic_volume) === u"cm^3/mol"
 @test unit(H.electron_affinity) === u"eV"
 @test_broken unit(H.electrophilicity) === u"eV" # electrophilicity not implemented yet
-@test unit(H.en_allen) === u"eV"
+@test unit(H.eneg.Allen) === u"eV"
 @test unit(H.density) === u"g/cm^3"
 @test unit(H.specific_heat_capacity) === u"J/(g*K)"
 @test unit(H.boiling_point) === u"K"

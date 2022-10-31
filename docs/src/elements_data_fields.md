@@ -36,7 +36,7 @@
 | `electron_affinity`             | Electron affinity                                    |
 | `electrons`                     | Number of electrons                                  |
 | `electrophilicity`              | Electrophilicity index  _(not yet implemented in `Mendeleev.jl`)_  |
-| `electronic_configuration`      | Ground state electron configuration (or is it econf ??)                 |
+| `electronic_configuration`      | Ground state electron configuration (see also `el_config`)    |
 | `evaporation_heat`              | Evaporation heat                                     |
 | `fusion_heat`                   | Fusion heat                                          |
 | `gas_basicity`                  | Gas basicity                                         |
@@ -106,7 +106,7 @@
 | `color`        |           |
 | `cpk_hex`      | -> `cpk_color`          |
 | `discovered_by` | year of discovery, names of discoverers, and discovery location |
-| `el_config`    |           |
+| `el_config`    | electron configuration, another way          |
 | `melt`         | -> `melting_point`          |
 | `molar_heat`   | -> `molar_heat_capacity`          |
 | `number`       | -> `atomic_number`          |
