@@ -130,7 +130,26 @@ Li-Xue Electronegativities for Cl
     (Cl7+, coordination=VI, value=20.42 pm⁻¹)
 """
 
-@test repr("text/plain", cleneg) in [repr_eneg_mac]
+repr_eneg_win = 
+"""Electronegativities for Cl
+    atomic_number=17
+    Allen=16.97 eV
+    Allred=0.0006223854708703193 e^2 pm^-2
+    Cottrell=0.2482260292881502 e^1/2 pm^-1/2
+    Ghosh=0.263803 pm^-1
+    Gordy=0.06161616161616161 e pm^-1
+    Martynov=7.640517652620142 eV^1/2
+    Mulliken=6.483815 eV
+    Nagle=0.7826754796597776 Å^-1
+    Pauling=3.16 eV^1/2
+    Sanderson=0.81237728291421
+Li-Xue Electronegativities for Cl
+    (Cl5+, coordination=IIIPY, value=24.79 pm^-1)
+    (Cl7+, coordination=IV, value=38.06 pm^-1)
+    (Cl7+, coordination=VI, value=20.42 pm^-1)
+"""
+
+@test repr("text/plain", cleneg) in [repr_eneg_mac, repr_eneg_win]
 
 """
 julia> fl = "ener-repr_mac.txt";
