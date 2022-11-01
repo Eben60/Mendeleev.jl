@@ -127,20 +127,20 @@ julia> feir(;charge=2, coordination=:VI, econf="3d6", spin=:HS, most_reliable=tr
 ```
 Access to electronegativities according to Li and Xue scale
 ```julia
-julia> feli = els.Fe.eneg.Li
+julia> felx = chem_elements.Fe.eneg.Li
 Li-Xue Electronegativities for Fe
+    (Fe2+, coordination=IV, spin=HS, value=4.889 pm⁻¹)
+    (Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
+    ...
     (Fe4+, coordination=VI, value=9.56 pm⁻¹)
     (Fe6+, coordination=IV, value=23.86 pm⁻¹)
-    ...
-    (Fe3+, coordination=VI, spin=LS, value=7.505 pm⁻¹)
-    (Fe3+, coordination=V, value=7.192 pm⁻¹)
 
-julia> feli[1] # indexing
-(Fe4+, coordination=VI, value=9.56 pm⁻¹)
+julia> felx[2] # indexing
+(Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
 
-julia> feli(;charge=2, coordination=:IV, spin=:HS) # filtering
+julia> felx(;charge=2, spin=:HS, coordination=:VI) # filtering
 1-element Vector{Mendeleev.LiXueDSet}:
- (Fe2+, coordination=IV, spin=HS, value=4.889 pm⁻¹)
+ (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
 ```
 
 ## Data by
@@ -151,10 +151,8 @@ The data used for this package has been pulled up mainly from the Python package
 * [Elements Data Fields](./elements_data_fields.md)
 
 ## Types
-```@autodocs
-Modules = [Mendeleev]
-Order   = [:type]
-```
+
+* [Types](./types.md)
 
 ## Compatibility Issues
 `PeriodicTable.jl` exports global variable called `elements`, which is a collection of `Element` data structures.

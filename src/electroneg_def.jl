@@ -4,6 +4,25 @@ function fields(t)
     return NamedTuple{nms}(tps)
 end
 
+"""
+    Electronegativities
+This struct contains electronegativities of an element according to different scales. 
+Any field except `atomic_number` can also be `missing`, the representation below is simplified for legibility.
+It is not exported.
+```
+    Allen::typeof(1.0*u"eV")
+    Allred::typeof(1.0(u"e_au"^2/u"pm"^2))
+    Cottrell::typeof(1.0(u"e_au"/u"pm")^(1//2))
+    Ghosh::typeof(1.0/u"pm")
+    Gordy::typeof(1.0(u"e_au"/u"pm"))
+    Martynov::typeof(1.0*u"eV^(1//2)")
+    Mulliken::typeof(1.0*u"eV")
+    Nagle::typeof(1.0u"Å^-1")
+    Pauling::typeof(1.0*u"eV^(1//2)")
+    Sanderson::Float64
+    Li::LiXue
+```    
+"""
 struct Electronegativities
     atomic_number::Int
     Allen::Union{typeof(1.0*u"eV"), Missing} # eV or Ry ??

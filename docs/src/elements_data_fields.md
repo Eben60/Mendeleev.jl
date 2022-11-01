@@ -37,6 +37,7 @@
 | `electrons`                     | Number of electrons                                  |
 | `electrophilicity`              | Electrophilicity index                               |
 | `electronic_configuration`      | Ground state electron configuration (see also `el_config`)    |
+| `eneg`                          | Electronegativities. Returns `Electronegativities` type   |
 | `evaporation_heat`              | Evaporation heat                                     |
 | `fusion_heat`                   | Fusion heat                                          |
 | `gas_basicity`                  | Gas basicity                                         |
@@ -87,13 +88,30 @@
 | `vdw_radius_truhlar`            | Van der Waals radius according to Truhlar            |
 | `vdw_radius_uff`                | Van der Waals radius from the UFF                    |
 
+### Electronegativities [^4] (type returned by `eneg` field):
+
+| Name              | Comment                                 |
+|-------------------|-----------------------------------------|
+| `atomic_number`   | Atomic number                           |
+| `Allen`           | Scale according to Allen                |
+| `Allred`          | Scale of Allred-Rochow                  |
+| `Cottrell`        | Scale of Cottrell-Sutton                |
+| `Ghosh`           |                                         |
+| `Gordy`           |                                         |
+| `Martynov`        | Scale of Martynov-Batsanov              |
+| `Mulliken`        |                                         |
+| `Nagle`           |                                         |
+| `Pauling`         |                                         |
+| `Sanderson`       |                                         |
+| `Li`              | Scale of Li-Xue. Returns `LiXue` type.  |
 
 [^1]: For elements where several allotropes exist, the density corresponding to the most abundand are reported, namely:  Antimony (gray), Berkelium (α form), Carbon (graphite), Phosphorus (white), Selenium (gray), Sulfur (rhombic), Tin (white)
 
 [^2]: Only naturally occurring stable or "almost stable" isotopes are listed, and only mass and abundance data. A separate package with comprehensive information is in preparation (for the time being see [here](https://github.com/Gregstrq/Isotope-data) or [there](https://github.com/Eben60/Isotope-data/tree/main/JLD2_saved) ). The `isotopes` property returns an `Isotopes` (see documentation for `Isotopes` and `Isotope` types).
    
-[^3]: Retrieved by me mostly from Wikipedia - see comments in the source file `oxistates_data.jl`     
+[^3]: Retrieved by the package author mostly from Wikipedia - see comments in the source file `oxistates_data.jl`     
 
+[^4]: See `mendeleev` [documentation](https://mendeleev.readthedocs.io/en/stable/electronegativity.html) for explanations and references
 
 ## Further properties, mostly from `PeriodicTable` (in part supported just for compatibility)
 
@@ -124,8 +142,8 @@
 |------------------|------------------------------------------------------|
 | `color`          | see `appearance` (`color` was anyway missing for all elements but one)         |
 | `named_by`       | see `name_origin`          |
-| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^4] |
+| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^5] |
 
 
-[^4]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
+[^5]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 

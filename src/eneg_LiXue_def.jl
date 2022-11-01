@@ -1,4 +1,15 @@
-
+"""
+    LiXueDSet
+This struct describes electronegativity by Li-Xue scale for a given ionic states of an element. 
+It is not exported.
+```
+    atomic_number::Int
+    charge::Int
+    coordination::Symbol
+    spin::Union{Symbol, Missing}
+    value::typeof(1.0*u"1/pm")
+```    
+"""
 struct LiXueDSet
     atomic_number::Int
     charge::Int
@@ -14,8 +25,45 @@ LiXueDSet(atomic_number, charge, t::Tuple) = LiXueDSet(atomic_number, charge, t.
 
 Base.show(io::IO, lx::LiXueDSet) = showpresent(io::IO, lx, [:coordination, :spin, :value])
 
-# lxd = LiXueDSet(1, 1, (:II, missing, -21.244330519873465))
+function Base.isless(lx1::LiXueDSet, lx2::LiXueDSet)
+    lx1.atomic_number != lx2.atomic_number && throw(DomainError("cannot compare Li-Xue electronegativities for different elements"))
+    return (lx1.charge, lx1.coordination, lx1.spin) < (lx2.charge, lx2.coordination, lx2.spin)
+end
 
+Base.isequal(lx1::LiXueDSet, lx2::LiXueDSet) = (lx1.charge, lx1.coordination, lx1.spin) < l(lx2.charge, lx2.coordination, lx2.spin)
+
+
+"""
+    LiXue
+This struct is a container for Li-Xue scale electronegativities of different ionic states of an element. 
+It provides access by position(s) in the array of LiXueDSet structs for the given element, 
+as well as filtering according to 
+`(; charge, coordination, spin)`. 
+It is not exported.
+# Examples
+```julia-repl
+julia> felx = chem_elements.Fe.eneg.Li;
+
+julia> felx[2]
+(Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
+
+julia> felx[[2,3]]
+2-element Vector{Mendeleev.LiXueDSet}:
+ (Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
+ (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
+
+ julia> felx(;charge=2, spin=:HS) # filtering
+ 4-element Vector{Mendeleev.LiXueDSet}:
+  (Fe2+, coordination=IV, spin=HS, value=4.889 pm⁻¹)
+  (Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
+  (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
+  (Fe2+, coordination=VIII, spin=HS, value=3.551 pm⁻¹))
+ 
+  julia> felx(;charge=2, spin=:HS, coordination=:VI) # filtering
+  1-element Vector{Mendeleev.LiXueDSet}:
+   (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
+``` 
+""" 
 struct LiXue
     data::Vector{LiXueDSet}
 end
@@ -32,6 +80,7 @@ lxv(d, atomic_number, charge) = [LiXueDSet(atomic_number, charge, t) for t in d[
 function LiXue(d::Dict, atomic_number)
     data = Dict(charge => lxv(d, atomic_number, charge) for charge in keys(d))
     data = vcat(values(data)...)
+    sort!(data)
     return LiXue(data)
 end 
 

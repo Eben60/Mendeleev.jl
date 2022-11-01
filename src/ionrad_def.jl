@@ -14,7 +14,7 @@ It is not exported.
     most_reliable::Union{Bool, Missing}
     origin::Union{String, Missing}
     spin::Union{Symbol, Missing}
-    ionic_potential::typeof(1.0u"C"/u"m")
+    ionic_potential::typeof(1.0u"e_au"/u"pm")
 ```    
 """
 struct IonicRadius
@@ -106,18 +106,32 @@ end
 
 """
     IonicRadii
-This struct is a container for ionic radii of an element. It provides access only by 
-position(s) in the array of IonicRadius structs for the given element.
+This struct is a container for ionic radii of an element. It provides access by 
+position(s) in the array of IonicRadius structs for the given element, 
+as well as filtering according to 
+`(; charge, coordination, spin, econf, most_reliable)`. 
 It is not exported.
 # Examples
 ```julia-repl
-julia> chem_elements[:Cl].ionic_radii[2]
-(Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
+julia> feir = chem_elements.Fe.ionic_radii;
 
-julia> chem_elements[:Cl].ionic_radii[[2,3]]
+julia> feir[2]
+(Fe2+, coordination=IVSQ, econf=3d6, spin=HS, crystal_radius=78.0 pm, ionic_radius=64.0 pm, ionic_potential=0.03125 e pm⁻¹, most_reliable=false)
+
+julia> feir[[2,3]]
 2-element Vector{Mendeleev.IonicRadius}:
- (Cl5+, coordination=IIIPY, econf=3s2, crystal_radius=26.0 pm, ionic_radius=12.0 pm, ionic_potential=6.676e-8 C m⁻¹, most_reliable=false)
- (Cl7+, coordination=IV, econf=2p6, crystal_radius=22.0 pm, ionic_radius=8.0 pm, ionic_potential=1.402e-7 C m⁻¹, most_reliable=true)
+ (Fe2+, coordination=IVSQ, econf=3d6, spin=HS, crystal_radius=78.0 pm, ionic_radius=64.0 pm, ionic_potential=0.03125 e pm⁻¹, most_reliable=false)
+ (Fe2+, coordination=VI, econf=3d6, spin=LS, crystal_radius=75.0 pm, ionic_radius=61.0 pm, ionic_potential=0.03279 e pm⁻¹, origin=estimated, , most_reliable=false)
+
+julia> feir(;most_reliable=true) # filtering
+3-element Vector{Mendeleev.IonicRadius}:
+ (Fe2+, coordination=VI, econf=3d6, spin=HS, crystal_radius=92.0 pm, ionic_radius=78.0 pm, ionic_potential=0.02564 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
+ (Fe3+, coordination=IV, econf=3d5, spin=HS, crystal_radius=63.0 pm, ionic_radius=49.0 pm, ionic_potential=0.06122 e pm⁻¹, most_reliable=true)
+ (Fe3+, coordination=VI, econf=3d5, spin=HS, crystal_radius=78.5 pm, ionic_radius=64.5 pm, ionic_potential=0.04651 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
+ 
+julia> feir(;charge=2, coordination=:VI, econf="3d6", spin=:HS, most_reliable=true) #filtering
+1-element Vector{Mendeleev.IonicRadius}:
+ (Fe2+, coordination=VI, econf=3d6, spin=HS, crystal_radius=92.0 pm, ionic_radius=78.0 pm, ionic_potential=0.02564 e pm⁻¹, origin=from r^3 vs V plots, , most_reliable=true)
 ``` 
 """ 
 function IonicRadii(atomic_number::Integer)
