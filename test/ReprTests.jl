@@ -27,7 +27,6 @@ mend_repr(x) = startswith(x, "Mendeleev.") ? x : "Mendeleev." * x
 
 @test mend_repr(repr(K.sconst)) == "Mendeleev.ScreenConst[K 1s: 0.5105, K 2s: 5.9938, K 2p: 3.9728, K 3s: 10.3201, K 3p: 11.2744, K 4s: 15.5048]"
 
-
 repr_O = """Oxygen (O), number 8:
         category: diatomic nonmetal
      atomic mass: 15.999 u
@@ -110,6 +109,35 @@ repr_ionrad_win =
 """
 
 @test repr("text/plain", Cl.ionic_radii) in [repr_ionrad_mac, repr_ionrad_win]
+
+cleneg = Cl.eneg
+repr_eneg_mac =
+"""Electronegativities for Cl
+    atomic_number=17
+    Allen=16.97 eV
+    Allred=0.0006223854708703193 e² pm⁻²
+    Cottrell=0.2482260292881502 e¹ᐟ² pm⁻¹ᐟ²
+    Ghosh=0.263803 pm⁻¹
+    Gordy=0.06161616161616161 e pm⁻¹
+    Martynov=7.640517652620142 eV¹ᐟ²
+    Mulliken=6.483815 eV
+    Nagle=0.7826754796597776 Å⁻¹
+    Pauling=3.16 eV¹ᐟ²
+    Sanderson=0.81237728291421
+Li-Xue Electronegativities for Cl
+    (Cl5+, coordination=IIIPY, value=24.79 pm⁻¹)
+    (Cl7+, coordination=IV, value=38.06 pm⁻¹)
+    (Cl7+, coordination=VI, value=20.42 pm⁻¹)
+"""
+
+@test repr("text/plain", cleneg) in [repr_eneg_mac]
+
+"""
+julia> fl = "ener-repr_mac.txt";
+julia> open(fl, "w") do io
+        show(io, cleneg)
+        end
+"""
 
 end #@testset "ReprTests"
 end # ReprTests

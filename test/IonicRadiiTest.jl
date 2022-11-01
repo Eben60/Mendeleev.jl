@@ -52,5 +52,11 @@ NotAnEl_IR = IonicRadius(1, 3, :III, 25.0u"pm", "0s7", 25.5u"pm", false, missing
 @test feir(;charge=2, coordination=:VI) == feir[3:4]
 @test feir(;charge=2, coordination=:VI, spin=:LS) == feir(;charge=2, coordination=:VI, spin=:LS, econf="3d6") == [feir[3]]
 @test feir(;econf="3d5", coordination=:VI) == feir[8:9]
+
+@test feir(;charge=2) == feir[1:5]
+@test feir(;charge=2, coordination=:VI) == feir[[3, 4]]
+@test feir(;charge=2, most_reliable=true) == [feir[4]]
+@test isempty(feir(;charge=4, spin=:HS))
+
 end
 end
