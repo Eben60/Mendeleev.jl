@@ -7,6 +7,7 @@ using Mendeleev: Electronegativities, LiXueDSet
     Cl = chem_elements.Cl
     cleneg = Cl.eneg
     feli = chem_elements.Fe.eneg.Li
+    sien = chem_elements.Si.eneg
     @test cleneg.atomic_number ≈ 17
     @test cleneg.Allen |> ustrip ≈ 16.97 
     @test cleneg.Allred |> ustrip ≈ 0.0006223854708703193 
@@ -33,20 +34,20 @@ using Mendeleev: Electronegativities, LiXueDSet
     @test isempty(feli(;charge=4, spin=:HS))
     @test feli[[3, 4]] == [feli[3], feli[4]]
     @test_throws DomainError feli[4] < cleneg.Li[1]
+
+    @test sien.Allen |> ustrip ≈ 11.33 
+    @test sien.Allred |> ustrip ≈ 0.00030841260404280616 # 
+    @test sien.Cottrell |> ustrip ≈ 0.18914508206391598 # 
+    @test sien.Ghosh |> ustrip ≈ 0.178503 
+    @test sien.Gordy |> ustrip ≈ 0.03577586206896551 # 
+    @test sien.Martynov |> ustrip ≈ 5.0777041564076963 
+    @test sien.Mulliken |> ustrip ≈ 4.0758415 
+    @test sien.Nagle |> ustrip ≈ 0.4750985662830595 #
+    @test sien.Pauling |> ustrip ≈ 1.9 
+    @test sien.Sanderson |> ustrip ≈ 0.3468157872145231    
 # ≈
-    
+    @test sien.Li(;charge=4, coordination=:VI)[1].value |> ustrip ≈ 9.74839542504959
 
-
-    
-#     NotAnEl_IR = IonicRadius(1, 3, :III, 25.0u"pm", "0s7", 25.5u"pm", false, missing, :HS, 1.1u"C/m")
-    
-#     @test_throws DomainError Cl1minus < NotAnEl_IR
-#     @test  Cl1minus != NotAnEl_IR
-#     @test Cl1minus < Cl5plus
-    
-#     @test eltype(Cl.ionic_radii) == typeof(NotAnEl_IR)
-#     @test length(Cl.ionic_radii) == 4
-    @test Cl.ionic_radii[[2, 4]] == [Cl.ionic_radii[2], Cl.ionic_radii[4]]
 
 end # testset
 end # module
