@@ -30,8 +30,6 @@ function Base.isless(lx1::LiXueDSet, lx2::LiXueDSet)
     return (lx1.charge, lx1.coordination, lx1.spin) < (lx2.charge, lx2.coordination, lx2.spin)
 end
 
-Base.isequal(lx1::LiXueDSet, lx2::LiXueDSet) = (lx1.charge, lx1.coordination, lx1.spin) < l(lx2.charge, lx2.coordination, lx2.spin)
-
 
 """
     LiXue
