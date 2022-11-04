@@ -7,7 +7,7 @@ It is not exported.
     charge::Int
     coordination::Symbol
     spin::Union{Symbol, Missing}
-    value::Float64 # dimensionality to clarify yet
+    value::Float64 # dimensionality to be clarified yet
 ```
 """
 struct LiXueDSet

@@ -13,11 +13,11 @@ It is not exported.
     Allen::typeof(1.0*u"eV")
     Allred::typeof(1.0(u"e_au"^2/u"pm"^2))
     Cottrell::typeof(1.0(u"e_au"/u"pm")^(1//2))
-    Ghosh::Float64 # dimensionality to clarify yet
+    Ghosh::Float64 # dimensionality to be clarified yet
     Gordy::typeof(1.0(u"e_au"/u"pm"))
     Martynov::typeof(1.0*u"eV^(1//2)")
     Mulliken::typeof(1.0*u"eV")
-    Nagle::Float64 # dimensionality to clarify yet
+    Nagle::Float64 # dimensionality to be clarified yet
     Pauling::typeof(1.0*u"eV^(1//2)")
     Sanderson::Float64
     Li::LiXue

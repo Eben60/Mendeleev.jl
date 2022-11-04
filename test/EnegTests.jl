@@ -27,7 +27,7 @@ using Mendeleev: Electronegativities, LiXueDSet
 
     @test feli[4].spin == :LS
     @test feli[4].value |> ustrip ≈ 5.0193130327270925
-    @test typeof(feli[4].value) == typeof(1.0u"1/pm")
+    @test typeof(feli[4].value) == Float64 # TODO after clarifying units typeof(1.0u"1/pm")
     @test eltype(feli) == LiXueDSet
     @test feli(;charge=2) == feli[1:5]
     @test feli(;charge=2, coordination=:VI) == feli[[3, 4]]
