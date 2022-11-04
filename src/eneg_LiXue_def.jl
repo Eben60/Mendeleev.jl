@@ -1,24 +1,24 @@
 """
     LiXueDSet
-This struct describes electronegativity by Li-Xue scale for a given ionic states of an element. 
+This struct describes electronegativity by Li-Xue scale for a given ionic states of an element.
 It is not exported.
 ```
     atomic_number::Int
     charge::Int
     coordination::Symbol
     spin::Union{Symbol, Missing}
-    value::typeof(1.0*u"1/pm")
-```    
+    value::Float64 # dimensionality to clarify yet
+```
 """
 struct LiXueDSet
     atomic_number::Int
     charge::Int
     coordination::Symbol
     spin::Union{Symbol, Missing}
-    value::typeof(1.0*u"1/pm")
+    value::Float64 # typeof(1.0*u"1/pm")
 end
 
-LiXueDSet(atomic_number, charge, coordination, spin, value::Real) = 
+LiXueDSet(atomic_number, charge, coordination, spin, value::Real) =
     LiXueDSet(atomic_number, charge, coordination, spin, value*u"1/pm")
 
 LiXueDSet(atomic_number, charge, t::Tuple) = LiXueDSet(atomic_number, charge, t...)
@@ -33,10 +33,10 @@ end
 
 """
     LiXue
-This struct is a container for Li-Xue scale electronegativities of different ionic states of an element. 
-It provides access by position(s) in the array of LiXueDSet structs for the given element, 
-as well as filtering according to 
-`(; charge, coordination, spin)`. 
+This struct is a container for Li-Xue scale electronegativities of different ionic states of an element.
+It provides access by position(s) in the array of LiXueDSet structs for the given element,
+as well as filtering according to
+`(; charge, coordination, spin)`.
 It is not exported.
 # Examples
 ```julia-repl
@@ -56,12 +56,12 @@ julia> felx[[2,3]]
   (Fe2+, coordination=IVSQ, spin=HS, value=4.826 pm⁻¹)
   (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
   (Fe2+, coordination=VIII, spin=HS, value=3.551 pm⁻¹))
- 
+
   julia> felx(;charge=2, spin=:HS, coordination=:VI) # filtering
   1-element Vector{Mendeleev.LiXueDSet}:
    (Fe2+, coordination=VI, spin=HS, value=4.092 pm⁻¹)
-``` 
-""" 
+```
+"""
 struct LiXue
     data::Vector{LiXueDSet}
 end
@@ -80,13 +80,13 @@ function LiXue(d::Dict, atomic_number)
     data = vcat(values(data)...)
     sort!(data)
     return LiXue(data)
-end 
+end
 
-lx_or_missing(atomic_number::Integer) = 
+lx_or_missing(atomic_number::Integer) =
     ismissing(lixue_data[atomic_number]) ? missing : LiXue(lixue_data[atomic_number], atomic_number)
 
 
-(lx::LiXue)(; charge=nothing, coordination=nothing, spin=nothing) = 
+(lx::LiXue)(; charge=nothing, coordination=nothing, spin=nothing) =
     [x for x in lx.data if fs_eq_or_nothing(x; charge, coordination, spin)]
 
 Base.eachindex(lx::LiXue) = eachindex(lx.data)
