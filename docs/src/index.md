@@ -15,15 +15,16 @@ As usual
 ```
 
 ## Intentions
-The aim was to have a package compatible with `PeriodicTable` as possible, but with much more comprehensive data 
-from possibly reliable and traceable sources. The package should still be possibly lightweight like `PeriodicTable`. Like it's predessor, `Mendeleev` has only minimal direct dependencies, keeps data in static form, and takes about the same time to load (about half a second on a medium-range medium-aged notebook), most of the load time due to `Unitful` in both cases. See below for compatibility details.
+The aim was to have a package compatible with `PeriodicTable`, but with much more comprehensive data 
+from possibly reliable and traceable sources. The package should still be possibly lightweight like `PeriodicTable`. 
+
+Like it's predessor, `Mendeleev` has only minimal direct dependencies, keeps data in static form, and takes about the same time to load (about half a second on a medium-range medium-aged notebook), most of the load time due to `Unitful` in both cases. For compatibility details, see below.
 
 Another aim was to make it easier to update data. Most data are read out from the (Python) `mendeleev` database by a separate external skript and converted to static Julia code, which further can be relatively straightforwardly edited, should that be necessary.
 
 ## Usage
 Mendeleev.jl provides a Julia interface to a database of element
-properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `chem_elements`, which is a collection of
-`ChemElem` data structures.
+properties for all of the elements in the periodic table. In particular `Mendeleev` exports a global variable called `chem_elements`, which is a collection of `ChemElem` data structures.
 
 ```julia
 julia> using Mendeleev
