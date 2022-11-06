@@ -7,7 +7,6 @@ module Mendeleev
 using Unitful, UnitfulAtomic
 
 include("data.jl/units.jl")
-include("data.jl/inchie_data.jl")
 include("data.jl/ephyl_data.jl")
 include("data.jl/seriesnames.jl")
 include("data.jl/oxistates_data.jl")
