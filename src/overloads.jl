@@ -99,6 +99,8 @@ Base.haskey(e::ChemElems, i::Symbol) = haskey(e.bysymbol, i)
 Base.eltype(e::ChemElems) = ChemElem
 Base.length(e::ChemElems) = length(e.data)
 Base.iterate(e::ChemElems, state...) = iterate(e.data, state...)
+Base.firstindex(e::ChemElems) = firstindex(e.data)
+Base.lastindex(e::ChemElems) = lastindex(e.data)
 
 # compact one-line printing
 Base.show(io::IO, e::ChemElems) = print(io, "Elements(…", length(e), " elements…)")
