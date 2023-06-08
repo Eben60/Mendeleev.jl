@@ -1,6 +1,8 @@
 using Mendeleev
 
 # using Test, Unitful
+using Aqua
+Aqua.test_all(Mendeleev)
 
 include("GeneralTests.jl")
 include("UnitfulUnitsTests.jl")

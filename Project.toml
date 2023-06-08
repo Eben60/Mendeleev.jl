@@ -1,10 +1,9 @@
 name = "Mendeleev"
 uuid = "c116f080-063d-490a-9873-2b5b2cce4c34"
 authors = ["Eben60"]
-version = "0.3.0"
+version = "0.3.1"
 
 [deps]
-# Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 UnitfulAtomic = "a7773ee8-282e-5fa2-be4e-bd808c38a91a"
 
@@ -12,3 +11,10 @@ UnitfulAtomic = "a7773ee8-282e-5fa2-be4e-bd808c38a91a"
 Unitful = "1.10"
 UnitfulAtomic = "1"
 julia = "1.6"
+
+[extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
