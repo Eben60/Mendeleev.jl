@@ -15,8 +15,13 @@ Eth_istp = Isotopes([Eth0, He3])
 @test Eth_istp[1:2] == [Eth0, He3] == collect(Eth_istp)
 
 @test Eth0 < He3
-@test isequal(He3, Isotope(2, 3, 0.02, 3.00)) # only element and mass numbers count
-@test_broken He3 == Isotope(2, 3, 0.02, 3.00) # why?
+He3a = Isotope(2, 3, 3.01602932, 2e-6)
+He3b = Isotope(2, 3, NaN, NaN)
+@test isequal(He3, He3b) # only element and mass numbers count
+@test He3.mass ≈ He3a.mass ≈ 3.01602932u"u"
+@test He3.abundance ≈ He3a.abundance ≈ 2e-6
+@test He3.atomic_number == He3a.atomic_number == 2
+@test He3.mass_number == He3a.mass_number == 3
 
 function abund_total(e; rtol = 1e-5)
     isots = e.isotopes
