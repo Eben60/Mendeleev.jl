@@ -1,0 +1,32 @@
+name = "MendUp"
+uuid = "b3a183fb-bc0b-4828-a5af-bcf5f1822175"
+authors = ["Eben60"]
+version = "0.0.3"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+JSONTables = "b9914132-a727-11e9-1322-f18e41205b0b"
+Mendeleev = "c116f080-063d-490a-9873-2b5b2cce4c34"
+PeriodicTable = "7b2266bf-644c-5ea3-82d8-af4bbd25a884"
+SQLite = "0aa819cd-b072-5ff4-a722-6bc24af294d9"
+Scratch = "6c6a2e73-6563-6170-7368-637461726353"
+Tables = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
+[compat]
+DataFrames = "1.3"
+JSONTables = "1.0"
+PeriodicTable = "1.1"
+SQLite = "1.4"
+Scratch = "1.1"
+Tables = "1.9"
+Unitful = "1.12"
+julia = "1.9"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
