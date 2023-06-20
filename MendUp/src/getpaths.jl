@@ -1,8 +1,7 @@
     # Mendeleev.jl files
 function path_in_Mend(fl, path=nothing)
     if isnothing(path)
-        path = normpath(@__DIR__ , "../../Mendeleev.jl/src/")
-        # path = normpath(raw"C:\_MyOwnDocs\SoftwareDevelopment\Mendeleev.jl\src")
+        path = normpath(@__DIR__ , "../../src/")
     end
     p = normpath(path, fl)
     if ! ispath(p)
@@ -23,26 +22,26 @@ function getpaths()
 
 
 
-    path_docs = normpath(path_m, "../docs/src/")
+    path_docs = normpath(@__DIR__, "../../docs/src/")
 
-    # elements_init_data = path_in_Mend("elements_init.jl", path_m)
-    static_data_fl = path_in_Mend("data.jl/elements_data.jl", path_m)
-    oxstate_fl = path_in_Mend("data.jl/oxistates_data.jl", path_m)
-    screening_fl = path_in_Mend("data.jl/screening_data.jl", path_m)
-    ionization_fl = path_in_Mend("data.jl/ionization_data.jl", path_m)
-    isotopes_fl = path_in_Mend("data.jl/isotopes_data.jl", path_m)
+    # elements_init_data = path_in_Mend("elements_init.jl")
+    static_data_fl = path_in_Mend("data.jl/elements_data.jl")
+    oxstate_fl = path_in_Mend("data.jl/oxistates_data.jl")
+    screening_fl = path_in_Mend("data.jl/screening_data.jl")
+    ionization_fl = path_in_Mend("data.jl/ionization_data.jl")
+    isotopes_fl = path_in_Mend("data.jl/isotopes_data.jl")
 
     ephil_data = "ephil_data.jl"
-    ephil_data_Mend = path_in_Mend(joinpath("data.jl", ephil_data), path_m)
+    ephil_data_Mend = path_in_Mend(joinpath("data.jl", ephil_data))
     ephil_data_loc = normpath(datadir, ephil_data)
 
     lixue_data = "lixue_data.jl"
-    lixue_data_Mend = path_in_Mend(joinpath("data.jl", lixue_data), path_m)
+    lixue_data_Mend = path_in_Mend(joinpath("data.jl", lixue_data))
     lixue_data_loc = normpath(datadir, lixue_data)
 
     fields_doc_fl = path_in_Mend("elements_data_fields.md", path_docs)
 
-    ionicradii_fl = path_in_Mend("data.jl/ionrad_data.jl", path_m) 
+    ionicradii_fl = path_in_Mend("data.jl/ionrad_data.jl") 
 
     db_struct_prev_fl = normpath(datadir , "db_struct_prev.jl")
     db_struct_new_fl = normpath(datadir , "db_struct_new.jl")

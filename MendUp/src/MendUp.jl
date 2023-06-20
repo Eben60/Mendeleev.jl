@@ -15,7 +15,7 @@ d = @__DIR__
 inclpath(fl) = normpath(d, fl)
 
 # TODO somehow set path before runnung the whole package
-path_m = normpath(d, "../../Mendeleev.jl/src")
+# path_m = normpath(d, "../../Mendeleev.jl/src")
 
 include("get_mend_dbfile.jl")
 
@@ -24,11 +24,11 @@ paths = getpaths()
 
 include("check_docs.jl")
 
-include(path_in_Mend("data.jl/seriesnames.jl", path_m)) # part of Mendeleev
-include(path_in_Mend("Group_M_def_data.jl", path_m)) # part of Mendeleev
-include(path_in_Mend("property_functions.jl", path_m)) # part of Mendeleev
-include(path_in_Mend("synonym_fields.jl", path_m)) # part of Mendeleev
-include(path_in_Mend("screeniningconsts_def.jl", path_m)) # part of Mendeleev
+include(path_in_Mend("data.jl/seriesnames.jl")) # part of Mendeleev
+include(path_in_Mend("Group_M_def_data.jl")) # part of Mendeleev
+include(path_in_Mend("property_functions.jl")) # part of Mendeleev
+include(path_in_Mend("synonym_fields.jl")) # part of Mendeleev
+include(path_in_Mend("screeniningconsts_def.jl")) # part of Mendeleev
 
 include("PeriodicTable2df.jl")
 include("make_struct.jl")
