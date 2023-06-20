@@ -44,7 +44,7 @@ include("make_data_through_python.jl")
     mend_upd(;dev=true, update_db=false, paths=paths, ret = false)
 `update_db` can be `Bool` or the Symbol `:restore`
 
-`ret` defines whether the function returns (a lot of) data, or nothing
+`ret` defines whether the function returns (a lot of) data, or `nothing`
 """
 function mend_upd(;dev=true, update_db=false, paths=paths, ret = false)
     (;static_data_fl, screening_fl, ionization_fl, ionicradii_fl) = paths
