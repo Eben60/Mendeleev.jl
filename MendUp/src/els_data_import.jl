@@ -113,6 +113,43 @@ sortednames(nt::NamedTuple, to_omit) = sort(setdiff(keys(nt), to_omit))
 sortednames(df::DataFrame) = sort(setdiff(names(df), ["id"]))
 
 
+function set_allotropes!(pt)
+    pt.allotropes = Vector{Any}(missing, nrow(pt))
+    pt.leave_this_row .= true
+
+    gdf = groupby(pt, :atomic_number)
+    default_allotropes = Dict([6=>"graphite", 15=>"white", 16=>"rhombic", 34=>"gray", 50=>"white"])
+
+    # allotropes for only 5 elements : C, P, S, Se, Sn
+    # C - graphite # 6
+    # P - white # 15
+    # S - rhombic #16
+    # Se - gray # 34
+    # Sn - white #50
+ #   allogdf = [g for g in gdf if g[1, :atomic_number] in keys(default_allotropes)]
+    allogdf = [g for g in gdf if any(.! ismissing.(g[!, :allotrope]))]
+    @show allogdf
+
+    for g in allogdf
+        allotropes = collect(g[!, :allotrope])
+        g[!, :allotropes] .= Ref(allotropes)
+        if g[1, :atomic_number] in keys(default_allotropes)
+            for i in 1:nrow(g)
+                g[i, :leave_this_row] = g[i, :allotrope] == default_allotropes[g[i, :atomic_number]]
+            end
+        else
+            @assert nrow(g) == 1
+        end
+    end
+
+    subset!(pt, :leave_this_row)
+    select!(pt, Not(:leave_this_row))
+    rename!(pt, :allotrope => :default_allotrope)
+    return pt
+end
+;   
+
+
 function els_data_import(dfpt, update_db ;paths=paths)
     (;elements_src, elements_dbfile, chembook_jsonfile, db_struct_new_fl, db_struct_prev_fl) = paths
     if update_db == :restore 
@@ -149,17 +186,18 @@ function els_data_import(dfpt, update_db ;paths=paths)
 
     dfcb = readdf(chembook_jsonfile)
 
+    pht = copy(dfs.phasetransitions)
+    set_allotropes!(pht)
+
     els = dfs.elements
     els = rightjoin(dfcb, els, on = :atomic_number)
     els = rightjoin(dfpt, els, on = :atomic_number)
+    els = rightjoin(pht, els, on = :atomic_number)
 
     select!(els, Not([:en_allen, :en_ghosh, :en_pauling])) # all electronegativies treated separately
     sort!(els, :atomic_number)
 
-
-
     last_no = maximum(els[!, :atomic_number])
-
 
     # boolean columns are sometimes encoded as integer {0, 1} and sometimes as {missing, 1} - let's convert them to Bool
     select!(els, [:is_monoisotopic, :is_radioactive] .=> ByRow(x -> !(ismissing(x) || x == 0)), renamecols=false, :)
@@ -180,5 +218,5 @@ function els_data_import(dfpt, update_db ;paths=paths)
 
     el_symbols = string.(els[!, :symbol])
     data_dict = make_data_dict(els, datafields)
-    return (;last_no, el_symbols, data_dict, dfs, els)
+    return (;last_no, el_symbols, data_dict, dfs, els, pht)
 end
