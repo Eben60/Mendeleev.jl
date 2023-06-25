@@ -15,6 +15,7 @@ Si = chem_elements.Si
 
 @test check(Si.abundance_crust, 282000.0)
 @test check(Si.abundance_sea, 2.2)
+@test check(Si.allotropes, "")
 @test check(Si.annotation, "")
 @test check(Si.atomic_number, 14)
 @test check(Si.atomic_radius, 110.0)
@@ -23,7 +24,7 @@ Si = chem_elements.Si
 @test check(Si.atomic_weight, 28.085)
 @test check(Si.atomic_weight_uncertainty, None)
 @test check(Si.block, "p")
-@test check(Si.boiling_point, 2628.0)
+@test check(Si.boiling_point, 3538.15)
 @test check(Si.c6, 305.0)
 @test check(Si.c6_gb, 308.0)
 @test check(Si.cas, "7440-21-3")
@@ -32,7 +33,10 @@ Si = chem_elements.Si
 @test check(Si.covalent_radius_pyykko, 115.99999999999999)
 @test check(Si.covalent_radius_pyykko_double, 107.0)
 @test check(Si.covalent_radius_pyykko_triple, 102.0)
+@test check(Si.critical_pressure, "")
+@test check(Si.critical_temperature, "")
 @test check(Si.cpk_color, "#daa520")
+@test check(Si.default_allotrope, "")
 @test check(Si.density, 2.3296)
 @test check(Si.description, "Metalloid element belonging to group 14 of the periodic table. It is the second most abundant element in the Earth's crust, making up 25.7% of it by weight. Chemically less reactive than carbon. First identified by Lavoisier in 1787 and first isolated in 1823 by Berzelius.")
 @test check(Si.dipole_polarizability, 37.3)
@@ -57,7 +61,7 @@ Si = chem_elements.Si
 @test check(Si.lattice_constant, 5.43)
 @test check(Si.lattice_structure, "DIA")
 @test check(Si.mass_number, 28)
-@test check(Si.melting_point, 1683.0)
+@test check(Si.melting_point, 1687.15)
 @test check(Si.mendeleev_number, 88)
 @test check(Si.metallic_radius, 117.0)
 @test check(Si.metallic_radius_c12, 138.0)
@@ -76,6 +80,8 @@ Si = chem_elements.Si
 @test check(Si.specific_heat_capacity, 0.712)
 @test check(Si.symbol, :Si)
 @test check(Si.thermal_conductivity, 149.0)
+@test check(Si.triple_point_pressure, "")
+@test check(Si.triple_point_temperature, "")
 @test check(Si.uses, "Used in glass as silicon dioxide (SiO2). Silicon carbide (SiC) is one of the hardest substances known and used in polishing. Also the crystalline form is used in semiconductors.")
 @test check(Si.vdw_radius, 210.0)
 @test check(Si.vdw_radius_alvarez, 219.0)
@@ -89,7 +95,7 @@ Si = chem_elements.Si
 
 @test Si.appearance == "crystalline, reflective with bluish-tinged faces"
 @test Si.atomic_mass ≈ 28.085u"u"
-@test Si.boil ≈ 2628.0u"K"
+@test Si.boil ≈ 3538.15u"K"
 @test Si.category == "metalloid"
 @test Si.cpk_hex == "#daa520"
 @test Si.discovered_by == "1824 by Jöns Berzelius in Sweden"
@@ -114,6 +120,18 @@ Si = chem_elements.Si
 @test Si.sconst[1, 1].screening == 0.4255
 @test Si.group.name == "Carbon group"
 @test Si.oxistates == [-4, 4]
+
+N = chem_elements.N
+
+@test N.critical_pressure  ≈ 3.3958u"MPa"
+@test N.critical_temperature  ≈ 126.192u"K"
+@test N.triple_point_pressure  ≈ 12.52u"kPa"
+@test N.triple_point_temperature  ≈ 63.151u"K"
+
+C = chem_elements.C
+
+@test C.default_allotrope == "graphite"
+@test C.allotropes == ["graphite", "diamond"]
 
 end # testset
 end # module

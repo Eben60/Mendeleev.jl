@@ -128,7 +128,6 @@ function set_allotropes!(pt)
     # Sn - white #50
 
     allogdf = [g for g in gdf if any(.! ismissing.(g[!, :allotrope]))]
-    @show allogdf
 
     for g in allogdf
         allotropes = collect(g[!, :allotrope])
@@ -193,6 +192,7 @@ function els_data_import(dfpt, update_db ;paths=paths)
     els = rightjoin(dfcb, els, on = :atomic_number)
     els = rightjoin(dfpt, els, on = :atomic_number)
     els = rightjoin(pht, els, on = :atomic_number)
+    select!(els, Not(:id))
 
     select!(els, Not([:en_allen, :en_ghosh, :en_pauling])) # all electronegativies treated separately
     sort!(els, :atomic_number)

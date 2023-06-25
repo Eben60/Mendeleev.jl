@@ -33,8 +33,8 @@ repr_O = """Oxygen (O), number 8:
 natural isotopes: ((99.738% ¹⁶O m=15.99491462 u ), (0.04% ¹⁷O m=16.999131757 u ), (0.22200000000000003% ¹⁸O m=17.999159613 u ))
          density: 0.001308 g/cm³
  molar heat cap.: 29.378 J/mol⋅K
-   melting point: 54.8 K
-   boiling point: 90.19 K
+   melting point: 54.36 K
+   boiling point: 90.188 K
            phase: Gas
           shells: [2, 6]
 e⁻-configuration: 1s² 2s² 2p⁴
@@ -59,8 +59,8 @@ Oxygen (O), number 8:
 <tr><th>natural isotopes</th><td>((99.738% ¹⁶O m=15.99491462 u ), (0.04% ¹⁷O m=16.999131757 u ), (0.22200000000000003% ¹⁸O m=17.999159613 u ))</td></tr>
 <tr><th>density</th><td>0.001308 g/cm³</td></tr>
 <tr><th>molar heat cap.</th><td>29.378 J/mol⋅K</td></tr>
-<tr><th>melting point</th><td>54.8 K</td></tr>
-<tr><th>boiling point</th><td>90.19 K</td></tr>
+<tr><th>melting point</th><td>54.36 K</td></tr>
+<tr><th>boiling point</th><td>90.188 K</td></tr>
 <tr><th>phase</th><td>Gas</td></tr>
 <tr><th>shells</th><td>[2, 6]</td></tr>
 <tr><th>e⁻-configuration</th><td>1s² 2s² 2p⁴</td></tr>
