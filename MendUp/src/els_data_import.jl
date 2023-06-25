@@ -126,7 +126,7 @@ function set_allotropes!(pt)
     # S - rhombic #16
     # Se - gray # 34
     # Sn - white #50
- #   allogdf = [g for g in gdf if g[1, :atomic_number] in keys(default_allotropes)]
+
     allogdf = [g for g in gdf if any(.! ismissing.(g[!, :allotrope]))]
     @show allogdf
 
