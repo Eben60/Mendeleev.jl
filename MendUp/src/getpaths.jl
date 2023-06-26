@@ -25,6 +25,7 @@ function getpaths()
     path_docs = normpath(@__DIR__, "../../docs/src/")
 
     # elements_init_data = path_in_Mend("elements_init.jl")
+    mendeleev_fl = path_in_Mend("Mendeleev.jl")
     static_data_fl = path_in_Mend("data.jl/elements_data.jl")
     oxstate_fl = path_in_Mend("data.jl/oxistates_data.jl")
     screening_fl = path_in_Mend("data.jl/screening_data.jl")
@@ -48,8 +49,8 @@ function getpaths()
 
     @assert ispath(fields_doc_fl)
     # return (;elements_src, ... 
-    return (;elements_dbfile, chembook_jsonfile, elements_src,
-    static_data_fl, oxstate_fl, screening_fl, ionization_fl, isotopes_fl, 
+    return (;elements_dbfile, chembook_jsonfile, elements_src, mendeleev_fl,
+        static_data_fl, oxstate_fl, screening_fl, ionization_fl, isotopes_fl, 
         fields_doc_fl, ionicradii_fl, db_struct_prev_fl, db_struct_new_fl,
         ephil_data_loc, ephil_data_Mend,  lixue_data_loc, lixue_data_Mend)
 end

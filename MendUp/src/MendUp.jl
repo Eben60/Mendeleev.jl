@@ -91,8 +91,8 @@ function mend_upd(;dev=true, update_db=false, paths=paths, ret = false)
 end # mend_upd
 # export mend_upd
 
-
-export checkdocs
+load_Mendeleev = Checkdocs.load_Mendeleev
+checkdocs = Checkdocs.checkdocs
 
 # function upd_mend1(m_path=nothing; dev = false)
 #     if ! dev

@@ -2,9 +2,22 @@
 # The Checkdocs module exports the only function `checkdocs()`, which  apparently not used anywhere anymore
 
 # """
-# module Checkdocs
+module Checkdocs
 
-function checkdocs(;paths=paths)
+function load_Mendeleev()
+    if ! isdefined(@__MODULE__, :Mendeleev)
+        println("loading Mendeleev.jl")
+        @eval begin
+            include(normpath(@__DIR__, "../../src/Mendeleev.jl"))
+            using .Mendeleev
+        end
+        println(pkgversion(Mendeleev))
+    else
+        println(chem_elements.Li)
+    end
+end
+
+function checkdocs(paths)
     (;fields_doc_fl) = paths
     ls = readlines(fields_doc_fl)
 
@@ -36,6 +49,32 @@ function checkdocs(;paths=paths)
     return (;not_doc, not_impl)
 end
 
+"""
+julia> not_impl
+11-element Vector{Symbol}:
+ :Allen
+ :Allred
+ :Cottrell
+ :Ghosh
+ :Gordy
+ :Martynov
+ :Mulliken
+ :Nagle
+ :Pauling
+ :Sanderson
+ :Li
+
+ 8-element Vector{Symbol}:
+ :allotropes
+ :critical_pressure
+ :critical_temperature
+ :default_allotrope
+ :group_id
+ :series_id
+ :triple_point_pressure
+ :triple_point_temperature
+
+"""
 
 """
 julia> not_impl
@@ -51,4 +90,4 @@ julia> not_impl
  :series_id
 
 """
-# end # module
+end # module
