@@ -1,3 +1,7 @@
+using Pkg
+
+Pkg.activate("MendUp")
+
 """
 The MendUp module updates files in the (separate) Mendeleev.jl package.
 Usage is as following

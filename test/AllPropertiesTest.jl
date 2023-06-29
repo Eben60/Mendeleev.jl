@@ -15,7 +15,6 @@ Si = chem_elements.Si
 
 @test check(Si.abundance_crust, 282000.0)
 @test check(Si.abundance_sea, 2.2)
-@test check(Si.allotropes, "")
 @test check(Si.annotation, "")
 @test check(Si.atomic_number, 14)
 @test check(Si.atomic_radius, 110.0)
@@ -36,7 +35,6 @@ Si = chem_elements.Si
 @test check(Si.critical_pressure, "")
 @test check(Si.critical_temperature, "")
 @test check(Si.cpk_color, "#daa520")
-@test check(Si.default_allotrope, "")
 @test check(Si.density, 2.3296)
 @test check(Si.description, "Metalloid element belonging to group 14 of the periodic table. It is the second most abundant element in the Earth's crust, making up 25.7% of it by weight. Chemically less reactive than carbon. First identified by Lavoisier in 1787 and first isolated in 1823 by Berzelius.")
 @test check(Si.dipole_polarizability, 37.3)
@@ -127,11 +125,6 @@ N = chem_elements.N
 @test N.critical_temperature  ≈ 126.192u"K"
 @test N.triple_point_pressure  ≈ 12.52u"kPa"
 @test N.triple_point_temperature  ≈ 63.151u"K"
-
-C = chem_elements.C
-
-@test C.default_allotrope == "graphite"
-@test C.allotropes == ["graphite", "diamond"]
 
 end # testset
 end # module

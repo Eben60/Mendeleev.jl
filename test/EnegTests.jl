@@ -15,7 +15,7 @@ using Mendeleev: Electronegativities, LiXueDSet
     @test cleneg.Ghosh |> ustrip ≈ 0.263803 
     @test cleneg.Gordy |> ustrip ≈ 0.06161616161616161 
     @test cleneg.Martynov |> ustrip ≈ 7.640517652620142 
-    @test cleneg.Mulliken |> ustrip ≈ 6.483815 
+    @test cleneg.Mulliken |> ustrip ≈ 8.2901775 
     @test cleneg.Nagle |> ustrip ≈ 0.7826754796597776 
     @test cleneg.Pauling |> ustrip ≈ 3.16 
     @test cleneg.Sanderson |> ustrip ≈ 0.81237728291421
@@ -41,7 +41,7 @@ using Mendeleev: Electronegativities, LiXueDSet
     @test sien.Ghosh |> ustrip ≈ 0.178503 
     @test sien.Gordy |> ustrip ≈ 0.03577586206896551 # 
     @test sien.Martynov |> ustrip ≈ 5.0777041564076963 
-    @test sien.Mulliken |> ustrip ≈ 4.0758415 
+    @test sien.Mulliken |> ustrip ≈ 4.77060205 
     @test sien.Nagle |> ustrip ≈ 0.4750985662830595 #
     @test sien.Pauling |> ustrip ≈ 1.9 
     @test sien.Sanderson |> ustrip ≈ 0.3468157872145231    

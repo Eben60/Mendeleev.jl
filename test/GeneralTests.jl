@@ -58,7 +58,7 @@ F = chem_elements[9]
 @test chem_elements[38] ≠ chem_elements[39]
 
 pns = propertynames(F)
-@test length(pns) == 106
+@test length(pns) == 104
 @test :abundance_sea in pns # elements_data
 @test :number in pns # synonym
 @test :melt in pns # synonym for melting_point
