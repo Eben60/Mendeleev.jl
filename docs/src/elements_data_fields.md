@@ -16,7 +16,7 @@
 | `atomic_weight`                 | Atomic weight                                        |
 | `atomic_weight_uncertainty`     | Atomic weight uncertainty                            |
 | `block`                         | Block in periodic table                              |
-| `boiling_point`                 | Boiling temperature                                  |
+| `boiling_point`                 | Boiling temperature [^1]                             |
 | `c6`                            | C_6 dispersion coefficient in a.u.                   |
 | `c6_gb`                         | C_6 dispersion coefficient in a.u. (Gould & Bučko)   |
 | `cas`                           | Chemical Abstracts Serice identifier                 |
@@ -26,7 +26,9 @@
 | `covalent_radius_pyykko_double` | Double bond covalent radius by Pyykko et al.         |
 | `covalent_radius_pyykko_triple` | Triple bond covalent radius by Pyykko et al.         |
 | `cpk_color`                     | Element color in CPK convention                      |
-| `density`                       | Density at 295K [^1]                                 |
+| `critical_pressure`             | Critical pressure [^1]                               |
+| `critical_temperature`          | Critical temperature [^1]                            |
+| `density`                       | Density at 295K [^2]                                 |
 | `description`                   | Short description of the element                     |
 | `dipole_polarizability`         | Dipole polarizability                                |
 | `dipole_polarizability_unc`     | Dipole polarizability uncertainty                    |
@@ -51,12 +53,12 @@
 | `ionic_radii`                   | Ionic and crystal radii                              |
 | `is_monoisotopic`               | Is the element monoisotopic                          |
 | `is_radioactive`                | Is the element radioactive                           |
-| `isotopes`                      | Isotopes [^2] . Returns `Isotopes` type              |
+| `isotopes`                      | Isotopes [^3] . Returns `Isotopes` type              |
 | `jmol_color`                    | Element color in Jmol convention                     |
 | `lattice_constant`              | Lattice constant                                     |
 | `lattice_structure`             | Lattice structure code                               |
 | `mass_number`                   | Mass number (most abundant isotope)                  |
-| `melting_point`                 | Melting temperature                                  |
+| `melting_point`                 | Melting temperature [^1]                              |
 | `mendeleev_number`              | Mendeleev's number                                   |
 | `metallic_radius`               | Single-bond metallic radius                          |
 | `metallic_radius_c12`           | Metallic radius with 12 nearest neighbors            |
@@ -65,7 +67,7 @@
 | `name`                          | Name in English                                      |
 | `name_origin`                   | Origin of the name                                   |
 | `neutrons`                      | Number of neutrons (most abundant isotope)           |
-| `oxistates`                     | Main oxidation states [^3]                           |
+| `oxistates`                     | Main oxidation states [^4]                           |
 | `nist_webbook_url`              | URL for the NIST Chemistry WebBook                   |
 | `period`                        | Period in periodic table                             |
 | `pettifor_number`               | Pettifor scale                                       |
@@ -77,6 +79,8 @@
 | `specific_heat_capacity`        | Specific heat capacity @ 25 C, 1 bar                 |
 | `symbol`                        | Chemical symbol                                      |
 | `thermal_conductivity`          | Thermal conductivity @25 C                           |
+| `triple_point_pressure`         | Triple point pressure [^1]                     |
+| `triple_point_temperature`      | Triple point temperature [^1]                     |
 | `uses`                          | Applications of the element                          |
 | `vdw_radius`                    | Van der Waals radius                                 |
 | `vdw_radius_alvarez`            | Van der Waals radius according to Alvarez            |
@@ -88,7 +92,7 @@
 | `vdw_radius_truhlar`            | Van der Waals radius according to Truhlar            |
 | `vdw_radius_uff`                | Van der Waals radius from the UFF                    |
 
-### Electronegativities [^4] (type returned by `eneg` field):
+### Electronegativities [^5] (type returned by `eneg` field):
 
 | Name              | Comment                                 |
 |-------------------|-----------------------------------------|
@@ -105,13 +109,15 @@
 | `Sanderson`       |                                         |
 | `Li`              | Scale of Li-Xue. Returns `LiXue` type.  |
 
-[^1]: For elements where several allotropes exist, the density corresponding to the most abundand are reported, namely:  Antimony (gray), Berkelium (α form), Carbon (graphite), Phosphorus (white), Selenium (gray), Sulfur (rhombic), Tin (white)
+[^1]: For elements with several allotropes existing at the phase transition temperature, the phase transition data corresponding to the most common are reported, namely:  Antimony (gray), Carbon (graphite), Phosphorus (white), Selenium (gray), Sulfur (rhombic), Tin (white)
 
-[^2]: Only naturally occurring stable or "almost stable" isotopes are listed, and only mass and abundance data. A separate package with comprehensive information is in preparation (for the time being see [here](https://github.com/Gregstrq/Isotope-data) or [there](https://github.com/Eben60/Isotope-data/tree/main/JLD2_saved) ). The `isotopes` property returns an `Isotopes` (see documentation for `Isotopes` and `Isotope` types).
+[^2]: For elements with several allotropes existing at room temperature, the density corresponding to the most common is reported, namely:  Antimony (gray), Berkelium (α form), Carbon (graphite), Phosphorus (white), Selenium (gray), Sulfur (rhombic), Tin (white)
+
+[^3]: Only naturally occurring stable or "almost stable" isotopes are listed, and only mass and abundance data. For comprehensive information on isotopes, see [IsotopeTable](https://github.com/Gregstrq/IsotopeTable.jl). The `isotopes` property returns an `Isotopes` (see documentation for `Isotopes` and `Isotope` types).
    
-[^3]: Retrieved by the package author mostly from Wikipedia - see comments in the source file `oxistates_data.jl`     
+[^4]: Retrieved by the package author mostly from Wikipedia - see comments in the source file `oxistates_data.jl`     
 
-[^4]: See `mendeleev` [documentation](https://mendeleev.readthedocs.io/en/stable/electronegativity.html) for explanations and references
+[^5]: See `mendeleev` [documentation](https://mendeleev.readthedocs.io/en/stable/electronegativity.html) for explanations and references
 
 ## Further properties, mostly from `PeriodicTable` (in part supported just for compatibility)
 
@@ -142,8 +148,8 @@
 |------------------|------------------------------------------------------|
 | `color`          | see `appearance` (`color` was anyway missing for all elements but one)         |
 | `named_by`       | see `name_origin`          |
-| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^5] |
+| `source`         | was in all cases a Wikipedia link, thus renamed to `wikipedia` [^6] |
 
 
-[^5]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
+[^6]: In `PeriodicTable` the `source` field was the data source (which in all cases was a Wikipedia article on the element), whereas in (Python) `mendeleev` `sources` (plural) is the sources of the material substance. In this package the `source` field from `PeriodicTable` goes to `wikipedia` field.
 
