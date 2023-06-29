@@ -1,6 +1,8 @@
 # push!(LOAD_PATH,"../src/")
 using Documenter, Mendeleev
 
+# generate documentation locally. 
+# keep in mind .gitignore - deps/deps.jl
 makedocs(
     modules = [Mendeleev],
     format = Documenter.HTML(; prettyurls = get(ENV, "CI", nothing) == "true"),
@@ -12,6 +14,7 @@ makedocs(
     # checkdocs = :exports,
 )
 
+# depoloyment done on the server anyway
 deploydocs(
     repo = "github.com/Eben60/Mendeleev.jl.git",
     versions = nothing,
