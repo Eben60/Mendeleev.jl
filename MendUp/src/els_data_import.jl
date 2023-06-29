@@ -192,7 +192,7 @@ function els_data_import(dfpt, update_db ;paths=paths)
     els = rightjoin(dfcb, els, on = :atomic_number)
     els = rightjoin(dfpt, els, on = :atomic_number)
     els = rightjoin(pht, els, on = :atomic_number)
-    select!(els, Not(:id))
+    select!(els, Not([:id, :allotropes, :default_allotrope]))
 
     select!(els, Not([:en_allen, :en_ghosh, :en_pauling])) # all electronegativies treated separately
     sort!(els, :atomic_number)
