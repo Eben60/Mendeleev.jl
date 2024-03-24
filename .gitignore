@@ -31,3 +31,5 @@ Manifest.toml
 
 auxillary
 lcov.info
+
+MendUp/data/tmp*
