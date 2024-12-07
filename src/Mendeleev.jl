@@ -1,7 +1,11 @@
 """
-    Mendeleev
+    Mendeleev v$(pkgversion(Mendeleev))
+    
 Package package for accessing chemical elements data. Exports them as `chem_elements`, 
 enabling access by name, symbol, or atomic number.
+
+Docs under https://eben60.github.io/Mendeleev.jl/
+$(isnothing(get(ENV, "CI", nothing)) ? ("\n" * "Package local path: " * pathof(Mendeleev)) : "")
 """
 module Mendeleev
 using Unitful, UnitfulAtomic

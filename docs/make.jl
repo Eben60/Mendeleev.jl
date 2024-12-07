@@ -13,6 +13,7 @@ makedocs(
     authors = "Eben60",
     sitename = "Mendeleev.jl",
     pages = Any["Home" => "index.md", "Elements Data Fields" => "elements_data_fields.md", "Types" => "types.md", "Changelog" => "changelog.md"],
+    checkdocs = :exports, 
     warnonly = [:missing_docs],
     # strict = true,
     # clean = true,
