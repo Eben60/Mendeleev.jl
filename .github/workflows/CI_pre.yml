@@ -1,13 +1,8 @@
-name: CI
+name: CI_pre
 on:
-  push:
-    branches:
-      - main
-    tags: ['*']
-  pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '55 17 2 * *'
+    - cron: '42 14 23 * *'
 concurrency:
   # Skip intermediate builds: always.
   # Cancel intermediate builds: only if it is a pull request build.
@@ -18,14 +13,14 @@ jobs:
     name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ github.event_name }}
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: false 
       matrix:
         version:
-          - '1.10' # Add 'lts' as soon as there is a new LTS, but keep checking on 1.10
-          - '1' # automatically expands to the latest stable 1.x release of Julia
+          - 'pre'
         os:
           - ubuntu-latest
           - windows-latest
+          - macOS-latest
 
     steps:
       - uses: actions/checkout@v6
@@ -35,8 +30,3 @@ jobs:
       - uses: julia-actions/cache@v3
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
-      - uses: julia-actions/julia-processcoverage@v1
-      - uses: codecov/codecov-action@v6
-        with:
-          files: lcov.info
-          
