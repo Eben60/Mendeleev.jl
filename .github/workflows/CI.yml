@@ -3,11 +3,8 @@ on:
   push:
     branches:
       - main
-    tags: ['*']
   pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: '55 17 2 * *'
 concurrency:
   # Skip intermediate builds: always.
   # Cancel intermediate builds: only if it is a pull request build.
@@ -21,7 +18,6 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.10' # Add 'lts' as soon as there is a new LTS, but keep checking on 1.10
           - '1' # automatically expands to the latest stable 1.x release of Julia
         os:
           - ubuntu-latest
