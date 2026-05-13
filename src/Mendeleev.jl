@@ -1,5 +1,5 @@
 """
-    Mendeleev v$(pkgversion(Mendeleev))
+    Mendeleev$(VERSION < v"1.9" ? "" : " v$(pkgversion(Mendeleev))")
     
 Package package for accessing chemical elements data. Exports them as `chem_elements`, 
 enabling access by name, symbol, or atomic number.

@@ -1,5 +1,10 @@
 # Changelog for Mendeleev.jl
 
+## v1.0.3 (2026-05-13)
+- Changed lifecycle badge to "maintainance"
+- Fixed a bug on Julia versions <v1.9
+- Minor CI changes
+
 ## v1.0.2 (2025-10-09)
 Minor docs and CI changes
 

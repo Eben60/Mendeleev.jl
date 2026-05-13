@@ -26,6 +26,12 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macOS-latest
+        exclude:
+          - version: '1.6'
+            os: macOS-latest
+        include:
+          - version: '1.6'
+            os: macos-15-intel
 
     steps:
       - uses: actions/checkout@v6
